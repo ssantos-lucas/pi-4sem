@@ -33,45 +33,21 @@ body {
     color: white;
     background-color: #938383;
 }
-main{
+
+main .tudo {
     background-color: #9B9292;
-}
-main .primeira{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin: 5px 12.5%;
-}
-
-main .primeira .genero{
-    background-color: #938383;
-    color: white;
-    border: 10px;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    width: 307px;
-    font-size: 16px;
-    padding-left: 87px;   
-}
-
-main .segunda,.terceira{
     display: flex;
     justify-content: space-evenly;
     align-items: center;
-    margin: 2rem;
+    
+    
 }
 
-main .terceira{
-    margin-bottom: 1rem;
-}
 
-main .par, .para{
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    font-weight: 500;
-}
 
+.titulos {
+    text-align: center;
+}
 
 footer{
     height: 70px;

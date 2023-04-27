@@ -21,7 +21,7 @@ public class SiteDAO {
     private EntityManager manager;
 
     public void conectar() {
-        conn = Persistence.createEntityManagerFactory("WebSitePU");
+        conn = Persistence.createEntityManagerFactory("GameHubPU");
         manager = conn.createEntityManager();
 
     }
@@ -30,8 +30,8 @@ public class SiteDAO {
         conectar();
         try {
             TypedQuery<Jogo> query = manager.createNamedQuery("Jogo.findAll", Jogo.class);
-            List<Jogo> dep = query.getResultList();
-            return dep;
+            List<Jogo> jogos = query.getResultList();
+            return jogos;
         } catch (NoResultException ex) {
             return null;
         }

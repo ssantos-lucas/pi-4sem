@@ -4,6 +4,8 @@
     Author     : Eddy Mauricio
 --%>
 
+<%@page import="model.Jogo"%>
+<%@page import="model.SiteDAO"%>
 <%@page import="java.util.List"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -47,35 +49,30 @@
 
         <main class="container">
 
-            <div class="primeira">
-                <img src="./images/200x200.svg" class="jogo-um" alt="Jogo um">
-                <p class="titulos">Ploc</p>
-            </div>
-            <div class="segunda">
-                <img src="./images/200x200.svg" class="jogo-dois" alt="Jogo dois">
-                <p class="titulos">Plec</p>
-            </div>
+            <div class="tudo">
 
-            <div class="terceira">
-                <img src="./images/200x200.svg" class="jogo-tres" alt="Jogo três">
-                <p class="titulos">Plac</p>
-            </div>
-        </main>
-        <main class="container">
-            <div class="primeira">
-                <span class="jogo">Jogos</span>
-                <div class="dropdown">
-                    <button class="dropbtn">FILTRO (GÊNERO)</button>
-                    <div class="dropdown-content">
-                        <a href="#">Link 1</a>
-                        <a href="#">Link 2</a>
-                        <a href="#">Link 3</a>
-                    </div>
+                <%
+                    SiteDAO dao = new SiteDAO();
+                    List<Jogo> jogos = dao.listarJogos();
+
+                    for (Jogo jog : jogos) {
+                %>
+
+
+                <div class="">
+                    <img src="./images/200x200.svg" class="jogo-um" alt="Jogo um">
+                    <p class="titulos"><%= jog.getNomeJogo() %></p>
                 </div>
+
+                <%
+                }
+                %>
+
             </div>
 
 
         </main>
+
 
         <footer class="rodape">
             <img src="./images/FFF.svg" alt="logo do rodape">
