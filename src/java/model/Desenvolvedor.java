@@ -5,97 +5,131 @@
 package model;
 
 import java.io.Serializable;
+import java.util.Date;
 import java.util.List;
 import javax.persistence.Basic;
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 /**
  *
- * @author Eddy Mauricio
+ * @author eddie.mssantos
  */
 @Entity
 @Table(name = "desenvolvedor")
 @NamedQueries({
     @NamedQuery(name = "Desenvolvedor.findAll", query = "SELECT d FROM Desenvolvedor d"),
-    @NamedQuery(name = "Desenvolvedor.findByEmail", query = "SELECT d FROM Desenvolvedor d WHERE d.email = :email"),
-    @NamedQuery(name = "Desenvolvedor.findByNomeDev", query = "SELECT d FROM Desenvolvedor d WHERE d.nomeDev = :nomeDev"),
-    @NamedQuery(name = "Desenvolvedor.findByIdadeDev", query = "SELECT d FROM Desenvolvedor d WHERE d.idadeDev = :idadeDev"),
-    @NamedQuery(name = "Desenvolvedor.findByEstadoDev", query = "SELECT d FROM Desenvolvedor d WHERE d.estadoDev = :estadoDev")})
+    @NamedQuery(name = "Desenvolvedor.findByIdDesenvolvedor", query = "SELECT d FROM Desenvolvedor d WHERE d.idDesenvolvedor = :idDesenvolvedor"),
+    @NamedQuery(name = "Desenvolvedor.findByNomeDesenvolvedor", query = "SELECT d FROM Desenvolvedor d WHERE d.nomeDesenvolvedor = :nomeDesenvolvedor"),
+    @NamedQuery(name = "Desenvolvedor.findByEmailDesenvolvedor", query = "SELECT d FROM Desenvolvedor d WHERE d.emailDesenvolvedor = :emailDesenvolvedor"),
+    @NamedQuery(name = "Desenvolvedor.findByDataNascDesenvolvedor", query = "SELECT d FROM Desenvolvedor d WHERE d.dataNascDesenvolvedor = :dataNascDesenvolvedor"),
+    @NamedQuery(name = "Desenvolvedor.findByEstadoDesenvolvedor", query = "SELECT d FROM Desenvolvedor d WHERE d.estadoDesenvolvedor = :estadoDesenvolvedor")})
 public class Desenvolvedor implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
-    @Column(name = "email")
-    private String email;
-    @Column(name = "nomeDev")
-    private String nomeDev;
-    @Column(name = "idadeDev")
-    private Integer idadeDev;
-    @Column(name = "estadoDev")
-    private String estadoDev;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "desenvolvedor", fetch = FetchType.EAGER)
-    private List<DesenvolvedorHasEquipe> desenvolvedorHasEquipeList;
+    @Column(name = "idDesenvolvedor")
+    private Integer idDesenvolvedor;
+    @Basic(optional = false)
+    @Column(name = "nomeDesenvolvedor")
+    private String nomeDesenvolvedor;
+    @Basic(optional = false)
+    @Column(name = "emailDesenvolvedor")
+    private String emailDesenvolvedor;
+    @Basic(optional = false)
+    @Column(name = "dataNascDesenvolvedor")
+    @Temporal(TemporalType.DATE)
+    private Date dataNascDesenvolvedor;
+    @Basic(optional = false)
+    @Column(name = "estadoDesenvolvedor")
+    private String estadoDesenvolvedor;
+    @JoinTable(name = "jogo_desenvolvedor", joinColumns = {
+        @JoinColumn(name = "Desenvolvedor", referencedColumnName = "idDesenvolvedor")}, inverseJoinColumns = {
+        @JoinColumn(name = "idJogo", referencedColumnName = "idJogo")})
+    @ManyToMany(fetch = FetchType.EAGER)
+    private List<Jogo> jogoList;
 
     public Desenvolvedor() {
     }
 
-    public Desenvolvedor(String email) {
-        this.email = email;
+    public Desenvolvedor(Integer idDesenvolvedor) {
+        this.idDesenvolvedor = idDesenvolvedor;
     }
 
-    public String getEmail() {
-        return email;
+    public Desenvolvedor(Integer idDesenvolvedor, String nomeDesenvolvedor, String emailDesenvolvedor, Date dataNascDesenvolvedor, String estadoDesenvolvedor) {
+        this.idDesenvolvedor = idDesenvolvedor;
+        this.nomeDesenvolvedor = nomeDesenvolvedor;
+        this.emailDesenvolvedor = emailDesenvolvedor;
+        this.dataNascDesenvolvedor = dataNascDesenvolvedor;
+        this.estadoDesenvolvedor = estadoDesenvolvedor;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public Integer getIdDesenvolvedor() {
+        return idDesenvolvedor;
     }
 
-    public String getNomeDev() {
-        return nomeDev;
+    public void setIdDesenvolvedor(Integer idDesenvolvedor) {
+        this.idDesenvolvedor = idDesenvolvedor;
     }
 
-    public void setNomeDev(String nomeDev) {
-        this.nomeDev = nomeDev;
+    public String getNomeDesenvolvedor() {
+        return nomeDesenvolvedor;
     }
 
-    public Integer getIdadeDev() {
-        return idadeDev;
+    public void setNomeDesenvolvedor(String nomeDesenvolvedor) {
+        this.nomeDesenvolvedor = nomeDesenvolvedor;
     }
 
-    public void setIdadeDev(Integer idadeDev) {
-        this.idadeDev = idadeDev;
+    public String getEmailDesenvolvedor() {
+        return emailDesenvolvedor;
     }
 
-    public String getEstadoDev() {
-        return estadoDev;
+    public void setEmailDesenvolvedor(String emailDesenvolvedor) {
+        this.emailDesenvolvedor = emailDesenvolvedor;
     }
 
-    public void setEstadoDev(String estadoDev) {
-        this.estadoDev = estadoDev;
+    public Date getDataNascDesenvolvedor() {
+        return dataNascDesenvolvedor;
     }
 
-    public List<DesenvolvedorHasEquipe> getDesenvolvedorHasEquipeList() {
-        return desenvolvedorHasEquipeList;
+    public void setDataNascDesenvolvedor(Date dataNascDesenvolvedor) {
+        this.dataNascDesenvolvedor = dataNascDesenvolvedor;
     }
 
-    public void setDesenvolvedorHasEquipeList(List<DesenvolvedorHasEquipe> desenvolvedorHasEquipeList) {
-        this.desenvolvedorHasEquipeList = desenvolvedorHasEquipeList;
+    public String getEstadoDesenvolvedor() {
+        return estadoDesenvolvedor;
+    }
+
+    public void setEstadoDesenvolvedor(String estadoDesenvolvedor) {
+        this.estadoDesenvolvedor = estadoDesenvolvedor;
+    }
+
+    public List<Jogo> getJogoList() {
+        return jogoList;
+    }
+
+    public void setJogoList(List<Jogo> jogoList) {
+        this.jogoList = jogoList;
     }
 
     @Override
     public int hashCode() {
         int hash = 0;
-        hash += (email != null ? email.hashCode() : 0);
+        hash += (idDesenvolvedor != null ? idDesenvolvedor.hashCode() : 0);
         return hash;
     }
 
@@ -106,7 +140,7 @@ public class Desenvolvedor implements Serializable {
             return false;
         }
         Desenvolvedor other = (Desenvolvedor) object;
-        if ((this.email == null && other.email != null) || (this.email != null && !this.email.equals(other.email))) {
+        if ((this.idDesenvolvedor == null && other.idDesenvolvedor != null) || (this.idDesenvolvedor != null && !this.idDesenvolvedor.equals(other.idDesenvolvedor))) {
             return false;
         }
         return true;
@@ -114,7 +148,7 @@ public class Desenvolvedor implements Serializable {
 
     @Override
     public String toString() {
-        return "model.Desenvolvedor[ email=" + email + " ]";
+        return "model.Desenvolvedor[ idDesenvolvedor=" + idDesenvolvedor + " ]";
     }
     
 }

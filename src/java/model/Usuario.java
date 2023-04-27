@@ -8,98 +8,136 @@ import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 import javax.persistence.Basic;
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 /**
  *
- * @author Eddy Mauricio
+ * @author eddie.mssantos
  */
 @Entity
 @Table(name = "usuario")
 @NamedQueries({
     @NamedQuery(name = "Usuario.findAll", query = "SELECT u FROM Usuario u"),
-    @NamedQuery(name = "Usuario.findByEmail", query = "SELECT u FROM Usuario u WHERE u.email = :email"),
-    @NamedQuery(name = "Usuario.findByNomeUsu", query = "SELECT u FROM Usuario u WHERE u.nomeUsu = :nomeUsu"),
-    @NamedQuery(name = "Usuario.findByIdadeUsu", query = "SELECT u FROM Usuario u WHERE u.idadeUsu = :idadeUsu"),
-    @NamedQuery(name = "Usuario.findByEstadoUsu", query = "SELECT u FROM Usuario u WHERE u.estadoUsu = :estadoUsu"),
-    @NamedQuery(name = "Usuario.findByDataCriacaoUsu", query = "SELECT u FROM Usuario u WHERE u.dataCriacaoUsu = :dataCriacaoUsu")})
+    @NamedQuery(name = "Usuario.findByIdUsuario", query = "SELECT u FROM Usuario u WHERE u.idUsuario = :idUsuario"),
+    @NamedQuery(name = "Usuario.findByNomeUsuario", query = "SELECT u FROM Usuario u WHERE u.nomeUsuario = :nomeUsuario"),
+    @NamedQuery(name = "Usuario.findByDataNascUsuario", query = "SELECT u FROM Usuario u WHERE u.dataNascUsuario = :dataNascUsuario"),
+    @NamedQuery(name = "Usuario.findByEstadoUsuario", query = "SELECT u FROM Usuario u WHERE u.estadoUsuario = :estadoUsuario"),
+    @NamedQuery(name = "Usuario.findByEmailUsuario", query = "SELECT u FROM Usuario u WHERE u.emailUsuario = :emailUsuario"),
+    @NamedQuery(name = "Usuario.findBySenhaUsuario", query = "SELECT u FROM Usuario u WHERE u.senhaUsuario = :senhaUsuario"),
+    @NamedQuery(name = "Usuario.findByCreateAt", query = "SELECT u FROM Usuario u WHERE u.createAt = :createAt")})
 public class Usuario implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
-    @Column(name = "email")
-    private String email;
-    @Column(name = "nomeUsu")
-    private String nomeUsu;
-    @Column(name = "idadeUsu")
-    private Integer idadeUsu;
-    @Column(name = "estadoUsu")
-    private String estadoUsu;
-    @Column(name = "dataCriacaoUsu")
-    @Temporal(TemporalType.TIMESTAMP)
-    private Date dataCriacaoUsu;
+    @Column(name = "idUsuario")
+    private Integer idUsuario;
+    @Basic(optional = false)
+    @Column(name = "nomeUsuario")
+    private String nomeUsuario;
+    @Basic(optional = false)
+    @Column(name = "dataNascUsuario")
+    @Temporal(TemporalType.DATE)
+    private Date dataNascUsuario;
+    @Basic(optional = false)
+    @Column(name = "estadoUsuario")
+    private String estadoUsuario;
+    @Basic(optional = false)
+    @Column(name = "emailUsuario")
+    private String emailUsuario;
+    @Basic(optional = false)
+    @Column(name = "senhaUsuario")
+    private String senhaUsuario;
+    @Basic(optional = false)
+    @Column(name = "create_at")
+    @Temporal(TemporalType.DATE)
+    private Date createAt;
     @ManyToMany(mappedBy = "usuarioList", fetch = FetchType.EAGER)
     private List<Jogo> jogoList;
-    @OneToOne(cascade = CascadeType.ALL, mappedBy = "usuario", fetch = FetchType.EAGER)
-    private Acesso acesso;
 
     public Usuario() {
     }
 
-    public Usuario(String email) {
-        this.email = email;
+    public Usuario(Integer idUsuario) {
+        this.idUsuario = idUsuario;
     }
 
-    public String getEmail() {
-        return email;
+    public Usuario(Integer idUsuario, String nomeUsuario, Date dataNascUsuario, String estadoUsuario, String emailUsuario, String senhaUsuario, Date createAt) {
+        this.idUsuario = idUsuario;
+        this.nomeUsuario = nomeUsuario;
+        this.dataNascUsuario = dataNascUsuario;
+        this.estadoUsuario = estadoUsuario;
+        this.emailUsuario = emailUsuario;
+        this.senhaUsuario = senhaUsuario;
+        this.createAt = createAt;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public Integer getIdUsuario() {
+        return idUsuario;
     }
 
-    public String getNomeUsu() {
-        return nomeUsu;
+    public void setIdUsuario(Integer idUsuario) {
+        this.idUsuario = idUsuario;
     }
 
-    public void setNomeUsu(String nomeUsu) {
-        this.nomeUsu = nomeUsu;
+    public String getNomeUsuario() {
+        return nomeUsuario;
     }
 
-    public Integer getIdadeUsu() {
-        return idadeUsu;
+    public void setNomeUsuario(String nomeUsuario) {
+        this.nomeUsuario = nomeUsuario;
     }
 
-    public void setIdadeUsu(Integer idadeUsu) {
-        this.idadeUsu = idadeUsu;
+    public Date getDataNascUsuario() {
+        return dataNascUsuario;
     }
 
-    public String getEstadoUsu() {
-        return estadoUsu;
+    public void setDataNascUsuario(Date dataNascUsuario) {
+        this.dataNascUsuario = dataNascUsuario;
     }
 
-    public void setEstadoUsu(String estadoUsu) {
-        this.estadoUsu = estadoUsu;
+    public String getEstadoUsuario() {
+        return estadoUsuario;
     }
 
-    public Date getDataCriacaoUsu() {
-        return dataCriacaoUsu;
+    public void setEstadoUsuario(String estadoUsuario) {
+        this.estadoUsuario = estadoUsuario;
     }
 
-    public void setDataCriacaoUsu(Date dataCriacaoUsu) {
-        this.dataCriacaoUsu = dataCriacaoUsu;
+    public String getEmailUsuario() {
+        return emailUsuario;
+    }
+
+    public void setEmailUsuario(String emailUsuario) {
+        this.emailUsuario = emailUsuario;
+    }
+
+    public String getSenhaUsuario() {
+        return senhaUsuario;
+    }
+
+    public void setSenhaUsuario(String senhaUsuario) {
+        this.senhaUsuario = senhaUsuario;
+    }
+
+    public Date getCreateAt() {
+        return createAt;
+    }
+
+    public void setCreateAt(Date createAt) {
+        this.createAt = createAt;
     }
 
     public List<Jogo> getJogoList() {
@@ -110,18 +148,10 @@ public class Usuario implements Serializable {
         this.jogoList = jogoList;
     }
 
-    public Acesso getAcesso() {
-        return acesso;
-    }
-
-    public void setAcesso(Acesso acesso) {
-        this.acesso = acesso;
-    }
-
     @Override
     public int hashCode() {
         int hash = 0;
-        hash += (email != null ? email.hashCode() : 0);
+        hash += (idUsuario != null ? idUsuario.hashCode() : 0);
         return hash;
     }
 
@@ -132,7 +162,7 @@ public class Usuario implements Serializable {
             return false;
         }
         Usuario other = (Usuario) object;
-        if ((this.email == null && other.email != null) || (this.email != null && !this.email.equals(other.email))) {
+        if ((this.idUsuario == null && other.idUsuario != null) || (this.idUsuario != null && !this.idUsuario.equals(other.idUsuario))) {
             return false;
         }
         return true;
@@ -140,7 +170,7 @@ public class Usuario implements Serializable {
 
     @Override
     public String toString() {
-        return "model.Usuario[ email=" + email + " ]";
+        return "model.Usuario[ idUsuario=" + idUsuario + " ]";
     }
     
 }

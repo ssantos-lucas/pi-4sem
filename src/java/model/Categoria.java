@@ -20,14 +20,15 @@ import javax.persistence.Table;
 
 /**
  *
- * @author Eddy Mauricio
+ * @author eddie.mssantos
  */
 @Entity
 @Table(name = "categoria")
 @NamedQueries({
     @NamedQuery(name = "Categoria.findAll", query = "SELECT c FROM Categoria c"),
     @NamedQuery(name = "Categoria.findByIdCategoria", query = "SELECT c FROM Categoria c WHERE c.idCategoria = :idCategoria"),
-    @NamedQuery(name = "Categoria.findByNomeCategoria", query = "SELECT c FROM Categoria c WHERE c.nomeCategoria = :nomeCategoria")})
+    @NamedQuery(name = "Categoria.findByNomeCategoria", query = "SELECT c FROM Categoria c WHERE c.nomeCategoria = :nomeCategoria"),
+    @NamedQuery(name = "Categoria.findByTipoCategoria", query = "SELECT c FROM Categoria c WHERE c.tipoCategoria = :tipoCategoria")})
 public class Categoria implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -35,9 +36,13 @@ public class Categoria implements Serializable {
     @Basic(optional = false)
     @Column(name = "idCategoria")
     private Integer idCategoria;
+    @Basic(optional = false)
     @Column(name = "nomeCategoria")
     private String nomeCategoria;
-    @JoinTable(name = "jogo_has_categoria", joinColumns = {
+    @Basic(optional = false)
+    @Column(name = "tipoCategoria")
+    private int tipoCategoria;
+    @JoinTable(name = "jogo_categoria", joinColumns = {
         @JoinColumn(name = "idCategoria", referencedColumnName = "idCategoria")}, inverseJoinColumns = {
         @JoinColumn(name = "idJogo", referencedColumnName = "idJogo")})
     @ManyToMany(fetch = FetchType.EAGER)
@@ -48,6 +53,12 @@ public class Categoria implements Serializable {
 
     public Categoria(Integer idCategoria) {
         this.idCategoria = idCategoria;
+    }
+
+    public Categoria(Integer idCategoria, String nomeCategoria, int tipoCategoria) {
+        this.idCategoria = idCategoria;
+        this.nomeCategoria = nomeCategoria;
+        this.tipoCategoria = tipoCategoria;
     }
 
     public Integer getIdCategoria() {
@@ -64,6 +75,14 @@ public class Categoria implements Serializable {
 
     public void setNomeCategoria(String nomeCategoria) {
         this.nomeCategoria = nomeCategoria;
+    }
+
+    public int getTipoCategoria() {
+        return tipoCategoria;
+    }
+
+    public void setTipoCategoria(int tipoCategoria) {
+        this.tipoCategoria = tipoCategoria;
     }
 
     public List<Jogo> getJogoList() {

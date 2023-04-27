@@ -5,24 +5,28 @@
 package model;
 
 import java.io.Serializable;
+import java.util.Date;
 import java.util.List;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.Lob;
 import javax.persistence.ManyToMany;
-import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 /**
  *
- * @author Eddy Mauricio
+ * @author eddie.mssantos
  */
 @Entity
 @Table(name = "jogo")
@@ -30,46 +34,73 @@ import javax.persistence.Table;
     @NamedQuery(name = "Jogo.findAll", query = "SELECT j FROM Jogo j"),
     @NamedQuery(name = "Jogo.findByIdJogo", query = "SELECT j FROM Jogo j WHERE j.idJogo = :idJogo"),
     @NamedQuery(name = "Jogo.findByNomeJogo", query = "SELECT j FROM Jogo j WHERE j.nomeJogo = :nomeJogo"),
-    @NamedQuery(name = "Jogo.findByDescricaoJogo", query = "SELECT j FROM Jogo j WHERE j.descricaoJogo = :descricaoJogo"),
-    @NamedQuery(name = "Jogo.findByClassEtariaJogo", query = "SELECT j FROM Jogo j WHERE j.classEtariaJogo = :classEtariaJogo"),
-    @NamedQuery(name = "Jogo.findByPlataformaJogo", query = "SELECT j FROM Jogo j WHERE j.plataformaJogo = :plataformaJogo"),
-    @NamedQuery(name = "Jogo.findByImagemJogo", query = "SELECT j FROM Jogo j WHERE j.imagemJogo = :imagemJogo")})
+    @NamedQuery(name = "Jogo.findByFaixaEtariaJogo", query = "SELECT j FROM Jogo j WHERE j.faixaEtariaJogo = :faixaEtariaJogo"),
+    @NamedQuery(name = "Jogo.findByImagemJogo", query = "SELECT j FROM Jogo j WHERE j.imagemJogo = :imagemJogo"),
+    @NamedQuery(name = "Jogo.findByDataLancamento", query = "SELECT j FROM Jogo j WHERE j.dataLancamento = :dataLancamento"),
+    @NamedQuery(name = "Jogo.findByImagemLogo", query = "SELECT j FROM Jogo j WHERE j.imagemLogo = :imagemLogo"),
+    @NamedQuery(name = "Jogo.findByImagemCorpo", query = "SELECT j FROM Jogo j WHERE j.imagemCorpo = :imagemCorpo")})
 public class Jogo implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
     @Column(name = "idJogo")
     private Integer idJogo;
+    @Basic(optional = false)
     @Column(name = "nomeJogo")
     private String nomeJogo;
+    @Basic(optional = false)
+    @Lob
     @Column(name = "descricaoJogo")
     private String descricaoJogo;
-    @Column(name = "classEtariaJogo")
-    private Integer classEtariaJogo;
-    @Column(name = "plataformaJogo")
-    private String plataformaJogo;
+    @Basic(optional = false)
+    @Column(name = "faixaEtariaJogo")
+    private int faixaEtariaJogo;
+    @Basic(optional = false)
     @Lob
-    @Column(name = "conteudoJogo")
-    private String conteudoJogo;
+    @Column(name = "resumoJogo")
+    private String resumoJogo;
+    @Basic(optional = false)
     @Column(name = "imagemJogo")
     private String imagemJogo;
+    @Basic(optional = false)
+    @Column(name = "dataLancamento")
+    @Temporal(TemporalType.DATE)
+    private Date dataLancamento;
+    @Basic(optional = false)
+    @Column(name = "imagemLogo")
+    private String imagemLogo;
+    @Basic(optional = false)
+    @Column(name = "imagemCorpo")
+    private String imagemCorpo;
     @ManyToMany(mappedBy = "jogoList", fetch = FetchType.EAGER)
-    private List<Categoria> categoriaList;
+    private List<Desenvolvedor> desenvolvedorList;
     @JoinTable(name = "favorito", joinColumns = {
         @JoinColumn(name = "idJogo", referencedColumnName = "idJogo")}, inverseJoinColumns = {
-        @JoinColumn(name = "email", referencedColumnName = "email")})
+        @JoinColumn(name = "idUsuario", referencedColumnName = "idUsuario")})
     @ManyToMany(fetch = FetchType.EAGER)
     private List<Usuario> usuarioList;
-    @JoinColumn(name = "idEquipe", referencedColumnName = "idEquipe")
-    @ManyToOne(optional = false, fetch = FetchType.EAGER)
-    private Equipe idEquipe;
+    @ManyToMany(mappedBy = "jogoList", fetch = FetchType.EAGER)
+    private List<Categoria> categoriaList;
 
     public Jogo() {
     }
 
     public Jogo(Integer idJogo) {
         this.idJogo = idJogo;
+    }
+
+    public Jogo(Integer idJogo, String nomeJogo, String descricaoJogo, int faixaEtariaJogo, String resumoJogo, String imagemJogo, Date dataLancamento, String imagemLogo, String imagemCorpo) {
+        this.idJogo = idJogo;
+        this.nomeJogo = nomeJogo;
+        this.descricaoJogo = descricaoJogo;
+        this.faixaEtariaJogo = faixaEtariaJogo;
+        this.resumoJogo = resumoJogo;
+        this.imagemJogo = imagemJogo;
+        this.dataLancamento = dataLancamento;
+        this.imagemLogo = imagemLogo;
+        this.imagemCorpo = imagemCorpo;
     }
 
     public Integer getIdJogo() {
@@ -96,28 +127,20 @@ public class Jogo implements Serializable {
         this.descricaoJogo = descricaoJogo;
     }
 
-    public Integer getClassEtariaJogo() {
-        return classEtariaJogo;
+    public int getFaixaEtariaJogo() {
+        return faixaEtariaJogo;
     }
 
-    public void setClassEtariaJogo(Integer classEtariaJogo) {
-        this.classEtariaJogo = classEtariaJogo;
+    public void setFaixaEtariaJogo(int faixaEtariaJogo) {
+        this.faixaEtariaJogo = faixaEtariaJogo;
     }
 
-    public String getPlataformaJogo() {
-        return plataformaJogo;
+    public String getResumoJogo() {
+        return resumoJogo;
     }
 
-    public void setPlataformaJogo(String plataformaJogo) {
-        this.plataformaJogo = plataformaJogo;
-    }
-
-    public String getConteudoJogo() {
-        return conteudoJogo;
-    }
-
-    public void setConteudoJogo(String conteudoJogo) {
-        this.conteudoJogo = conteudoJogo;
+    public void setResumoJogo(String resumoJogo) {
+        this.resumoJogo = resumoJogo;
     }
 
     public String getImagemJogo() {
@@ -128,12 +151,36 @@ public class Jogo implements Serializable {
         this.imagemJogo = imagemJogo;
     }
 
-    public List<Categoria> getCategoriaList() {
-        return categoriaList;
+    public Date getDataLancamento() {
+        return dataLancamento;
     }
 
-    public void setCategoriaList(List<Categoria> categoriaList) {
-        this.categoriaList = categoriaList;
+    public void setDataLancamento(Date dataLancamento) {
+        this.dataLancamento = dataLancamento;
+    }
+
+    public String getImagemLogo() {
+        return imagemLogo;
+    }
+
+    public void setImagemLogo(String imagemLogo) {
+        this.imagemLogo = imagemLogo;
+    }
+
+    public String getImagemCorpo() {
+        return imagemCorpo;
+    }
+
+    public void setImagemCorpo(String imagemCorpo) {
+        this.imagemCorpo = imagemCorpo;
+    }
+
+    public List<Desenvolvedor> getDesenvolvedorList() {
+        return desenvolvedorList;
+    }
+
+    public void setDesenvolvedorList(List<Desenvolvedor> desenvolvedorList) {
+        this.desenvolvedorList = desenvolvedorList;
     }
 
     public List<Usuario> getUsuarioList() {
@@ -144,12 +191,12 @@ public class Jogo implements Serializable {
         this.usuarioList = usuarioList;
     }
 
-    public Equipe getIdEquipe() {
-        return idEquipe;
+    public List<Categoria> getCategoriaList() {
+        return categoriaList;
     }
 
-    public void setIdEquipe(Equipe idEquipe) {
-        this.idEquipe = idEquipe;
+    public void setCategoriaList(List<Categoria> categoriaList) {
+        this.categoriaList = categoriaList;
     }
 
     @Override

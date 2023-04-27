@@ -5,7 +5,6 @@
 --%>
 
 <%@page import="java.util.List"%>
-<%@page import="model.Jogo"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
@@ -47,6 +46,22 @@
         </section>
 
         <main class="container">
+
+            <div class="primeira">
+                <img src="./images/200x200.svg" class="jogo-um" alt="Jogo um">
+                <p class="titulos">Ploc</p>
+            </div>
+            <div class="segunda">
+                <img src="./images/200x200.svg" class="jogo-dois" alt="Jogo dois">
+                <p class="titulos">Plec</p>
+            </div>
+
+            <div class="terceira">
+                <img src="./images/200x200.svg" class="jogo-tres" alt="Jogo três">
+                <p class="titulos">Plac</p>
+            </div>
+        </main>
+        <main class="container">
             <div class="primeira">
                 <span class="jogo">Jogos</span>
                 <div class="dropdown">
@@ -58,47 +73,8 @@
                     </div>
                 </div>
             </div>
-            <% List<Jogo> listaJogo = (List<Jogo>) request.getAttribute("listaJogo");%>
-            
-            <%
-                for (Jogo jog : listaJogo) {
-            %>
-            
-            <div class="segunda">
-            <img src="<%= jog.getImagemJogo()%>" class="jogo-um" alt="Jogo um">
-            <p class="first">  <%= jog.getNomeJogo()  %>  </p>
-             </div>
-            
-            <%
-               ; }
-            %>
-            
-            <%--
-<section>
-            <div class="segunda">
-                <img src="./images/200x200.svg" class="jogo-um" alt="Jogo um">
-                <img src="./images/200x200.svg" class="jogo-dois" alt="Jogo dois">
-                <img src="./images/200x200.svg" class="jogo-tres" alt="Jogo três">
-            </div>
-            <div class="par">
-                <p class="first"> Ploc  </p>
-                <p>Plec</p>
-                <p class="last" >Plac</p>
-            </div>
-</section>
-            <div class="terceira">
-                <img src="./images/200x200.svg" class="jogo-quatro" alt="Jogo quatro">
-                <img src="./images/200x200.svg" class="jogo-cinco" alt="Jogo cinco">
-                <img src="./images/200x200.svg" class="jogo-seis" alt="Jogo seis">
-            </div>
-            <div class="para">
-                <p class="first" >Plic</p>
-                <p>Plug</p>
-                <p class="last" >Pluc</p>
-            </div>
-            
-            --%>
-                        
+
+
         </main>
 
         <footer class="rodape">
