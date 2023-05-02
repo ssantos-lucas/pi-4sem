@@ -26,7 +26,7 @@ import javax.persistence.TemporalType;
 
 /**
  *
- * @author eddie.mssantos
+ * @author Eddy Mauricio
  */
 @Entity
 @Table(name = "jogo")
@@ -35,10 +35,10 @@ import javax.persistence.TemporalType;
     @NamedQuery(name = "Jogo.findByIdJogo", query = "SELECT j FROM Jogo j WHERE j.idJogo = :idJogo"),
     @NamedQuery(name = "Jogo.findByNomeJogo", query = "SELECT j FROM Jogo j WHERE j.nomeJogo = :nomeJogo"),
     @NamedQuery(name = "Jogo.findByFaixaEtariaJogo", query = "SELECT j FROM Jogo j WHERE j.faixaEtariaJogo = :faixaEtariaJogo"),
-    @NamedQuery(name = "Jogo.findByImagemJogo", query = "SELECT j FROM Jogo j WHERE j.imagemJogo = :imagemJogo"),
     @NamedQuery(name = "Jogo.findByDataLancamento", query = "SELECT j FROM Jogo j WHERE j.dataLancamento = :dataLancamento"),
     @NamedQuery(name = "Jogo.findByImagemLogo", query = "SELECT j FROM Jogo j WHERE j.imagemLogo = :imagemLogo"),
-    @NamedQuery(name = "Jogo.findByImagemCorpo", query = "SELECT j FROM Jogo j WHERE j.imagemCorpo = :imagemCorpo")})
+    @NamedQuery(name = "Jogo.findByImagemCorpo", query = "SELECT j FROM Jogo j WHERE j.imagemCorpo = :imagemCorpo"),
+    @NamedQuery(name = "Jogo.findByUrlJogo", query = "SELECT j FROM Jogo j WHERE j.urlJogo = :urlJogo")})
 public class Jogo implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -62,9 +62,6 @@ public class Jogo implements Serializable {
     @Column(name = "resumoJogo")
     private String resumoJogo;
     @Basic(optional = false)
-    @Column(name = "imagemJogo")
-    private String imagemJogo;
-    @Basic(optional = false)
     @Column(name = "dataLancamento")
     @Temporal(TemporalType.DATE)
     private Date dataLancamento;
@@ -74,6 +71,9 @@ public class Jogo implements Serializable {
     @Basic(optional = false)
     @Column(name = "imagemCorpo")
     private String imagemCorpo;
+    @Basic(optional = false)
+    @Column(name = "urlJogo")
+    private String urlJogo;
     @ManyToMany(mappedBy = "jogoList", fetch = FetchType.EAGER)
     private List<Desenvolvedor> desenvolvedorList;
     @JoinTable(name = "favorito", joinColumns = {
@@ -91,16 +91,16 @@ public class Jogo implements Serializable {
         this.idJogo = idJogo;
     }
 
-    public Jogo(Integer idJogo, String nomeJogo, String descricaoJogo, int faixaEtariaJogo, String resumoJogo, String imagemJogo, Date dataLancamento, String imagemLogo, String imagemCorpo) {
+    public Jogo(Integer idJogo, String nomeJogo, String descricaoJogo, int faixaEtariaJogo, String resumoJogo, Date dataLancamento, String imagemLogo, String imagemCorpo, String urlJogo) {
         this.idJogo = idJogo;
         this.nomeJogo = nomeJogo;
         this.descricaoJogo = descricaoJogo;
         this.faixaEtariaJogo = faixaEtariaJogo;
         this.resumoJogo = resumoJogo;
-        this.imagemJogo = imagemJogo;
         this.dataLancamento = dataLancamento;
         this.imagemLogo = imagemLogo;
         this.imagemCorpo = imagemCorpo;
+        this.urlJogo = urlJogo;
     }
 
     public Integer getIdJogo() {
@@ -143,14 +143,6 @@ public class Jogo implements Serializable {
         this.resumoJogo = resumoJogo;
     }
 
-    public String getImagemJogo() {
-        return imagemJogo;
-    }
-
-    public void setImagemJogo(String imagemJogo) {
-        this.imagemJogo = imagemJogo;
-    }
-
     public Date getDataLancamento() {
         return dataLancamento;
     }
@@ -173,6 +165,14 @@ public class Jogo implements Serializable {
 
     public void setImagemCorpo(String imagemCorpo) {
         this.imagemCorpo = imagemCorpo;
+    }
+
+    public String getUrlJogo() {
+        return urlJogo;
+    }
+
+    public void setUrlJogo(String urlJogo) {
+        this.urlJogo = urlJogo;
     }
 
     public List<Desenvolvedor> getDesenvolvedorList() {

@@ -25,7 +25,7 @@ import javax.persistence.TemporalType;
 
 /**
  *
- * @author eddie.mssantos
+ * @author Eddy Mauricio
  */
 @Entity
 @Table(name = "desenvolvedor")
@@ -35,7 +35,8 @@ import javax.persistence.TemporalType;
     @NamedQuery(name = "Desenvolvedor.findByNomeDesenvolvedor", query = "SELECT d FROM Desenvolvedor d WHERE d.nomeDesenvolvedor = :nomeDesenvolvedor"),
     @NamedQuery(name = "Desenvolvedor.findByEmailDesenvolvedor", query = "SELECT d FROM Desenvolvedor d WHERE d.emailDesenvolvedor = :emailDesenvolvedor"),
     @NamedQuery(name = "Desenvolvedor.findByDataNascDesenvolvedor", query = "SELECT d FROM Desenvolvedor d WHERE d.dataNascDesenvolvedor = :dataNascDesenvolvedor"),
-    @NamedQuery(name = "Desenvolvedor.findByEstadoDesenvolvedor", query = "SELECT d FROM Desenvolvedor d WHERE d.estadoDesenvolvedor = :estadoDesenvolvedor")})
+    @NamedQuery(name = "Desenvolvedor.findByEstadoDesenvolvedor", query = "SELECT d FROM Desenvolvedor d WHERE d.estadoDesenvolvedor = :estadoDesenvolvedor"),
+    @NamedQuery(name = "Desenvolvedor.findByContatoDesenvolvedor", query = "SELECT d FROM Desenvolvedor d WHERE d.contatoDesenvolvedor = :contatoDesenvolvedor")})
 public class Desenvolvedor implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -57,6 +58,8 @@ public class Desenvolvedor implements Serializable {
     @Basic(optional = false)
     @Column(name = "estadoDesenvolvedor")
     private String estadoDesenvolvedor;
+    @Column(name = "ContatoDesenvolvedor")
+    private String contatoDesenvolvedor;
     @JoinTable(name = "jogo_desenvolvedor", joinColumns = {
         @JoinColumn(name = "Desenvolvedor", referencedColumnName = "idDesenvolvedor")}, inverseJoinColumns = {
         @JoinColumn(name = "idJogo", referencedColumnName = "idJogo")})
@@ -116,6 +119,14 @@ public class Desenvolvedor implements Serializable {
 
     public void setEstadoDesenvolvedor(String estadoDesenvolvedor) {
         this.estadoDesenvolvedor = estadoDesenvolvedor;
+    }
+
+    public String getContatoDesenvolvedor() {
+        return contatoDesenvolvedor;
+    }
+
+    public void setContatoDesenvolvedor(String contatoDesenvolvedor) {
+        this.contatoDesenvolvedor = contatoDesenvolvedor;
     }
 
     public List<Jogo> getJogoList() {
