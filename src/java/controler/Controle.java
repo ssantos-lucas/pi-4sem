@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
- */
 package controler;
 
 import java.io.IOException;
@@ -13,8 +9,10 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import model.Jogo;
 import model.SiteDAO;
+import model.Usuario;
 
 /**
  *
@@ -26,15 +24,39 @@ public class Controle extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
+        HttpSession session = request.getSession();
+        
         PrintWriter out = response.getWriter();
+        
         String flag, mensagem = null;
         flag = request.getParameter("flag");
+        
+        SiteDAO dao = new SiteDAO();
         
         if(flag.equals("paginainicial")){
             List<Jogo> jog = new SiteDAO().listarJogos();
             request.setAttribute("listaJogo", jog);
-            RequestDispatcher disp = request.getRequestDispatcher("index.jps");
+            RequestDispatcher disp = request.getRequestDispatcher("index.jsp");
             disp.forward(request, response);
+            
+        } else if(flag.equalsIgnoreCase("login")) {
+            String email, senha;
+            email = request.getParameter("email");
+            senha = request.getParameter("senha");
+            
+            Usuario usuario = dao.validarLogin(email, senha);
+            
+            if(usuario == null){
+                mensagem = "Usuário não cadastrado ou senha incorreta.";
+                
+                request.setAttribute("erro", mensagem);
+                RequestDispatcher disp = request.getRequestDispatcher("login.jsp"); 
+                disp.forward(request, response);              
+            } else {
+                session.setAttribute("usuarioLogado", usuario);
+                RequestDispatcher disp = request.getRequestDispatcher("index.jsp"); 
+                disp.forward(request, response);
+            }
         }
         
     }

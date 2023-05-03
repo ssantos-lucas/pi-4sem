@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package model;
 
 import java.util.List;
@@ -35,6 +31,19 @@ public class SiteDAO {
         } catch (NoResultException ex) {
             return null;
         }
-
+    }
+    
+    public Usuario validarLogin(String email, String senha){
+        conectar();
+        try{
+            TypedQuery<Usuario> query = manager.createNamedQuery("Usuario.findByEmailSenhaUsuario", Usuario.class);  
+            //preciso informar qual usuario e senha que vai entrar no select
+            query.setParameter("emailUsuario", email);
+            query.setParameter("senhaUsuario", senha);  //ele pega recebido do form e joga lá no parametro da query
+            Usuario usuario = query.getSingleResult();  //getSingleResult() esse select só retorna um registro
+            return usuario; 
+        } catch(NoResultException ex){
+            return null;
+        }
     }
 }

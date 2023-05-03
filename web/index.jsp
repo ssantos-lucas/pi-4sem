@@ -4,12 +4,13 @@
     Author     : Eddy Mauricio
 --%>
 
+<%@page import="model.Usuario"%>
 <%@page import="model.Jogo"%>
 <%@page import="model.SiteDAO"%>
 <%@page import="java.util.List"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 
     <head>
         <meta charset="UTF-8">
@@ -36,7 +37,18 @@
                             <a href="#">Busca</a>
                         </li>
                         <li>
-                            <a href="#">Login</a>
+                            <%
+                                Usuario uLogado = (Usuario)session.getAttribute("usuarioLogado");
+                                if(uLogado != null){
+                            %>
+                            <span><%=uLogado.getNomeUsuario()%></span>
+                            <%
+                                } else {
+                            %>
+                            <a href="login.jsp">Login</a>
+                            <%
+                            }
+                            %>
                         </li>
                     </ul>
                 </nav>
