@@ -45,10 +45,6 @@
                         <label for="nome">Nome:</label>
                         <input type="text" id="nome" name="nome" required>
                     </p>
-                    <p>
-                        <label for="estado">Estado:</label>
-                        <input type="text" id="estado" name="estado"> 
-                    </p>
                     <!--ALTERAR BD E TIRAR OS NOT NULL DE DATA DE NASCIMENTO E CREATED_AT E ESTADO-->
                     <!--SENAO VAI TER QUE ENTRAR NO FORM--> 
                 </div>

@@ -22,10 +22,12 @@ import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 /**
  *
- * @author Eddy Mauricio
+ * @author carolinestelitano
  */
 @Entity
 @Table(name = "desenvolvedor")
@@ -46,18 +48,26 @@ public class Desenvolvedor implements Serializable {
     @Column(name = "idDesenvolvedor")
     private Integer idDesenvolvedor;
     @Basic(optional = false)
+    @NotNull
+    @Size(min = 1, max = 60)
     @Column(name = "nomeDesenvolvedor")
     private String nomeDesenvolvedor;
     @Basic(optional = false)
+    @NotNull
+    @Size(min = 1, max = 40)
     @Column(name = "emailDesenvolvedor")
     private String emailDesenvolvedor;
     @Basic(optional = false)
+    @NotNull
     @Column(name = "dataNascDesenvolvedor")
     @Temporal(TemporalType.DATE)
     private Date dataNascDesenvolvedor;
     @Basic(optional = false)
+    @NotNull
+    @Size(min = 1, max = 15)
     @Column(name = "estadoDesenvolvedor")
     private String estadoDesenvolvedor;
+    @Size(max = 45)
     @Column(name = "ContatoDesenvolvedor")
     private String contatoDesenvolvedor;
     @JoinTable(name = "jogo_desenvolvedor", joinColumns = {

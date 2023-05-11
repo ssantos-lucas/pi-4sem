@@ -23,10 +23,12 @@ import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 /**
  *
- * @author Eddy Mauricio
+ * @author carolinestelitano
  */
 @Entity
 @Table(name = "jogo")
@@ -48,30 +50,44 @@ public class Jogo implements Serializable {
     @Column(name = "idJogo")
     private Integer idJogo;
     @Basic(optional = false)
+    @NotNull
+    @Size(min = 1, max = 20)
     @Column(name = "nomeJogo")
     private String nomeJogo;
     @Basic(optional = false)
+    @NotNull
     @Lob
+    @Size(min = 1, max = 2147483647)
     @Column(name = "descricaoJogo")
     private String descricaoJogo;
     @Basic(optional = false)
+    @NotNull
     @Column(name = "faixaEtariaJogo")
     private int faixaEtariaJogo;
     @Basic(optional = false)
+    @NotNull
     @Lob
+    @Size(min = 1, max = 65535)
     @Column(name = "resumoJogo")
     private String resumoJogo;
     @Basic(optional = false)
+    @NotNull
     @Column(name = "dataLancamento")
     @Temporal(TemporalType.DATE)
     private Date dataLancamento;
     @Basic(optional = false)
+    @NotNull
+    @Size(min = 1, max = 250)
     @Column(name = "imagemLogo")
     private String imagemLogo;
     @Basic(optional = false)
+    @NotNull
+    @Size(min = 1, max = 250)
     @Column(name = "imagemCorpo")
     private String imagemCorpo;
     @Basic(optional = false)
+    @NotNull
+    @Size(min = 1, max = 250)
     @Column(name = "urlJogo")
     private String urlJogo;
     @ManyToMany(mappedBy = "jogoList", fetch = FetchType.EAGER)

@@ -1,3 +1,7 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
 package model;
 
 import java.io.Serializable;
@@ -16,10 +20,12 @@ import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 /**
  *
- * @author Eddy Mauricio
+ * @author carolinestelitano
  */
 @Entity
 @Table(name = "usuario")
@@ -42,22 +48,26 @@ public class Usuario implements Serializable {
     @Column(name = "idUsuario")
     private Integer idUsuario;
     @Basic(optional = false)
+    @NotNull
+    @Size(min = 1, max = 60)
     @Column(name = "nomeUsuario")
     private String nomeUsuario;
-    @Basic(optional = false)
     @Column(name = "dataNascUsuario")
     @Temporal(TemporalType.DATE)
     private Date dataNascUsuario;
-    @Basic(optional = false)
+    @Size(max = 15)
     @Column(name = "estadoUsuario")
     private String estadoUsuario;
     @Basic(optional = false)
+    @NotNull
+    @Size(min = 1, max = 40)
     @Column(name = "emailUsuario")
     private String emailUsuario;
     @Basic(optional = false)
+    @NotNull
+    @Size(min = 1, max = 45)
     @Column(name = "senhaUsuario")
     private String senhaUsuario;
-    @Basic(optional = false)
     @Column(name = "create_at")
     @Temporal(TemporalType.DATE)
     private Date createAt;
@@ -71,14 +81,11 @@ public class Usuario implements Serializable {
         this.idUsuario = idUsuario;
     }
 
-    public Usuario(Integer idUsuario, String nomeUsuario, Date dataNascUsuario, String estadoUsuario, String emailUsuario, String senhaUsuario, Date createAt) {
+    public Usuario(Integer idUsuario, String nomeUsuario, String emailUsuario, String senhaUsuario) {
         this.idUsuario = idUsuario;
         this.nomeUsuario = nomeUsuario;
-        this.dataNascUsuario = dataNascUsuario;
-        this.estadoUsuario = estadoUsuario;
         this.emailUsuario = emailUsuario;
         this.senhaUsuario = senhaUsuario;
-        this.createAt = createAt;
     }
 
     public Integer getIdUsuario() {

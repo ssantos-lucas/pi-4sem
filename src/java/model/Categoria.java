@@ -17,10 +17,12 @@ import javax.persistence.ManyToMany;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 /**
  *
- * @author Eddy Mauricio
+ * @author carolinestelitano
  */
 @Entity
 @Table(name = "categoria")
@@ -34,12 +36,16 @@ public class Categoria implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @Basic(optional = false)
+    @NotNull
     @Column(name = "idCategoria")
     private Integer idCategoria;
     @Basic(optional = false)
+    @NotNull
+    @Size(min = 1, max = 45)
     @Column(name = "nomeCategoria")
     private String nomeCategoria;
     @Basic(optional = false)
+    @NotNull
     @Column(name = "tipoCategoria")
     private int tipoCategoria;
     @JoinTable(name = "jogo_categoria", joinColumns = {
