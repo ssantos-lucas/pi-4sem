@@ -1,0 +1,93 @@
+body {
+    background-image: linear-gradient(to left, #62687C, #434B58);
+
+}
+
+header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+header .logo {
+    margin: 50px 0 40px;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+main .container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    background-color: white;
+    width: 256px;
+    height: 276px;
+    border-radius: 20px;
+
+}
+
+main section{
+    margin: 10px;
+}
+
+main .titulo {
+    font-weight: 600;
+    font-size: 18px;
+}
+
+main .container p {
+    font-size: 11px;
+}
+
+main .container a {
+    font-size: 10px;
+    color: #0500FF;
+    margin-left: 115px;
+}
+
+main .container p .input {
+    border-radius: 5px;
+    background-color: #D9D9D9;
+    text-align: center;
+    width: 219px;
+    height: 28px;
+    font-weight: 600;
+}
+
+
+main .container .titulo {
+    text-align: justify;
+}
+
+main .container.dois {
+    width: 256px;
+    height: 62px;
+}
+
+
+main .titulo {
+    font-weight: 600;
+    padding: 10px;
+}
+
+main .dados p {
+    margin: 20px;
+}
+
+main section .titulo-secundario{
+    font-size: 12px;
+    font-weight: 600;
+}
+
+main .contato a{
+    font-size: 11px;
+    font-weight: 600;
+    color: white;
+}

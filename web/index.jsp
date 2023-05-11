@@ -31,7 +31,7 @@
                 <nav class="itens">
                     <ul>
                         <li>
-                            <a href="#">Sobre</a>
+                            <a href="sobre.jsp">Sobre</a>
                         </li>
                         <li>
                             <a href="#">Busca</a>
