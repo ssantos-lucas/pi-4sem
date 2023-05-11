@@ -57,6 +57,32 @@ public class Controle extends HttpServlet {
                 RequestDispatcher disp = request.getRequestDispatcher("index.jsp"); 
                 disp.forward(request, response);
             }
+            
+        } else if(flag.equalsIgnoreCase("criarConta")) {
+            String email, senha, nome;
+            
+            Usuario usuario = new Usuario();
+            
+            usuario.setEmailUsuario(request.getParameter("email"));
+            usuario.setSenhaUsuario(request.getParameter("senha"));
+            usuario.setNomeUsuario(request.getParameter("nome"));
+            
+            int resultado = dao.criarConta(usuario);
+            
+            switch (resultado) {
+                case 1:
+                    mensagem = "usuário cadastrado com sucesso.";
+                    break;
+                default:
+                    mensagem = "Erro: Contacte o administrador.";
+                    break;
+            }
+            
+            request.setAttribute("m", mensagem);
+            RequestDispatcher disp = request.getRequestDispatcher("mensagens.jsp"); //SUBSTITUIR PELA TELA DE PERFIL???
+            disp.forward(request, response); 
+            
+            //response.sendRedirect("index.jsp");  //em substituição das 3 linhas acima, esse é pra caso eu tenha certeza absoluta que nao vai dar nenhum problema no cadastro
         }
         
     }

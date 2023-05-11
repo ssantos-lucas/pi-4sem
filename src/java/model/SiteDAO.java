@@ -46,4 +46,16 @@ public class SiteDAO {
             return null;
         }
     }
+    
+    public int criarConta(Usuario usuario){
+        conectar();
+        try{    
+            manager.getTransaction().begin();   //começa a transação
+            manager.persist(usuario);            //executa a operação. Salvo no BD, ele executa o comando insert no BD.
+            manager.getTransaction().commit();  //efetiva a transação 
+            return 1; // Deu certo o cadastro
+        } catch (Exception ex){   //tratando qualquer outra exceção possível
+            return 2; // Para qualquer outro erro
+        }  
+    }
 }

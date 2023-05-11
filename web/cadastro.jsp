@@ -30,17 +30,31 @@
             <span class="titulo">
                 Criar conta
             </span>
-            <div class="dados">
-                <label for="email">E-mail:</label>
-                <input type="email" id="email" name="email"><br>
-                <label for="senha">Senha:</label>
-                <input type="text" id="senha" name="senha"><br>
-                <label for="nome">Nome:</label>
-                <input type="text" id="nome" name="nome"><br>
-                <label for="estado">Estado:</label>
-                <input type="text" id="estado" name="estado">
-                <br><input type="submit" class="botao" value="Cadastrar">
-            </div>
+            <form method="POST" action="Controle"> 
+                <input type="hidden" name="flag" value="criarConta">
+                <div class="dados">
+                    <p>
+                        <label for="email">E-mail:</label>
+                        <input type="email" id="email" name="email" required> 
+                    </p>
+                    <p>
+                        <label for="senha">Senha:</label>
+                        <input type="text" id="senha" name="senha" required>
+                    </p>
+                    <p>
+                        <label for="nome">Nome:</label>
+                        <input type="text" id="nome" name="nome" required>
+                    </p>
+                    <p>
+                        <label for="estado">Estado:</label>
+                        <input type="text" id="estado" name="estado"> 
+                    </p>
+                    <!--ALTERAR BD E TIRAR OS NOT NULL DE DATA DE NASCIMENTO E CREATED_AT E ESTADO-->
+                    <!--SENAO VAI TER QUE ENTRAR NO FORM--> 
+                </div>
+                <br><input type="submit" class="btn-entrar" value="Cadastrar">
+                <!--INSERIR DADO PRA SALVAR AUTOMATICO O CREATED_AT NO BANCO NA HORA DO CADASTRO-->
+            </form>
         </section>
     </main>
     <footer class="rodape">
