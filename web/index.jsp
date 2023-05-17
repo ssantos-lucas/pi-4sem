@@ -60,29 +60,21 @@
         </section>
 
         <main class="container">
-
             <div class="tudo">
-
                 <%
                     SiteDAO dao = new SiteDAO();
                     List<Jogo> jogos = dao.listarJogos();
 
                     for (Jogo jog : jogos) {
                 %>
-
-
                 <div class="">
-                    <img src="./images/200x200.svg" class="jogo-um" alt="Jogo um">
+                    <img src="./images/games/<%= jog.getImagemLogo() %>" class="jogo-um" alt="Jogo <%= jog.getNomeJogo() %>">
                     <p class="titulos"><%= jog.getNomeJogo() %></p>
                 </div>
-
                 <%
                 }
                 %>
-
             </div>
-
-
         </main>
 
 
