@@ -38,7 +38,7 @@ import javax.validation.constraints.Size;
     @NamedQuery(name = "Usuario.findByEmailUsuario", query = "SELECT u FROM Usuario u WHERE u.emailUsuario = :emailUsuario"),
     @NamedQuery(name = "Usuario.findBySenhaUsuario", query = "SELECT u FROM Usuario u WHERE u.senhaUsuario = :senhaUsuario"),
     @NamedQuery(name = "Usuario.findByEmailSenhaUsuario", query = "SELECT u FROM Usuario u WHERE u.emailUsuario = :emailUsuario AND u.senhaUsuario = :senhaUsuario"),
-    @NamedQuery(name = "Usuario.findByCreateAt", query = "SELECT u FROM Usuario u WHERE u.createAt = :createAt")})
+    @NamedQuery(name = "Usuario.findByCreatedAt", query = "SELECT u FROM Usuario u WHERE u.createdAt = :createdAt")})
 public class Usuario implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -68,9 +68,9 @@ public class Usuario implements Serializable {
     @Size(min = 1, max = 45)
     @Column(name = "senhaUsuario")
     private String senhaUsuario;
-    @Column(name = "create_at")
+    @Column(name = "created_at")
     @Temporal(TemporalType.DATE)
-    private Date createAt;
+    private Date createdAt;
     @ManyToMany(mappedBy = "usuarioList", fetch = FetchType.EAGER)
     private List<Jogo> jogoList;
 
@@ -136,12 +136,12 @@ public class Usuario implements Serializable {
         this.senhaUsuario = senhaUsuario;
     }
 
-    public Date getCreateAt() {
-        return createAt;
+    public Date getCreatedAt() {
+        return createdAt;
     }
 
-    public void setCreateAt(Date createAt) {
-        this.createAt = createAt;
+    public void setCreatedAt(Date createdAt) {
+        this.createdAt = createdAt;
     }
 
     public List<Jogo> getJogoList() {

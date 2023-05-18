@@ -71,7 +71,7 @@ public class Desenvolvedor implements Serializable {
     @Column(name = "ContatoDesenvolvedor")
     private String contatoDesenvolvedor;
     @JoinTable(name = "jogo_desenvolvedor", joinColumns = {
-        @JoinColumn(name = "Desenvolvedor", referencedColumnName = "idDesenvolvedor")}, inverseJoinColumns = {
+        @JoinColumn(name = "idDesenvolvedor", referencedColumnName = "idDesenvolvedor")}, inverseJoinColumns = {
         @JoinColumn(name = "idJogo", referencedColumnName = "idJogo")})
     @ManyToMany(fetch = FetchType.EAGER)
     private List<Jogo> jogoList;

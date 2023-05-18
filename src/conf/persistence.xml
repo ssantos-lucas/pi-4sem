@@ -4,8 +4,8 @@
     <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
     <class>model.Categoria</class>
     <class>model.Jogo</class>
-    <class>model.Usuario</class>
     <class>model.Desenvolvedor</class>
+    <class>model.Usuario</class>
     <exclude-unlisted-classes>false</exclude-unlisted-classes>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/site?useTimezone=true&amp;serverTimezone=UTC"/>
