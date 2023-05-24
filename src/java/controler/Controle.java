@@ -73,6 +73,9 @@ public class Controle extends HttpServlet {
                 case 1:
                     mensagem = "usuário cadastrado com sucesso.";
                     break;
+                case 2: 
+                    mensagem = "usuário já cadastrado.";
+                    break;
                 default:
                     mensagem = "Erro: Contacte o administrador.";
                     break;

@@ -13,6 +13,7 @@
         <link rel="shortcut icon" href="./image/favicon.ico" type="image/x-icon">
         <link rel="stylesheet" href="./css/reset.css">
         <link rel="stylesheet" href="./css/tela-login.css">
+        <link rel="stylesheet" href="./css/mensagens.css">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;400;600&display=swap" rel="stylesheet">
@@ -32,6 +33,15 @@
                 <form method="POST" action="Controle"> 
                     <input type="hidden" name="flag" value="login">
                     <div class="dados">
+                    <div class="feedback-usuario">
+                        <% if(request.getAttribute("erro") != null){ 
+                        %>
+                        <p><%=request.getAttribute("erro")%></p>
+                        <%
+                        }
+                        %>
+                    </div>
+                    
                     <p>
                         <label for="E-mail">E-mail:</label><br>
                         <input class="input" type="email" id="email" name="email" required>
@@ -44,15 +54,7 @@
                     
                     </div>
                     
-                    <br><input type="submit" class="btn-entrar" value="Entrar">
-                    
-                    <% if(request.getAttribute("erro") != null){
-                    %>
-                        <p> <%=request.getAttribute("erro")%></p>
-                    <%
-                    }
-                    %>
-                    
+                    <br><input type="submit" class="btn-entrar" value="Entrar">     
                 </form>
             </section>
             <section class="container dois">

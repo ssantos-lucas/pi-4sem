@@ -1,0 +1,19 @@
+body {
+    background-image: linear-gradient(to left, #62687C, #434B58);
+}
+
+.msg {
+    /*display: flex;*/
+    text-align: center;
+    vertical-align: middle;
+    font-size: 16px;
+    color: white;
+    opacity: 0.65;
+    font-family: 'Inter', sans-serif;
+}
+
+.feedback-usuario>p{
+    color: red;
+    /*font-size: 16px;*/
+}
+

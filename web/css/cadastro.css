@@ -1,0 +1,77 @@
+body {
+    background-image: linear-gradient(to left, #62687C, #434B58);
+    font-family: 'Inter', sans-serif;
+}
+
+header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+header .logo {
+    margin: 50px 0 40px;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+main .container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    width: 365px;
+    height: 311px;
+    border-radius: 20px;
+}
+
+main .titulo {
+    font-weight: 600;
+    font-size: 22px;
+    padding: 10px;
+}
+
+main .digite{
+    font-size: 11px;
+}
+
+main .container .campo {
+    border-radius: 6px;
+    background-color: #D9D9D9;
+    text-align: center;
+    width: 219px;
+    height: 27px;
+    border: none;
+    font-weight: 600;
+}
+
+.botao{
+    border-radius: 50px;
+    background-image: linear-gradient(to right, #87C0CD, #226597);
+    padding: 9px 60px;
+    color: white;
+    font-weight: 600;
+    margin: 10px 0 15px 13px;
+    border: none;
+}
+
+main .contato a{
+    font-size: 11px;
+    font-weight: 600;
+    color: white;
+    opacity: 65%;
+}
+
+.chamar{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 15px;
+    
+}

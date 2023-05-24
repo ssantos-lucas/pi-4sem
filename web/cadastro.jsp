@@ -1,9 +1,3 @@
-<%-- 
-    Document   : cadastro
-    Created on : May 11, 2023, 8:41:40 AM
-    Author     : carolinestelitano
---%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -34,28 +28,34 @@
                 <input type="hidden" name="flag" value="criarConta">
                 <div class="dados">
                     <p>
-                        <label for="email">E-mail:</label>
-                        <input type="email" id="email" name="email" required> 
+                        <label class="digite" for="email">E-mail:</label>
+                        <br>
+                        <input class="campo" type="email" id="email" name="email" required> 
                     </p>
-                    <p>
-                        <label for="senha">Senha:</label>
-                        <input type="text" id="senha" name="senha" required>
+                    <p><br>
+                        <label class="digite" for="senha">Senha:</label>
+                        <br>
+                        <input class="campo" type="text" id="senha" name="senha" required>
                     </p>
-                    <p>
-                        <label for="nome">Nome:</label>
-                        <input type="text" id="nome" name="nome" required>
+                    <p><br>
+                        <label class="digite" for="nome">Nome:</label>
+                        <br>
+                        <input class="campo" type="text" id="nome" name="nome" required>
                     </p>
-                    <!--ALTERAR BD E TIRAR OS NOT NULL DE DATA DE NASCIMENTO E CREATED_AT E ESTADO-->
-                    <!--SENAO VAI TER QUE ENTRAR NO FORM--> 
                 </div>
-                <br><input type="submit" class="btn-entrar" value="Cadastrar">
+                <div class="chamar">
+                    <input class="botao" type="submit" value="Cadastrar">
                 <!--INSERIR DADO PRA SALVAR AUTOMATICO O CREATED_AT NO BANCO NA HORA DO CADASTRO-->
+                </div>
+                
             </form>
         </section>
+        
+        <span class="contato chamar">
+            <a href="contato.jsp">Entre em contato</a>
+        </span>
     </main>
-    <footer class="rodape">
-        <a href="#" class="entrecontato">Entre em contato</a>
-    </footer>
+    
 
 </body>
 
