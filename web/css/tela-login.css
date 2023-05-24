@@ -25,12 +25,10 @@ main .container {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-
     background-color: white;
-    width: 256px;
-    height: 276px;
+    width: 270px;
+    height: 300px;
     border-radius: 20px;
-
 }
 
 main section{
@@ -67,7 +65,7 @@ main .container .titulo {
 }
 
 main .container.dois {
-    width: 256px;
+    width: 270px;
     height: 62px;
 }
 

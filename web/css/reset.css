@@ -1,21 +1,23 @@
-*{
+* {
     margin: 0;
     padding: 0;
     outline: none;
     font: 300;
     box-sizing: border-box;
-    
+    border: none;
+    font-family: 'Inter', sans-serif;
+
 }
 
-a{
+a {
     text-decoration: none;
     color: black;
 }
 
-ul{
+ul {
     list-style: none;
 }
 
-img{
+img {
     max-width: 100%;
 }

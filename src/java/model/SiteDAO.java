@@ -1,10 +1,12 @@
 package model;
 
 import java.util.List;
+import javax.persistence.EntityExistsException;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.NoResultException;
 import javax.persistence.Persistence;
+import javax.persistence.RollbackException;
 import javax.persistence.TypedQuery;
 
 /**
@@ -54,8 +56,10 @@ public class SiteDAO {
             manager.persist(usuario);            //executa a operação. Salvo no BD, ele executa o comando insert no BD.
             manager.getTransaction().commit();  //efetiva a transação 
             return 1; // Deu certo o cadastro
-        } catch (Exception ex){   //tratando qualquer outra exceção possível
-            return 2; // Para qualquer outro erro
+        } catch (EntityExistsException | RollbackException ex){
+            return 2;  //usuário já cadastrado
+        } catch (Exception ex){   
+            return 3; // Para qualquer outro erro
         }  
     }
 }
