@@ -14,13 +14,7 @@
     <body>
         <header class="header">
             <div class="header-container">
-                <a href="index.jsp" class="logo"><img src="./images/FFF.svg" alt="logo da página"></a>
-                <nav class="itens">
-                    <ul>
-                        <li><a href="sobre.jsp">Sobre</a></li>
-                        <li><a href="contato.jsp">Contato</a></li>
-                    </ul>
-                </nav>
+                <a href="index.jsp" class="logo"><img src="./images/Logo.png" alt="logo do site"></a>
             </div>
         </header>
         <p class="msg">${m}</p>
