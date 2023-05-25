@@ -41,7 +41,11 @@
                                 Usuario uLogado = (Usuario)session.getAttribute("usuarioLogado");
                                 if(uLogado != null){
                             %>
-                            <span><%=uLogado.getNomeUsuario()%></span>
+                            <a href="contato.jsp"><span><%=uLogado.getNomeUsuario()%></span></a>
+                            <li>
+                                <a href="index.jsp"> Sair <%session.removeAttribute("usuarioLogado");%></a>
+                                
+                            </li>
                             <%
                                 } else {
                             %>

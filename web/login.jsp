@@ -20,7 +20,7 @@
         <title>login</title>
     </head>
     <body>
-        <header class="cabecalho">
+        <header>
             <a href="index.jsp">
                 <img src="./images/Logo.png" alt="logo do site" class="logo">
             </a>
@@ -32,25 +32,23 @@
                 <form method="POST" action="Controle"> 
                     <input type="hidden" name="flag" value="login">
                     <div class="dados">
-                    <div class="feedback-usuario">
-                        <% if(request.getAttribute("erro") != null){ 
-                        %>
-                        <p><%=request.getAttribute("erro")%></p>
-                        <%
-                        }
-                        %>
-                    </div>
-                    
-                    <p>
-                        <label for="E-mail">E-mail:</label><br>
-                        <input class="input" type="email" id="email" name="email" required>
-                    </p>
-                    <p>
-                        <label for="senha">Senha:</label><br>
-                        <input class="input" type="password" id="senha" name="senha" required>
-                        <a href="#" class="esquece-usenha">Esqueceu sua senha?</a>
-                    </p>
-                    
+                        <div class="feedback-usuario">
+                            <% if(request.getAttribute("erro") != null){ 
+                            %>
+                            <p><%=request.getAttribute("erro")%></p>
+                            <%
+                            }
+                            %>
+                        </div>
+                        <p>
+                            <label for="E-mail">E-mail:</label><br>
+                            <input class="input" type="email" id="email" name="email" required>
+                        </p>
+                        <p>
+                            <label for="senha">Senha:</label><br>
+                            <input class="input" type="password" id="senha" name="senha" required>
+                            <a href="contato.jsp" class="esqueceu">Esqueceu sua senha?</a>
+                        </p>
                     </div>
                     
                     <br><input type="submit" class="btn-entrar" value="Entrar">     
@@ -59,12 +57,12 @@
             <section class="container dois">
                 <span class="titulo-secundario">Novo por aqui?</span>
                 <br>
-                <!--<input type="submit" class="btn-conta" value="Criar conta">-->
-                <a href="cadastro.jsp"> Criar Conta</a>
+                <!--<a href="cadastro.jsp"><input type="submit" class="btn-conta" value="Criar conta"></a>-->
+                <a href="cadastro.jsp">Criar Conta</a>
             </section>
-                    
+                  
             <span class="contato">
-                <a href="#" class="entrecontato">Entre em contato</a>
+                <a href="contato.jsp" class="entrecontato">Entre em contato</a>
             </span>
         </main> 
         <footer class="rodape">

@@ -12,11 +12,6 @@
         <title>feedback</title>
     </head>
     <body>
-        <header class="header">
-            <div class="header-container">
-                <a href="index.jsp" class="logo"><img src="./images/Logo.png" alt="logo do site"></a>
-            </div>
-        </header>
         <p class="msg">${m}</p>
     </body>
 </html>

@@ -1,6 +1,5 @@
 body {
     background-image: linear-gradient(to left, #62687C, #434B58);
-
 }
 
 header {
@@ -10,7 +9,7 @@ header {
 }
 
 header .logo {
-    margin: 50px 0 40px;
+    margin: 50px 40px;
 }
 
 main {
@@ -31,23 +30,24 @@ main .container {
     border-radius: 20px;
 }
 
-main section{
+main section {
     margin: 10px;
 }
 
 main .titulo {
     font-weight: 600;
     font-size: 18px;
+    padding: 20px;
 }
 
 main .container p {
     font-size: 11px;
 }
 
-main .container a {
+main .container .esqueceu {
     font-size: 10px;
     color: #0500FF;
-    margin-left: 115px;
+    margin-left: 215px;
 }
 
 main .container p .input {
@@ -59,7 +59,6 @@ main .container p .input {
     font-weight: 600;
 }
 
-
 main .container .titulo {
     text-align: justify;
 }
@@ -67,12 +66,6 @@ main .container .titulo {
 main .container.dois {
     width: 270px;
     height: 62px;
-}
-
-
-main .titulo {
-    font-weight: 600;
-    padding: 10px;
 }
 
 main .dados p {
@@ -84,8 +77,33 @@ main section .titulo-secundario{
     font-weight: 600;
 }
 
-main .contato a{
+main .contato {
     font-size: 11px;
     font-weight: 600;
     color: white;
+    opacity: 65%;
+}
+
+main .btn-entrar {
+    border-radius: 50px;
+    background-image: linear-gradient(to right, #87C0CD, #226597);
+    padding: 10px 69.5px;
+    color: white;
+    font-weight: 600;
+}
+
+main .container.dois span{
+    font-weight: 600;
+    font-size: 10px;
+    margin: 2.5px 0 0;
+}
+
+main .btn-conta {
+    border-radius: 50px;
+    background-color: #3979A3;
+    color: white;
+    font-weight: 600;
+    width: 178.39px;
+    height: 27px;
+    margin: 5px 0;
 }

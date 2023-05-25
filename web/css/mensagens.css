@@ -2,7 +2,7 @@ body {
     background-image: linear-gradient(to left, #62687C, #434B58);
 }
 
-header {
+/*header {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -10,10 +10,9 @@ header {
 
 header .logo {
     margin: 50px 0 40px;
-}
+}*/
 
 .msg {
-    /*display: flex;*/
     text-align: center;
     vertical-align: middle;
     font-size: 16px;

@@ -16,7 +16,7 @@
 </head>
 
 <body>
-    <header class="cabecalho">
+    <header>
         <a href="index.jsp"><img src="./images/Logo.png" alt="logo do site" class="logo"></a>
     </header>
     <main class="main">
