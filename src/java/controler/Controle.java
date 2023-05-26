@@ -58,6 +58,11 @@ public class Controle extends HttpServlet {
                 disp.forward(request, response);
             }
             
+        } else if(flag.equalsIgnoreCase("logout")){
+            session.removeAttribute("usuarioLogado");
+            RequestDispatcher disp = request.getRequestDispatcher("index.jsp");
+            disp.forward(request, response); 
+        
         } else if(flag.equalsIgnoreCase("criarConta")) {
             String email, senha, nome;
             

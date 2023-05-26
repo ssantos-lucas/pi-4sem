@@ -1,9 +1,3 @@
-<%-- 
-    Document   : login
-    Created on : May 3, 2023, 12:14:30 AM
-    Author     : carolinestelitano
---%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -21,9 +15,7 @@
     </head>
     <body>
         <header>
-            <a href="index.jsp">
-                <img src="./images/Logo.png" alt="logo do site" class="logo">
-            </a>
+            <a href="index.jsp"><img src="./images/CapiLogo.png" alt="logo do site" class="img-logo"></a>
         </header>
         <main class="main">
             <section class="container">
@@ -65,8 +57,5 @@
                 <a href="contato.jsp" class="entrecontato">Entre em contato</a>
             </span>
         </main> 
-        <footer class="rodape">
-            
-        </footer> 
     </body>
 </html>

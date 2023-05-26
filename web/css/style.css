@@ -6,36 +6,18 @@ body {
     font-size: 1.6rem;
     font-family: 'Roboto', sans-serif;
     font-weight: 400;
+    background-color: rgb(97, 103, 123);
+    /*background-image: linear-gradient(to bottom, #303841, #6B7288);*/
 }
 
-.header .header-container{
+.hero {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    min-height: 75px;
-    padding: 20px 40px;
+    justify-content: center;
+    /*background-image: linear-gradient(to bottom, #303841, #6B7288);*/
 }
 
-.header nav ul{
-    display: flex;
-}
-
-.header nav ul li a{
-    font-size: 1.5rem;
-    font-weight: 400;
-    padding: 0px 30px;
-    border-radius: 20px;
-    transition: 0.3s ease-in-out;
-    margin-left: 30px;
-}
-
-.header nav ul li a:hover{
-    color: white;
-    background-color: #938383;
-}
-
-.jogo-conteiner {
-    background-color: #f1f1f1;
+.jogo-container {
+    /*background-color: #f1f1f1;*/
     justify-content: space-around;
     align-items: center;
     margin: 0 auto;
@@ -48,7 +30,7 @@ body {
     text-align: center;
 }
 
-.itemjogo{
+.itemjogo {
     flex: 1;
     margin: 5px;
     text-align: center;

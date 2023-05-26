@@ -1,39 +1,16 @@
-<%@page import="model.Usuario"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html>
+<html lang="pt-br">
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" href="./css/reset.css">
         <link rel="stylesheet" href="./css/style.css">
+        <link rel="stylesheet" href="./css/includes.css">
         <link rel="stylesheet" href="./css/mensagens.css">
         <title>Contato</title>
     </head>
     <body>
-        <header class="header">
-            <div class="header-container">
-                <a href="index.jsp" class="logo"><img src="./images/FFF.svg" alt="logo da página"></a>
-                <nav class="itens">
-                    <ul>
-                        <li><a href="sobre.jsp">Sobre</a></li>
-                        <li>
-                            <%
-                                Usuario uLogado = (Usuario)session.getAttribute("usuarioLogado");
-                                if(uLogado != null){
-                            %>
-                            <span><%=uLogado.getNomeUsuario()%></span>
-                            <%
-                                } else {
-                            %>
-                            <a href="login.jsp">Login</a>
-                            <%
-                            }
-                            %>
-                        </li>
-                    </ul>
-                </nav>
-            </div>
-        </header>
+        <%@include file="includes/header.jsp"%>
         <h2>Entre em contato</h2>
         <p>Fale conosco através do email gamehubsenac@gmail.com</p>
         <p>Se você é um aluno ou ex-aluno da instituição e quer publicar seu jogo em nossa plataforma, nos envie um email com assunto "publicar jogo" e lhe encaminharemos um formulário de preenchimento.</p>
@@ -44,6 +21,6 @@
             <li>E para demais assuntos, coloque como "outros".</li>
         </ul>
         <p>Responderemos a todos o mais breve possível!</p>
-        <p></p>
+        <%@include file="includes/footer.jsp"%>
     </body>
 </html>

@@ -9,6 +9,7 @@
     <link rel="shortcut icon" href="./image/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="./css/reset.css">
     <link rel="stylesheet" href="./css/cadastro.css">
+    <link rel="stylesheet" href="./css/mensagens.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;400;600&display=swap" rel="stylesheet">
@@ -17,7 +18,7 @@
 
 <body>
     <header>
-        <a href="index.jsp"><img src="./images/Logo.png" alt="logo do site" class="logo"></a>
+        <a href="index.jsp"><img src="./images/CapiLogo.png" alt="logo do site" class="img-logo"></a>
     </header>
     <main class="main">
         <section class="container">

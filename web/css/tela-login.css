@@ -8,8 +8,9 @@ header {
     align-items: center;
 }
 
-header .logo {
-    margin: 50px 40px;
+.img-logo {
+    width: 200px;
+    height: 200px;
 }
 
 main {
