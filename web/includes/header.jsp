@@ -16,7 +16,6 @@
                     <a href="contato.jsp"><span><%=uLogado.getNomeUsuario()%></span></a>
                     <li>
                         <a href="Controle?flag=logout"> Sair </a>
-                        <%//session.removeAttribute("usuarioLogado");%>
                     </li>
                     <%
                         } else {
