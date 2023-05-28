@@ -1,5 +1,5 @@
 <%@page import="model.Usuario"%>
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page contentType="text/html" pageEncoding="ISO-8859-1"%>
 <header class="header">
     <div class="header-container">
         <a href="index.jsp"><img class="img-logo" src="./images/CapiLogo.png" alt="Logo do site"></a>

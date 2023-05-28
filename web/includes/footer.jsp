@@ -1,4 +1,4 @@
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page contentType="text/html" pageEncoding="ISO-8859-1"%>
 <footer>
-    <p>Â©2023GameHub. Todos os direitos reservados.</p>
+    <p>©2023 GameHub. Todos os direitos reservados.</p>
 </footer>
