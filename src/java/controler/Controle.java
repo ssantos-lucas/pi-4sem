@@ -3,10 +3,8 @@ package controler;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Date;
-import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.GregorianCalendar;
 import java.util.List;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -126,9 +124,6 @@ public class Controle extends HttpServlet {
         }
         
     }
-    
-//    To format a date for the current Locale, use one of the static factory methods:
-//      myString = DateFormat.getDateInstance().format(myDate);
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
