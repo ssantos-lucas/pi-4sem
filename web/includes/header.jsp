@@ -12,8 +12,10 @@
                     <%
                         Usuario uLogado = (Usuario)session.getAttribute("usuarioLogado");
                         if(uLogado != null){
+                        
+                        String primeiroNome = uLogado.getNomeUsuario().split(" ")[0];
                     %>
-                    <a href="perfil.jsp"><span><%=uLogado.getNomeUsuario()%></span></a>
+                    <a href="perfil.jsp"><span><%=primeiroNome%></span></a>
                     <li>
                         <a href="Controle?flag=logout"> Sair </a>
                     </li>

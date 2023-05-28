@@ -20,7 +20,6 @@
     </head>
     <body>
         <%@include file="includes/header.jsp"%>
-        <!--Usuario uLogado = (Usuario)session.getAttribute("usuarioLogado");-->
         <main>
             <h2>Perfil</h2>
             <form class="perfil" method="POST" action="Controle">
@@ -40,7 +39,9 @@
                     <label for="nascimento">Data de Nascimento:</label>
                     <%
                         Date dataNascimento = uLogado.getDataNascUsuario();
-                        String dataFormatada = new SimpleDateFormat("yyyy-MM-dd").format(dataNascimento);
+                        String dataFormatada = dataNascimento != null ?
+                                new SimpleDateFormat("yyyy-MM-dd").format(dataNascimento)
+                                : "";
                     %>
                     <input id="nascimento" type="date" name="nascimento" value="<%=dataFormatada%>"> 
                 </p>
@@ -53,7 +54,10 @@
                 <br>
                 <p>
                     <label for="estado">Estado:</label>
-                    <input id="estado" type="text" name="estado" value="<%=uLogado.getEstadoUsuario()%>"> 
+                    <%
+                        String estado = uLogado.getEstadoUsuario() != null ? uLogado.getEstadoUsuario() : "";
+                    %>
+                    <input id="estado" type="text" name="estado" value="<%=estado%>"> 
                 </p>
                 <br>
                 <input type="submit" value="Salvar"> 
