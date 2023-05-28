@@ -8,8 +8,17 @@ body {
     font-size: 16px;
     color: white;
     opacity: 0.65;
-    font-family: 'Inter', sans-serif;
-    
+    font-family: 'Inter', sans-serif; 
+}
+
+.img-container {
+    text-align: center;
+    display: block;
+}
+
+.img-logo {
+    width: 130px;
+    height: 130px;
 }
 
 .feedback-usuario>p{

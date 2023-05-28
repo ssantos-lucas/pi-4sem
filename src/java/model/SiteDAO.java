@@ -1,5 +1,7 @@
 package model;
 
+import java.util.Date;
+//import java.sql.Date;
 import java.util.List;
 import javax.persistence.EntityExistsException;
 import javax.persistence.EntityManager;
@@ -61,5 +63,34 @@ public class SiteDAO {
         } catch (Exception ex){   
             return 3; // Para qualquer outro erro
         }  
+    }
+    
+    public int editarPerfil(Usuario usuario, String email, String nome, String estado, Date nascimento){
+        conectar();
+         try{  
+            //set os valores que serão alterados
+            usuario.setNomeUsuario(nome);
+            usuario.setDataNascUsuario(nascimento);
+            usuario.setEstadoUsuario(estado);
+            
+            manager.getTransaction().begin(); 
+            manager.merge(usuario);
+            manager.getTransaction().commit(); 
+            return 1; //editou certo 
+        } catch (Exception ex){   
+            return 0;  //deu erro
+        }
+    }
+    
+    public Usuario pegarUsuario(String email){
+        conectar();
+        try{
+            TypedQuery<Usuario> query = manager.createNamedQuery("Usuario.findByEmailUsuario", Usuario.class); 
+            query.setParameter("emailUsuario", email); 
+            Usuario usuario = query.getSingleResult();  //getSingleResult() esse select só retorna um registro
+            return usuario; 
+        } catch(NoResultException ex){
+            return null;
+        }
     }
 }

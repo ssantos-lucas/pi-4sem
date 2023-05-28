@@ -44,13 +44,6 @@ body {
     width: 200px;
 }
 
-footer{
-    height: 70px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
 .dropbtn {
     background-color: #4CAF50;
     color: white;
