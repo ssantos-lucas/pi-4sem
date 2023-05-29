@@ -19,7 +19,7 @@
         </header>
         <main class="main">
             <section class="container">
-                <span class="titulo">Iniciar Sess√£o</span>
+                <span class="titulo">Iniciar Sess„o</span>
                 
                 <form method="POST" action="Controle"> 
                     <input type="hidden" name="flag" value="login">
