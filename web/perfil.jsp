@@ -21,6 +21,15 @@
     <body>
         <%@include file="includes/header.jsp"%>
         <main>
+            <%if (uLogado == null) {
+                // Se usuário não estiver logado, redirecionar para home
+                %>
+                <script>
+                    window.location.replace("/GameHub/");
+                </script></main></body></html>
+                <%
+                return;
+            }%>
             <h2>Perfil</h2>
             <form class="perfil" method="POST" action="Controle">
                 <input type="hidden" name="flag" value="editarPerfil">

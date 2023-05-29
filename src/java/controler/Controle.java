@@ -23,7 +23,7 @@ import model.Usuario;
  */
 @WebServlet(name = "Controle", urlPatterns = {"/Controle"})
 public class Controle extends HttpServlet {
-
+    
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=ISO-8859-1");
@@ -37,7 +37,7 @@ public class Controle extends HttpServlet {
         SiteDAO dao = new SiteDAO();
         
         if(flag.equals("paginainicial")){
-            List<Jogo> jog = new SiteDAO().listarJogos();
+            List<Jogo> jog = dao.listarJogos();
             request.setAttribute("listaJogo", jog);
             RequestDispatcher disp = request.getRequestDispatcher("index.jsp");
             disp.forward(request, response);
@@ -90,7 +90,7 @@ public class Controle extends HttpServlet {
             }
             
             request.setAttribute("m", mensagem);
-            RequestDispatcher disp = request.getRequestDispatcher("mensagens.jsp"); //SUBSTITUIR PELA TELA DE PERFIL???
+            RequestDispatcher disp = request.getRequestDispatcher("mensagens.jsp");
             disp.forward(request, response); 
             
             //response.sendRedirect("index.jsp");  //em substituição das 3 linhas acima, esse é pra caso eu tenha certeza absoluta que nao vai dar nenhum problema no cadastro
