@@ -36,7 +36,7 @@
                     <p><br>
                         <label class="digite" for="senha">Senha:</label>
                         <br>
-                        <input class="campo" type="text" id="senha" name="senha" required>
+                        <input class="campo" type="password" id="senha" name="senha" required>
                     </p>
                     <p><br>
                         <label class="digite" for="nome">Nome:</label>
