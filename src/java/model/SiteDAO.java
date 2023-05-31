@@ -93,4 +93,16 @@ public class SiteDAO {
             return null;
         }
     }
+    
+     public Jogo consultarJogo(int idJogo) {
+        conectar();
+        try {
+            TypedQuery queryId = manager.createNamedQuery("Jogo.findByIdJogo", Jogo.class);
+            queryId.setParameter("idJogo", idJogo);
+            Jogo jog = (Jogo) queryId.getSingleResult();
+            return jog;
+        } catch (NoResultException ex) {
+            return null;
+        }
+    }
 }

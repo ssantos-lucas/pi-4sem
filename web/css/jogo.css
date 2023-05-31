@@ -1,0 +1,251 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css to edit this template
+*/
+/* 
+    Created on : 30 de mai. de 2023, 21:51:54
+    Author     : Eddy Mauricio
+*/
+/* header */
+header {
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #1A1A1C;
+}
+
+header .sobre {
+    margin-left: 240px;
+    transition: 0.1s ease-in-out;
+    color: white;
+    padding: 10px 29.5px;
+}
+
+header .contato {
+    margin-right: 600px;
+    transition: 0.1s ease-in-out;
+    color: white;
+    padding: 10px 29.5px;
+}
+
+header .contato:hover,
+header .sobre:hover {
+    border-radius: 15px;
+    background-image: linear-gradient(to right, #87C0CD, #226597);
+    color: black;
+}
+
+header nav ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+header .navegacao ul li .search {
+    margin-right: 100px;
+    border-radius: 15px;
+    background-color: #87C0CD;
+    height: 37px;
+    width: 307px;
+    padding: 10px 20px;
+    text-align: center;
+}
+
+header .navegacao ul li .search::placeholder {
+    color: black;
+}
+
+header .navegacao ul li .login {
+    margin-right: 10px;
+    border-radius: 15px;
+    background-image: linear-gradient(to right, #87C0CD, #226597);
+    padding: 10px 69.5px;
+    font-weight: 600;
+}
+
+header .navegacao ul li .login span {
+    color: white;
+}
+
+.hero {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+main {
+    height: auto;
+    background-image: linear-gradient(to top, #303841, #6B7288);
+    color: white;
+}
+
+.buttons {
+    display: flex;
+    flex-direction: column;
+    margin-right: 5px;
+}
+
+.genero-dentro, .plataforma-dentro, .player-dentro {
+    margin-bottom: 10px;
+}
+
+.playbutton {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.infos {
+    margin: 25px 0px 0px 25px;
+}
+
+.infos .titulojogo {
+    font-size: 40px;
+}
+
+.infos .desenvolvedores,
+.infos .contato {
+    margin-top: 35px;
+}
+
+.infos h1,
+h3 {
+    margin-top: 20px;
+}
+
+
+.infos .conteiner-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+}
+
+.conteiner-row-favoritar {
+    display:flex;
+    justify-content: center;
+}
+
+.infos .conteiner-col {
+    display: flex;
+    flex-direction: column;
+    text-align: justify;
+    margin-left: 203px;
+    margin-bottom: 215px;
+}
+
+.infos .conteiner-col2 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+}
+
+.titulojogo, .titulodesenvolvedores, .titulocontato {
+    margin-top: 45px;
+    margin-bottom: 25px;
+} 
+
+#favoritar span {
+    font-size: 20px;
+    margin-right: 15px;
+}
+
+.classificacao {
+    margin-top: 0;
+}
+
+#divisor {
+    border: none;
+    height: 1px;
+    background-color: #ffffff;
+    margin-bottom: 30px;
+    width: 60%;
+    margin-left: 20%;
+    margin-right: 20%;
+
+}
+
+main .botao {
+    padding: 10px 50px 10px 50px;
+    border-radius: 10px;
+    color: white;
+    background-color: #87C0CD;
+    font-size: 20px;
+    white-space: nowrap;
+}
+
+main .botao span {
+    color: #1A1A1C;
+}
+
+.conteiner-col2-row1{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.conteiner-col1 {
+    text-align: left;
+    background-color: rgb(61, 68, 81);
+    padding: 10px 30px;
+    margin-top: 20px;
+}
+
+/* id="button1" class="bttn1" */
+
+.bttn1{
+    background: transparent;
+    border: none;
+    font-size: 22.5px;
+    color: #a8a8a8;
+}
+
+.bttn1 i:hover{
+    cursor:pointer;
+}
+
+.infos .desenvolvedores,
+.contato,
+.especificacoes {
+    margin-left: 203px;
+    margin-right: 230px;
+    text-align: justify;
+    height: auto;
+}
+
+.especificacoes {
+    margin-left: 225px;
+    margin-right: 230px;
+    text-align: justify;
+}
+
+.especificacoes .conteiner-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.outros {
+    margin-left: 227px;
+}
+
+footer {
+    height: 70px;
+    background-color: #1A1A1C;
+}
+
+.classificacao {
+    text-align: center;
+}
+
+
+/* .conteiner-col2 hr {
+    border: none;
+    height: 1px;
+    background-color: #ffffff;
+    width: 40%;
+    margin: 17px 30% 20px 30%;
+} */
+

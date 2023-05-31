@@ -121,6 +121,20 @@ public class Controle extends HttpServlet {
                 RequestDispatcher disp = request.getRequestDispatcher("perfil.jsp"); 
                 disp.forward(request, response);
             }     
+        } else if (flag.equalsIgnoreCase("consultar")) {
+            int idJogo = Integer.parseInt(request.getParameter("idJogo"));
+            //SiteDAO dao = new SiteDAO();
+            Jogo jog = dao.consultarJogo(idJogo);
+            if (jog == null) {
+                mensagem = "Jogo não encontrado";
+                request.setAttribute("m", mensagem);
+                RequestDispatcher disp = request.getRequestDispatcher("Mensagens.jsp");
+                disp.forward(request, response);
+            } else {
+                request.setAttribute("Jogo", jog);
+                RequestDispatcher disp = request.getRequestDispatcher("telajogo.jsp");
+                disp.forward(request, response);
+            }
         }
         
     }

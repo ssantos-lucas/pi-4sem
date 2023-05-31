@@ -170,6 +170,7 @@ public class Desenvolvedor implements Serializable {
     @Override
     public String toString() {
         return "model.Desenvolvedor[ idDesenvolvedor=" + idDesenvolvedor + " ]";
+        //return  nomeDesenvolvedor ;
     }
     
 }
