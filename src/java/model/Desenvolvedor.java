@@ -166,10 +166,18 @@ public class Desenvolvedor implements Serializable {
         }
         return true;
     }
+    
+    public String[] getDev() {
+        String[] dev = new String[2];
+        dev[0] = idDesenvolvedor.toString();
+        dev[1] = nomeDesenvolvedor;
+        return dev;
+        //return  nomeDesenvolvedor ;
+    }
 
     @Override
     public String toString() {
-        return "model.Desenvolvedor[ idDesenvolvedor=" + idDesenvolvedor + " ]";
+        return "" + idDesenvolvedor + "";
         //return  nomeDesenvolvedor ;
     }
     

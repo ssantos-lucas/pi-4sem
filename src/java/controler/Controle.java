@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import model.Desenvolvedor;
 import model.Jogo;
 import model.SiteDAO;
 import model.Usuario;
@@ -123,8 +124,10 @@ public class Controle extends HttpServlet {
             }     
         } else if (flag.equalsIgnoreCase("consultar")) {
             int idJogo = Integer.parseInt(request.getParameter("idJogo"));
-            //SiteDAO dao = new SiteDAO();
+            
+            
             Jogo jog = dao.consultarJogo(idJogo);
+            
             if (jog == null) {
                 mensagem = "Jogo não encontrado";
                 request.setAttribute("m", mensagem);

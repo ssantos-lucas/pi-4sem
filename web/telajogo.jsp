@@ -32,7 +32,8 @@
                 <section class="infos">
                     <div class="conteiner-row">
                         <div class="conteiner-col">
-                            <%                                Jogo jog = (Jogo) request.getAttribute("Jogo");
+                            <%                                
+                                Jogo jog = (Jogo) request.getAttribute("Jogo");
                             %>
                             <h1 class="titulojogo">
                                 <%= jog.getNomeJogo()%>
@@ -44,7 +45,7 @@
                                 Desenvolvedores
                             </h3>
                             <p class="descricao">
-                                <%= jog.getDesenvolvedorList()%>
+                                <%= jog.getDesenvolvedorList() %>
                             </p>
                             <h3 class="titulocontato">Entre em contato</h3>
                             <p class="descricao">

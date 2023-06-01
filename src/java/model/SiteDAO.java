@@ -37,6 +37,28 @@ public class SiteDAO {
         }
     }
     
+    public List<Desenvolvedor> listarDesenvolvedor() {
+        conectar();
+        try {
+            TypedQuery<Desenvolvedor> query = manager.createNamedQuery("Desenvolvedor.findByIdDesenvolvedor", Desenvolvedor.class);
+            List<Desenvolvedor> dev = query.getResultList();
+            return dev;
+        } catch (NoResultException ex) {
+            return null;
+        }
+    }
+ 
+       public Desenvolvedor buscarDesenvolvedor( int idDesenvolvedor) {
+        conectar();
+        try {
+            Desenvolvedor prod = manager.find(Desenvolvedor.class, idDesenvolvedor);
+            return prod;
+        } catch (Exception ex) {
+            return null;
+        }
+    }
+    
+    
     public Usuario validarLogin(String email, String senha){
         conectar();
         try{
