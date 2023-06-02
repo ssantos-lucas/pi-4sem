@@ -1,3 +1,5 @@
+<%@page import="model.Desenvolvedor"%>
+<%@page import="model.SiteDAO"%>
 <%@page import="model.Jogo"%>
 <%@page import="model.Usuario"%>
 <%@page contentType="text/html" pageEncoding="ISO-8859-1"%>
@@ -32,8 +34,8 @@
                 <section class="infos">
                     <div class="conteiner-row">
                         <div class="conteiner-col">
-                            <%                                
-                                Jogo jog = (Jogo) request.getAttribute("Jogo");
+                            <%                                Jogo jog = (Jogo) request.getAttribute("Jogo");
+                                SiteDAO dao = new SiteDAO();
                             %>
                             <h1 class="titulojogo">
                                 <%= jog.getNomeJogo()%>
@@ -45,7 +47,17 @@
                                 Desenvolvedores
                             </h3>
                             <p class="descricao">
-                                <%= jog.getDesenvolvedorList() %>
+                                <%
+                                    for (Desenvolvedor dev : jog.getDesenvolvedorList()) {
+                                    if (jog.getDesenvolvedorList().size() != jog.getDesenvolvedorList().) {
+                                %>
+                                
+                                <text><%=dev.getNomeDesenvolvedor()%>,</text>
+
+                                <%     
+                                        }
+                                    }
+                                %>
                             </p>
                             <h3 class="titulocontato">Entre em contato</h3>
                             <p class="descricao">
@@ -67,9 +79,9 @@
                                 <div class="playbutton">
 
                                     <%
-                                        if (jog.getUrlJogo().equals(null)) {
+                                        if (jog.getUrlJogo()== null) {
                                     %>
-                                    <a href="#" class="botao"><span>Indisponível</span></a>
+                                    <a class="botao"><span>Indisponível</span></a>
                                     <%
                                     } else {
                                     %>

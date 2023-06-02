@@ -7,66 +7,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css
     Author     : Eddy Mauricio
 */
 /* header */
-header {
-    height: 50px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background-color: #1A1A1C;
-}
 
-header .sobre {
-    margin-left: 240px;
-    transition: 0.1s ease-in-out;
-    color: white;
-    padding: 10px 29.5px;
-}
-
-header .contato {
-    margin-right: 600px;
-    transition: 0.1s ease-in-out;
-    color: white;
-    padding: 10px 29.5px;
-}
-
-header .contato:hover,
-header .sobre:hover {
-    border-radius: 15px;
-    background-image: linear-gradient(to right, #87C0CD, #226597);
-    color: black;
-}
-
-header nav ul {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-header .navegacao ul li .search {
-    margin-right: 100px;
-    border-radius: 15px;
-    background-color: #87C0CD;
-    height: 37px;
-    width: 307px;
-    padding: 10px 20px;
-    text-align: center;
-}
-
-header .navegacao ul li .search::placeholder {
-    color: black;
-}
-
-header .navegacao ul li .login {
-    margin-right: 10px;
-    border-radius: 15px;
-    background-image: linear-gradient(to right, #87C0CD, #226597);
-    padding: 10px 69.5px;
-    font-weight: 600;
-}
-
-header .navegacao ul li .login span {
-    color: white;
-}
 
 .hero {
     display: flex;
@@ -231,10 +172,7 @@ main .botao span {
     margin-left: 227px;
 }
 
-footer {
-    height: 70px;
-    background-color: #1A1A1C;
-}
+
 
 .classificacao {
     text-align: center;
