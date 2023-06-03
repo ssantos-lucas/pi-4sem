@@ -49,13 +49,13 @@
                             <p class="descricao">
                                 <%
                                     for (Desenvolvedor dev : jog.getDesenvolvedorList()) {
-                                    if (jog.getDesenvolvedorList().size() != jog.getDesenvolvedorList().) {
+                                    
                                 %>
                                 
-                                <text><%=dev.getNomeDesenvolvedor()%>,</text>
+                                <text><%=dev.getNomeDesenvolvedor()%></text>
 
                                 <%     
-                                        }
+                                        
                                     }
                                 %>
                             </p>
