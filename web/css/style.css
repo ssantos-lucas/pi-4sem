@@ -10,11 +10,7 @@ body {
     /*background-image: linear-gradient(to bottom, #303841, #6B7288);*/
 }
 
-.hero {
-    display: flex;
-    justify-content: center;
-    /*background-image: linear-gradient(to bottom, #303841, #6B7288);*/
-}
+
 
 .jogo-container {
     /*background-color: #f1f1f1;*/
@@ -22,27 +18,33 @@ body {
     align-items: center;
     margin: 0 auto;
     display: flex;
-    
+
     flex-wrap: wrap;
+    margin: 10px 30px;
+}
+
+
+.jogo-container img{
+    height: 200px;
+    width: 200px;
+    
 }
 
 .titulos {
     text-align: center;
-    border: 1px solid #ccc;
+    border: none;
+    background-image: linear-gradient(to top, #303841, #6B7288);
+    color: white;
 }
 
 .itemjogo {
-    flex: 1;
-    margin: 5px;
+    margin: 20px;
     text-align: center;
     font-size: 1.5em;
     min-height: 200px;
     min-width: 200px;
-}
-
-.imgjogo {
-    height: 200px;
-    width: 200px;
+    box-shadow: 2px 2px 15px black;
+    background-color: #6B7288;
 }
 
 .dropbtn {

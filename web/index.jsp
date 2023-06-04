@@ -15,7 +15,7 @@
         <link rel="stylesheet" href="./css/reset.css">
         <link rel="stylesheet" href="./css/style.css">
         <link rel="stylesheet" href="./css/includes.css">
-        <title>Jogos</title>
+        <title>Inicio</title>
     </head>
 
     <body>
@@ -27,6 +27,7 @@
 
         <main>
             <!-- genero -->
+  
             <div class="jogo-container">
                 <%
                     SiteDAO dao = new SiteDAO();
@@ -35,8 +36,8 @@
                     for (Jogo jog : jogos) {
                 %>
                 <div class="itemjogo">
-                    <a href="Controle?flag=consultar&idJogo=<%= jog.getIdJogo()%>"><img src="./images/games/<%= jog.getImagemLogo() %>" class="imgjogo" alt="Jogo <%= jog.getNomeJogo() %>"></a>
-                    <p class="titulos"><%= jog.getNomeJogo() %></p>
+                   <img src="./images/games/<%= jog.getImagemLogo() %>" class="imgjogo" alt="Jogo <%= jog.getNomeJogo() %>">
+                     <a href="Controle?flag=consultar&idJogo=<%= jog.getIdJogo()%>"><p class="titulos"><%= jog.getNomeJogo() %></p></a>
                 </div>
                 <%
                 }
