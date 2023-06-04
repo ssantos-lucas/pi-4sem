@@ -1,3 +1,4 @@
+<%@page import="model.Categoria"%>
 <%@page import="model.Desenvolvedor"%>
 <%@page import="model.SiteDAO"%>
 <%@page import="model.Jogo"%>
@@ -49,24 +50,40 @@
                             <p class="descricao">
                                 <%
                                     for (Desenvolvedor dev : jog.getDesenvolvedorList()) {
-                                    
-                                %>
-                                
-                                <text><%=dev.getNomeDesenvolvedor()%></text>
+                                        if (dev.getNomeDesenvolvedor().length() != jog.getDesenvolvedorList().size() ) {
 
-                                <%     
-                                        
+
+                                %>
+
+                                <text><%= dev.getNomeDesenvolvedor()%>,</text>
+
+                                <%
+                                } else {
+
+                                %>
+
+                                <text><%= dev.getNomeDesenvolvedor()%>.</text>
+
+                                <%
+                                        }
                                     }
                                 %>
                             </p>
                             <h3 class="titulocontato">Entre em contato</h3>
                             <p class="descricao">
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae quas impedit neque. Cum
-                                voluptatum
-                                totam
-                                eum dicta ducimus expedita molestiae amet voluptates soluta. Eligendi placeat modi ullam
-                                delectus
-                                expedita minus.
+                                <%
+                                    for (Desenvolvedor dev : jog.getDesenvolvedorList()) {
+                                        if (dev.getContatoDesenvolvedor() != null) {
+                                %>
+                                <text> <%= dev.getContatoDesenvolvedor()%> </text>
+                                <%
+                                } else {
+                                %>
+                                <text> <%= dev.getNomeDesenvolvedor().split(" ")[0]%> sem contato </text>
+                                <%
+                                        }
+                                    }
+                                %>    
                             </p>
                         </div>
                         <div class="conteiner-col2">
@@ -79,13 +96,13 @@
                                 <div class="playbutton">
 
                                     <%
-                                        if (jog.getUrlJogo()== null) {
+                                        if (jog.getUrlJogo() != null) {
                                     %>
-                                    <a class="botao"><span>Indisponível</span></a>
+                                    <a href="<%= jog.getUrlJogo()%>" class="botao"><span>Jogar</span></a>
                                     <%
                                     } else {
                                     %>
-                                    <a href="<%= jog.getUrlJogo()%>" class="botao"><span>Jogar</span></a>
+                                    <text class="botao"><span>Indisponível</span></a>
                                     <%
                                         }
                                     %>
@@ -97,22 +114,63 @@
                                 <section class="especificacoes">
                                     <div class="conteiner-row">
                                         <div class="conteiner-col1">
+
+                                            <%
+                                                if (jog.getFaixaEtariaJogo() == 0) {
+                                            %>
+
+                                            <h3 class="classificacao">Livre</span></h3>
+
+                                            <%
+                                            } else {
+                                            %>
+
                                             <h3 class="classificacao">+ <%= jog.getFaixaEtariaJogo()%></span></h3>
+
+                                            <%
+                                                }
+                                            %>
+
                                             <p class="genero">
                                             <h3 class="genero-dentro">
                                                 Gênero:
                                             </h3>
-                                            <span class="generos">Terror, ação</span>
+                                            <%
+                                                for (Categoria cat : jog.getCategoriaList()) {
+                                                    if (cat.getTipoCategoria() == 1) {
+                                            %>
+                                            <span class="generos"><%= cat.getNomeCategoria()%></span>
+                                            <%
+                                                    }
+                                                }
+                                            %>
                                             </p>
                                             <br>
                                             <p class="plataforma">
                                             <h3 class="plataforma-dentro">Plataformas:</h3>
-                                            <span class="plataformas">macOS, Windows, Android</span>
+                                            <%
+                                                for (Categoria cat : jog.getCategoriaList()) {
+                                                    if (cat.getTipoCategoria() == 3) {
+                                            %>
+                                            <span class="plataformas"><%= cat.getNomeCategoria()%></span>
+                                            <%
+                                                    }
+                                                }
+                                            %>
                                             </p>
                                             <br>
                                             <p class="player">
                                             <h3 class="player-dentro">Jogadores:</h3>
-                                            <span class="players">Singleplayer, Multiplayer</span>
+                                            <%
+                                                for (Categoria cat : jog.getCategoriaList()) {
+                                                    if (cat.getTipoCategoria() == 2) {
+
+                                            %>
+                                            <span class="players"><%= cat.getNomeCategoria()%></span>
+                                            <%
+                                                    }
+                                                }
+                                            %>
                                             <br>
                                         </div>
                                     </div>
@@ -150,11 +208,15 @@
                 </div>
                 <div class="outros">
                     <h3 class="outros-jogos">Outros jogos:</h3>
-                    <script>
-                        // Aqui tem que colocar uma lógica para pegar outros 2 jogos aleatórios para dispor na tela.
-                    </script>
-                    <img src="./image/200x200.svg" alt="outro jogo">
-                    <img src="./image/200x200.svg" alt="outro jogo">
+                    <%
+                        for (Desenvolvedor dev : jog.getDesenvolvedorList()) {
+                            for (Jogo ljog : dev.getJogoList()) {
+                    %>
+                    <img src="./images/games/<%= ljog.getImagemLogo()%>" alt="<%= ljog.getNomeJogo()%>">
+                    <%
+                            }
+                        }
+                    %>
                 </div>
             </div>
         </main>
