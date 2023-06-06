@@ -36,7 +36,7 @@
                             <label for="E-mail">E-mail:</label><br>
                             <input class="input" type="email" id="email" name="email" required>
                         </p>
-                        <p>
+                        <p id="senha">
                             <label for="senha">Senha:</label><br>
                             <input class="input" type="password" id="senha" name="senha" required>
                             <a href="contato.jsp" class="esqueceu">Esqueceu sua senha?</a>
@@ -48,9 +48,9 @@
             </section>
             <section class="container dois">
                 <span class="titulo-secundario">Novo por aqui?</span>
-                <br>
+                <hr>
                 <!--<a href="cadastro.jsp"><input type="submit" class="btn-conta" value="Criar conta"></a>-->
-                <a href="cadastro.jsp">Criar Conta</a>
+                <a href="cadastro.jsp" id="criarconta">Criar Conta</a>
             </section>
                   
             <span class="contato">

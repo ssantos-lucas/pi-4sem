@@ -48,7 +48,6 @@ main .container p {
 main .container .esqueceu {
     font-size: 10px;
     color: #0500FF;
-    margin-left: 215px;
 }
 
 main .container p .input {
@@ -107,4 +106,28 @@ main .btn-conta {
     width: 178.39px;
     height: 27px;
     margin: 5px 0;
+}
+
+hr {
+    height: 10px;
+}
+
+form {
+    margin-bottom: 15px;
+    margin-left: 100px;
+    margin-right: 100px;
+    
+}
+
+.btn-entrar {
+    margin-left: 14%;
+    margin-right: 20%;
+}
+
+.img-logo {
+    margin-top: 100%;
+}
+
+#criarconta {
+    color: #0500FF;
 }
