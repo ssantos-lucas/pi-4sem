@@ -1,0 +1,40 @@
+html {
+    font-size: 62.5%;
+}
+
+main{
+     background-image: linear-gradient(to top, #303841, #6B7288);
+     height: 62vh;
+}
+section {
+    height: 100px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+section img{
+    margin-top: 30px;
+}
+
+.informacoes {
+    color: black;
+    height: 245px;
+}
+
+main .titulo {
+    font-size: 30px;
+    color: white;
+    font-weight: 600;
+    margin: 25px;
+    text-align: center;
+}
+
+main .texto {
+    font-size: 20px;
+    text-align: center;
+    opacity: 80%;
+    
+}
+

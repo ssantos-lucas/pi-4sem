@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/reset.css">
-    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/sobre.css">
     <link rel="stylesheet" href="./css/includes.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -16,13 +16,18 @@
 
 <body>
     <%@include file="includes/header.jsp"%>
-    
     <main class="main">
+        
+    <section class="painel">
+        <img class="img-logo" src="./images/CapiLogo.png" alt="Logo do site">
+    </section>
+    
+        <div class="informacoes">
         <h1 class="titulo">SOBRE A EQUIPE</h1>
         <p class="texto"> (Texto sobre a equipe) Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eveniet, ad
             nostrum delectus asperiores quisquam tenetur explicabo beatae iusto, ducimus consequuntur veniam quae dicta
             saepe nam recusandae ut quibusdam reprehenderit deleniti! <br>
-        </p>
+        </p></div>
     </main>
     <%@include file="includes/footer.jsp"%>
 </body>

@@ -8,7 +8,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    min-height: 75px;
+    height: 125px;
     padding: 20px 40px;
     background-color: black;
 }
@@ -35,11 +35,11 @@
 
 /*footer styles*/
 footer {
-    height: 120px;
+    height: 118px;
     background-color: black;
     font-size: 1.2rem;
     color: rgba(255, 255, 255, 0.65);
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
 }
