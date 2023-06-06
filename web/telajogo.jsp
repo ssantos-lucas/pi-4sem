@@ -49,12 +49,15 @@
                             </h3>
                             <p class="descricao">
                                 <%
+                                    // definindo variavel contador
+                                    int cont = 0;
+                                    //inicio do for each
                                     for (Desenvolvedor dev : jog.getDesenvolvedorList()) {
-                                        if (dev.getNomeDesenvolvedor().length() != jog.getDesenvolvedorList().size() ) {
-
+                                        //verificando se o contador é igual ao tamanho da lista do desenvolvedor
+                                        if (cont == jog.getDesenvolvedorList().size()) {
 
                                 %>
-
+                                <!-- print q deve sair se o tamanho menor -->
                                 <text><%= dev.getNomeDesenvolvedor()%>,</text>
 
                                 <%
@@ -66,6 +69,7 @@
 
                                 <%
                                         }
+                                        cont++;
                                     }
                                 %>
                             </p>
