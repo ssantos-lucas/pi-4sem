@@ -47,44 +47,21 @@
                             <h3 class="titulodesenvolvedores">
                                 Desenvolvedores
                             </h3>
-                            <p class="descricao">
-                                <%
-                                    for (Desenvolvedor dev : jog.getDesenvolvedorList()) {
-                                        if (dev.getNomeDesenvolvedor().length() != jog.getDesenvolvedorList().size() ) {
-
-
-                                %>
-
-                                <text><%= dev.getNomeDesenvolvedor()%>,</text>
-
-                                <%
-                                } else {
-
-                                %>
-
-                                <text><%= dev.getNomeDesenvolvedor()%>.</text>
-
-                                <%
-                                        }
-                                    }
-                                %>
-                            </p>
-                            <h3 class="titulocontato">Entre em contato</h3>
-                            <p class="descricao">
+                            <ul class="descricao">
                                 <%
                                     for (Desenvolvedor dev : jog.getDesenvolvedorList()) {
                                         if (dev.getContatoDesenvolvedor() != null) {
                                 %>
-                                <text> <%= dev.getContatoDesenvolvedor()%> </text>
+                                <li><a href="<%= dev.getContatoDesenvolvedor()%>"><%= dev.getNomeDesenvolvedor()%></a><li>
                                 <%
                                 } else {
                                 %>
-                                <text> <%= dev.getNomeDesenvolvedor().split(" ")[0]%> sem contato </text>
+                                <li><%= dev.getNomeDesenvolvedor()%></li>
                                 <%
                                         }
                                     }
                                 %>    
-                            </p>
+                            </ul>
                         </div>
                         <div class="conteiner-col2">
                             <div class="buttons">
