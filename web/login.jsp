@@ -18,18 +18,29 @@
             <a href="index.jsp"><img src="./images/CapiLogo.png" alt="logo do site" class="img-logo"></a>
         </header>
         <main class="main">
-            <section class="container">
-                <span class="titulo">Iniciar Sessão</span>
-                
+            <section class="container" id="section">
+                <span class="titulo" id="titulo">Iniciar Sessão</span>
+
                 <form method="POST" action="Controle"> 
                     <input type="hidden" name="flag" value="login">
                     <div class="dados">
+                        <script>
+                            function aumentarSection() {
+                                login = document.getElementById("section");
+                                titulo = document.getElementById("titulo");
+                                login.style.height = "325px";
+                                titulo.style.paddingBottom = "0px";
+                            }
+                        </script>
                         <div class="feedback-usuario">
-                            <% if(request.getAttribute("erro") != null){ 
+                            <% if (request.getAttribute("erro") != null) {
                             %>
                             <p><%=request.getAttribute("erro")%></p>
+                            <script>
+                                aumentarSection();
+                            </script>
                             <%
-                            }
+                                }
                             %>
                         </div>
                         <p>
@@ -42,7 +53,7 @@
                             <a href="contato.jsp" class="esqueceu">Esqueceu sua senha?</a>
                         </p>
                     </div>
-                    
+
                     <br><input type="submit" class="btn-entrar" value="Entrar">     
                 </form>
             </section>
@@ -52,7 +63,7 @@
                 <!--<a href="cadastro.jsp"><input type="submit" class="btn-conta" value="Criar conta"></a>-->
                 <a href="cadastro.jsp" id="criarconta">Criar Conta</a>
             </section>
-                  
+
             <span class="contato">
                 <a href="contato.jsp" class="entrecontato">Entre em contato</a>
             </span>

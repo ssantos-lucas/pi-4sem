@@ -14,6 +14,10 @@ header {
     height: 200px;
 }*/
 
+.img-logo {
+    margin-top: 100%;
+}
+
 main {
     display: flex;
     flex-direction: column;
@@ -27,7 +31,7 @@ main .container {
     justify-content: center;
     align-items: center;
     background-color: white;
-    width: 365px;
+    width: 270px;
     height: 311px;
     border-radius: 20px;
 }
@@ -58,7 +62,7 @@ main .container .campo {
     padding: 9px 60px;
     color: white;
     font-weight: 600;
-    margin: 10px 0 15px 13px;
+    margin: 10px 0 15px 0px;
     border: none;
 }
 
