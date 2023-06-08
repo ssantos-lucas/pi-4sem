@@ -4,23 +4,35 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
         <link rel="stylesheet" href="./css/reset.css">
-        <link rel="stylesheet" href="./css/style.css">
-        <link rel="stylesheet" href="./css/includes.css">
+        <link rel="stylesheet" href="./css/contato.css">
         <link rel="stylesheet" href="./css/mensagens.css">
         <title>Contato</title>
     </head>
     <body>
+
         <%@include file="includes/header.jsp"%>
-        <h2>Entre em contato</h2>
-        <p>Fale conosco através do email gamehubsenac@gmail.com</p>
-        <p>Se você é um aluno ou ex-aluno da instituição e quer publicar seu jogo em nossa plataforma, nos envie um email com assunto "publicar jogo" e lhe encaminharemos um formulário de preenchimento.</p>
-        <ul>
-            <li>Se você ESQUECEU A SENHA, nos mande um email com assunto "esqueci senha".</li>
-            <li>Caso tenha alguma dúvida ou crítica, coloque no assunto do email "dúvida".</li>
-            <li>Caso tenha alguma sugestão, coloque no assunto do email "sugestão" e nos deixe saber o que pensa.</li>
-            <li>E para demais assuntos, coloque como "outros".</li>
-        </ul>
-        <p>Responderemos a todos o mais breve possível!</p>
-        <%@include file="includes/footer.jsp"%>
+
+        <main>
+            <section class="perfil">
+                <h1 class="contato">Entre em contato para: </h1>
+    
+                <span class="email">Fale conosco atravÃ©s do email: gamehubsenac@gmail.com.</span>
+    
+                <p>Se vocÃª Ã© um aluno ou ex-aluno da instituiÃ§Ã£o e quer publicar seu jogo em nossa plataforma, nos envie um  email com assunto "publicar jogo" e lhe encaminharemos um formulÃ¡rio de preenchimento.</p>
+    
+                <ul>
+                    <li><span class="dados">Se vocÃª ESQUECEU A SENHA, nos mande um email com assunto "esqueci senha".
+                        </span></li>
+    
+                    <li><span class="dados">Caso tenha alguma dÃºvida ou crÃ­tica, coloque no assunto do email "dÃºvida".
+                        </span></li>
+                    <li><span class="dados">Caso tenha alguma sugestÃ£o, coloque no assunto do email "sugestÃ£o" e nos deixe saber o que pensa. </span></li>
+                    <li><span class="dados">E para demais assuntos, coloque como "outros".</span></li>
+                </ul>
+    
+                <span class="dados resposta">Responderemos a todos o mais breve possÃ­vel!</span>
+    
+            </section>
+        </main>
     </body>
 </html>

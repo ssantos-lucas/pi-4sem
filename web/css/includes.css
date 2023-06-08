@@ -4,11 +4,13 @@
     height: 120px;
 }
 
+
+
 .header .header-container{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 125px;
+    height: 20vh;
     padding: 20px 40px;
     background-color: black;
 }
@@ -35,7 +37,7 @@
 
 /*footer styles*/
 footer {
-    height: 118px;
+    height: 12vh;
     background-color: black;
     font-size: 1.2rem;
     color: rgba(255, 255, 255, 0.65);

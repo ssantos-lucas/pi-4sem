@@ -1,0 +1,61 @@
+html {
+    font-size: 62.5%;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-image: linear-gradient(to right, #646B7F, #48505E);
+    height: 80vh;
+}
+
+main .perfil {
+    width: 690px;
+    height: 395px;
+    background-color: #3D4451;
+    border-radius: 15px;
+    padding: 15px 30px;
+}
+
+main .contato {
+    color: white;
+    font-size: 38px;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+main .email {
+    font-size: 18px;
+    color: white;
+    font-weight: 300;
+}
+
+
+p{
+    color: white;
+    font-size: 18px;
+    text-align: justify;
+    margin: 10px 0;
+}
+
+.lista{
+    margin: 15px 0;
+}
+
+
+.dados {
+    font-size: 18px;
+    color: white;
+    font-weight: 300;
+}
+
+ul li{
+    margin: 10px 0;
+}
+
+.resposta{
+    margin-left: 112px;
+}

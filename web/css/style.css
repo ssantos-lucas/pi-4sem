@@ -35,12 +35,12 @@ body {
     border: none;
     background-image: linear-gradient(to top, #303841, #6B7288);
     color: white;
+    font-size: 17px;
 }
 
 .itemjogo {
     margin: 20px;
     text-align: center;
-    font-size: 1.5em;
     min-height: 200px;
     min-width: 200px;
     box-shadow: 2px 2px 15px black;

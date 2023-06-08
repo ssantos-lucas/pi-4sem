@@ -14,7 +14,6 @@
         <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;500;700;900&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="./css/reset.css">
         <link rel="stylesheet" href="./css/style.css">
-        <link rel="stylesheet" href="./css/includes.css">
         <title>Inicio</title>
     </head>
 
