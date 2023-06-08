@@ -52,22 +52,16 @@ public class Desenvolvedor implements Serializable {
     @Size(min = 1, max = 60)
     @Column(name = "nomeDesenvolvedor")
     private String nomeDesenvolvedor;
-    @Basic(optional = false)
-    @NotNull
-    @Size(min = 1, max = 40)
+    @Size(max = 40)
     @Column(name = "emailDesenvolvedor")
     private String emailDesenvolvedor;
-    @Basic(optional = false)
-    @NotNull
     @Column(name = "dataNascDesenvolvedor")
     @Temporal(TemporalType.DATE)
     private Date dataNascDesenvolvedor;
-    @Basic(optional = false)
-    @NotNull
-    @Size(min = 1, max = 15)
+    @Size(max = 15)
     @Column(name = "estadoDesenvolvedor")
     private String estadoDesenvolvedor;
-    @Size(max = 45)
+    @Size(max = 255)
     @Column(name = "ContatoDesenvolvedor")
     private String contatoDesenvolvedor;
     @JoinTable(name = "jogo_desenvolvedor", joinColumns = {
@@ -83,12 +77,9 @@ public class Desenvolvedor implements Serializable {
         this.idDesenvolvedor = idDesenvolvedor;
     }
 
-    public Desenvolvedor(Integer idDesenvolvedor, String nomeDesenvolvedor, String emailDesenvolvedor, Date dataNascDesenvolvedor, String estadoDesenvolvedor) {
+    public Desenvolvedor(Integer idDesenvolvedor, String nomeDesenvolvedor) {
         this.idDesenvolvedor = idDesenvolvedor;
         this.nomeDesenvolvedor = nomeDesenvolvedor;
-        this.emailDesenvolvedor = emailDesenvolvedor;
-        this.dataNascDesenvolvedor = dataNascDesenvolvedor;
-        this.estadoDesenvolvedor = estadoDesenvolvedor;
     }
 
     public Integer getIdDesenvolvedor() {
@@ -166,19 +157,10 @@ public class Desenvolvedor implements Serializable {
         }
         return true;
     }
-    
-    public String[] getDev() {
-        String[] dev = new String[2];
-        dev[0] = idDesenvolvedor.toString();
-        dev[1] = nomeDesenvolvedor;
-        return dev;
-        //return  nomeDesenvolvedor ;
-    }
 
     @Override
     public String toString() {
-        return "" + idDesenvolvedor + "";
-        //return  nomeDesenvolvedor ;
+        return "model.Desenvolvedor[ idDesenvolvedor=" + idDesenvolvedor + " ]";
     }
     
 }
