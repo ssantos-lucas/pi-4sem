@@ -10,10 +10,13 @@ body {
     /*background-image: linear-gradient(to bottom, #303841, #6B7288);*/
 }
 
-main{
-     background-image: linear-gradient(to top, #303841, #6B7288);
-     height: 73vh;
+main {
+     display: flex;
+    justify-content: center;
+    align-items: center;
+    
 }
+
 section {
     height: 100px;
 
@@ -28,7 +31,7 @@ section img{
 
 .informacoes {
     color: black;
-    height: 245px;
+    width: 500px;
 }
 
 main .titulo {
@@ -40,9 +43,10 @@ main .titulo {
 }
 
 main .texto {
-    font-size: 20px;
+    font-size: 15px;
     text-align: center;
     opacity: 80%;
+    text-align: justify;
     
 }
 
