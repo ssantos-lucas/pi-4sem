@@ -11,14 +11,12 @@
         <meta charset="ISO-8859-1">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="./css/reset.css">
+        <link rel="stylesheet" href="./css/includes.css">       
+        <link rel="stylesheet" href="./css/jogo.css">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;500;700;900&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="./css/reset.css">
-        <link rel="stylesheet" href="./css/jogo.css">
-        <link rel="stylesheet" href="./css/style.css">
-        <link rel="stylesheet" href="./css/includes.css">
-        <script src="https://kit.fontawesome.com/d220a535d8.js" crossorigin="anonymous"></script>
+        <link href="https://fonts.googleapis.com/css2?family=Jost:wght@200;400;600&display=swap" rel="stylesheet">
         <title>Jogo</title>
     </head>
 
@@ -53,14 +51,14 @@
                                         if (dev.getContatoDesenvolvedor() != null) {
                                 %>
                                 <li><a href="<%= dev.getContatoDesenvolvedor()%>"><%= dev.getNomeDesenvolvedor()%></a><li>
-                                <%
-                                } else {
-                                %>
+                                    <%
+                                    } else {
+                                    %>
                                 <li><%= dev.getNomeDesenvolvedor()%></li>
-                                <%
+                                    <%
+                                            }
                                         }
-                                    }
-                                %>    
+                                    %>    
                             </ul>
                         </div>
                         <div class="conteiner-col2">

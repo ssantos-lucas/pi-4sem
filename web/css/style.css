@@ -4,7 +4,7 @@ html {
 
 body {
     font-size: 1.6rem;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Jost', sans-serif;
     font-weight: 400;
     background-color: rgb(97, 103, 123);
     /*background-image: linear-gradient(to bottom, #303841, #6B7288);*/
@@ -27,7 +27,7 @@ body {
 .jogo-container img{
     height: 200px;
     width: 200px;
-    
+
 }
 
 .titulos {
@@ -35,7 +35,14 @@ body {
     border: none;
     background-image: linear-gradient(to top, #303841, #6B7288);
     color: white;
-    font-size: 17px;
+    font-size: 15px;
+    padding: 2px 3px;
+    transition: 0.2s ease-in-out;
+}
+
+.titulos:hover{
+    color: black;
+    font-weight: 600;
 }
 
 .itemjogo {

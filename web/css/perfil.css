@@ -4,6 +4,7 @@ main {
     justify-items: center;
     align-items: center;
     background-image: linear-gradient(to right, #646B7F, #48505E);
+    font-family: 'Jost', sans-serif;
 }
 
 .perfil {

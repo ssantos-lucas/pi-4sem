@@ -21,7 +21,7 @@ main {
 
 main .perfil {
     width: 690px;
-    height: 395px;
+    height: 420px;
     background-color: #3D4451;
     border-radius: 15px;
     padding: 15px 30px;
@@ -38,7 +38,7 @@ main .contato {
 main .email {
     font-size: 18px;
     color: white;
-    font-weight: 300;
+    font-weight: 400;
 }
 
 
@@ -65,5 +65,5 @@ ul li{
 }
 
 .resposta{
-    margin-left: 112px;
+    margin-left: 130px;
 }

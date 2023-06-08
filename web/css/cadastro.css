@@ -1,6 +1,6 @@
 body {
     background-image: linear-gradient(to left, #62687C, #434B58);
-    font-family: 'Inter', sans-serif;
+    font-family: 'Jost', sans-serif;
 }
 
 header {
@@ -78,5 +78,5 @@ main .contato a{
     justify-content: center;
     align-items: center;
     margin-top: 15px;
-    
+
 }
