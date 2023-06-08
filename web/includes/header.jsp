@@ -18,9 +18,11 @@
                         String primeiroNome = uLogado.getNomeUsuario().split(" ")[0];
                     %>
                     <a href="perfil.jsp"><span><%=primeiroNome%></span></a>
+                    </li>
                     <li>
                         <a href="Controle?flag=logout"> Sair </a>
                     </li>
+                    <li>
                     <%
                         } else {
                     %>

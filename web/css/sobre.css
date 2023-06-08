@@ -2,9 +2,17 @@ html {
     font-size: 62.5%;
 }
 
+body {
+    font-size: 1.6rem;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    background-color: rgb(97, 103, 123);
+    /*background-image: linear-gradient(to bottom, #303841, #6B7288);*/
+}
+
 main{
      background-image: linear-gradient(to top, #303841, #6B7288);
-     height: 70vh;
+     height: 73vh;
 }
 section {
     height: 100px;

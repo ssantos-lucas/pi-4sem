@@ -1,7 +1,7 @@
 /*header styles*/
 .img-logo {
-    width: 120px;
-    height: 120px;
+    max-width: 100px;
+    max-height: 100px;
 }
 
 
@@ -10,8 +10,8 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 20vh;
-    padding: 20px 40px;
+    height: 15vh;
+    padding: 20px;
     background-color: black;
 }
 
@@ -22,8 +22,8 @@
 .header nav ul li a{
     font-size: 1.8rem;
     font-weight: 400;
-    padding: 0px 30px;
-    border-radius: 20px;
+    padding: 2px 30px;
+    border-radius: 15px;
     transition: 0.3s ease-in-out;
     margin-left: 30px;
     color: rgba(255, 255, 255, 0.75);

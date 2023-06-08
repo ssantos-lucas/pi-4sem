@@ -35,8 +35,8 @@
                     for (Jogo jog : jogos) {
                 %>
                 <div class="itemjogo">
-                   <img src="./images/games/<%= jog.getImagemLogo() %>" class="imgjogo" alt="Jogo <%= jog.getNomeJogo() %>">
-                     <a href="Controle?flag=consultar&idJogo=<%= jog.getIdJogo()%>"><p class="titulos"><%= jog.getNomeJogo() %></p></a>
+                   <a href="Controle?flag=consultar&idJogo=<%= jog.getIdJogo()%>"><img src="./images/games/<%= jog.getImagemLogo() %>" class="imgjogo" alt="Jogo <%= jog.getNomeJogo() %>">
+                     <p class="titulos"><%= jog.getNomeJogo() %></p></a>
                 </div>
                 <%
                 }

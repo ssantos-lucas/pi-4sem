@@ -2,13 +2,21 @@ html {
     font-size: 62.5%;
 }
 
+body {
+    font-size: 1.6rem;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    background-color: rgb(97, 103, 123);
+    /*background-image: linear-gradient(to bottom, #303841, #6B7288);*/
+}
+
 main {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     background-image: linear-gradient(to right, #646B7F, #48505E);
-    height: 80vh;
+    height: 85vh;
 }
 
 main .perfil {
