@@ -30,7 +30,7 @@
                 <%
                 return;
             }%>
-            <h2>Perfil</h2>
+            <h2 id="perfilh2">Perfil</h2>
             <form class="perfil" method="POST" action="Controle">
                 <input type="hidden" name="flag" value="editarPerfil">
                 <br>
@@ -69,10 +69,10 @@
                     <input id="estado" type="text" name="estado" value="<%=estado%>"> 
                 </p>
                 <br>
-                <input type="submit" value="Salvar"> 
+                <input type="submit" value="Salvar" id="saveBttn"> 
             </form>
                 <br>
-                <h2>Favoritos</h2>
+                <h2 id="favoritosh2">Favoritos</h2>
         </main>
         <%@include file="includes/footer.jsp"%>
     </body>

@@ -34,6 +34,7 @@ main .container {
     width: 270px;
     height: 311px;
     border-radius: 20px;
+    margin-top: 10px;
 }
 
 main .titulo {
