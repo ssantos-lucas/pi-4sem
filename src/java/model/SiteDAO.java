@@ -1,7 +1,6 @@
 package model;
 
 import java.util.Date;
-//import java.sql.Date;
 import java.util.List;
 import javax.persistence.EntityExistsException;
 import javax.persistence.EntityManager;
@@ -11,10 +10,7 @@ import javax.persistence.Persistence;
 import javax.persistence.RollbackException;
 import javax.persistence.TypedQuery;
 
-/**
- *
- * @author Eddy Mauricio
- */
+
 public class SiteDAO {
 
     private EntityManagerFactory conn;
@@ -23,7 +19,6 @@ public class SiteDAO {
     public void conectar() {
         conn = Persistence.createEntityManagerFactory("GameHubPU");
         manager = conn.createEntityManager();
-
     }
 
     public List<Jogo> listarJogos() {
@@ -48,7 +43,7 @@ public class SiteDAO {
         }
     }
  
-       public Desenvolvedor buscarDesenvolvedor( int idDesenvolvedor) {
+    public Desenvolvedor buscarDesenvolvedor( int idDesenvolvedor) {
         conectar();
         try {
             Desenvolvedor prod = manager.find(Desenvolvedor.class, idDesenvolvedor);
@@ -57,7 +52,6 @@ public class SiteDAO {
             return null;
         }
     }
-    
     
     public Usuario validarLogin(String email, String senha){
         conectar();
@@ -116,13 +110,24 @@ public class SiteDAO {
         }
     }
     
-     public Jogo consultarJogo(int idJogo) {
+    public Jogo consultarJogo(int idJogo) {
         conectar();
         try {
             TypedQuery queryId = manager.createNamedQuery("Jogo.findByIdJogo", Jogo.class);
             queryId.setParameter("idJogo", idJogo);
             Jogo jog = (Jogo) queryId.getSingleResult();
             return jog;
+        } catch (NoResultException ex) {
+            return null;
+        }
+    }
+    
+    public List<Jogo> consultarJogo(String nomeJogo) {
+        conectar();
+        try {
+            TypedQuery queryNome = manager.createNamedQuery("Jogo.findByNomeJogo", Jogo.class);
+            queryNome.setParameter("nomeJogo", "%" + nomeJogo + "%");
+            return queryNome.getResultList();
         } catch (NoResultException ex) {
             return null;
         }

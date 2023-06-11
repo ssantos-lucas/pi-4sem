@@ -14,30 +14,21 @@
         <title>Contato</title>
     </head>
     <body>
-
         <%@include file="includes/header.jsp"%>
-
         <main>
-            <section class="perfil">
-                <h1 class="contato">Entre em contato: </h1>
-
-                <span class="email">Fale conosco através do email: gamehubsenac@gmail.com.</span>
-
+            <section class="contato">
+                <h1 class="titulo">Entre em contato</h1>
+                <p class="center">Fale conosco através do email: <a href="mailto:gamehubsenac@gmail.com">gamehubsenac@gmail.com</a></p>
                 <p>Se você é um aluno ou ex-aluno da instituição e quer publicar seu jogo em nossa plataforma, nos envie um  email com assunto "publicar jogo" e lhe encaminharemos um formulário de preenchimento.</p>
-
                 <ul>
-                    <li><span class="dados">Se você ESQUECEU A SENHA, nos mande um email com assunto "esqueci senha".
-                        </span></li>
-
-                    <li><span class="dados">Caso tenha alguma dúvida ou critíca, coloque no assunto do email "dúvida".
-                        </span></li>
-                    <li><span class="dados">Caso tenha alguma sugestão, coloque no assunto do email "sugestão" e nos deixe saber o que pensa. </span></li>
-                    <li><span class="dados">E para demais assuntos, coloque como "outros".</span></li>
+                    <li>Se você ESQUECEU A SENHA, nos mande um email com assunto "esqueci senha".</li>
+                    <li>Caso tenha alguma dúvida ou critíca, coloque no assunto do email "dúvida".</li>
+                    <li>Caso tenha alguma sugestão, coloque no assunto do email "sugestão" e nos deixe saber o que pensa.</li>
+                    <li>E para demais assuntos, coloque como "outros".</li>
                 </ul>
-
-                <span class="dados resposta">Responderemos a todos o mais breve possível!</span>
-
+                <p class="center">Responderemos a todos o mais breve possível!</p>
             </section>
         </main>
+        <%@include file="includes/footer.jsp"%>
     </body>
 </html>

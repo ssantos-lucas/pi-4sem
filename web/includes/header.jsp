@@ -9,7 +9,14 @@
             <ul>
                 <li><a href="sobre.jsp">Sobre</a></li>
                 <li><a href="contato.jsp">Contato</a></li>
-                <li><a href="#">Busca</a></li>
+                <form method="GET" action="Controle"> 
+                    <input type="hidden" name="flag" value="barraDeBusca">
+                    <div id="barraDeBusca">
+                        <label class="btn-barraDeBusca" for="inputBarraDeBusca"><img src="./images/magnifying-glass.jpeg"></label>
+                        <input id="inputBarraDeBusca" type="text" name="nomeJogo" placeholder="Buscar jogos">
+                        <!--<input class="btn-barraDeBusca" type="submit" value="Buscar">--> 
+                    </div>>
+                </form>
                 <li>
                     <%
                         Usuario uLogado = (Usuario)session.getAttribute("usuarioLogado");

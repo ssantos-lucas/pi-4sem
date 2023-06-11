@@ -17,7 +17,6 @@
         <link rel="stylesheet" href="./css/reset.css">
         <link rel="stylesheet" href="./css/jogo.css">
         <link rel="stylesheet" href="./css/style.css">
-        <link rel="stylesheet" href="./css/includes.css">
         <script src="https://kit.fontawesome.com/d220a535d8.js" crossorigin="anonymous"></script>
         <title>Jogo</title>
     </head>
@@ -33,9 +32,10 @@
 
             <div class="conteudo">
                 <section class="infos">
-                    <div class="conteiner-row">
-                        <div class="conteiner-col">
-                            <%                                Jogo jog = (Jogo) request.getAttribute("Jogo");
+                    <div class="container-row">
+                        <div class="container-col">
+                            <%                                
+                                Jogo jog = (Jogo) request.getAttribute("Jogo");
                                 SiteDAO dao = new SiteDAO();
                             %>
                             <h1 class="titulojogo">
@@ -47,12 +47,18 @@
                             <h3 class="titulodesenvolvedores">
                                 Desenvolvedores
                             </h3>
-                            <ul class="descricao">
+                            <ul class="contatos-desenvolvedores descricao">
                                 <%
                                     for (Desenvolvedor dev : jog.getDesenvolvedorList()) {
                                         if (dev.getContatoDesenvolvedor() != null) {
+                                            String link;
+                                            if(dev.getContatoDesenvolvedor().contains("@")){
+                                                link = "mailto:" + dev.getContatoDesenvolvedor();
+                                            } else {
+                                                link = dev.getContatoDesenvolvedor();
+                                            }
                                 %>
-                                <li><a href="<%= dev.getContatoDesenvolvedor()%>"><%= dev.getNomeDesenvolvedor()%></a><li>
+                                <li><a href="<%= link %>" target="_blank"><%= dev.getNomeDesenvolvedor()%></a></li>
                                 <%
                                 } else {
                                 %>
@@ -63,9 +69,9 @@
                                 %>    
                             </ul>
                         </div>
-                        <div class="conteiner-col2">
+                        <div class="container-col2">
                             <div class="buttons">
-                                <div class="conteiner-row-favoritar">
+                                <div class="container-row-favoritar">
                                     <label for="button1" id="favoritar"><span>Favoritar</span></label>
                                     <button id="button1" class="bttn1" onclick="toggle()">
                                         <i class="fa-solid fa-heart"></i></button>
@@ -86,11 +92,10 @@
 
                                 </div>
                             </div>
-                            <!-- <hr> -->
-                            <div class="conteiner-row-especificacoes">
+                            <div class="container-row-especificacoes">
                                 <section class="especificacoes">
-                                    <div class="conteiner-row">
-                                        <div class="conteiner-col1">
+                                    <div class="container-row">
+                                        <div class="container-col1">
 
                                             <%
                                                 if (jog.getFaixaEtariaJogo() == 0) {
@@ -183,13 +188,15 @@
                 <div id="divisor">
                     <hr>
                 </div>
+                <h3 class="outros-titulo">Outros jogos</h3>
                 <div class="outros">
-                    <h3 class="outros-jogos">Outros jogos:</h3>
                     <%
                         for (Desenvolvedor dev : jog.getDesenvolvedorList()) {
                             for (Jogo ljog : dev.getJogoList()) {
                     %>
-                    <img src="./images/games/<%= ljog.getImagemLogo()%>" alt="<%= ljog.getNomeJogo()%>">
+                    <div class="outros-img">
+                        <a href="Controle?flag=consultar&idJogo=<%= ljog.getIdJogo() %>"><img src="./images/games/<%= ljog.getImagemLogo()%>" alt="<%= ljog.getNomeJogo()%>">
+                    </div>
                     <%
                             }
                         }

@@ -10,24 +10,19 @@ body {
     /*background-image: linear-gradient(to bottom, #303841, #6B7288);*/
 }
 
-
-
 .jogo-container {
     /*background-color: #f1f1f1;*/
     justify-content: space-around;
     align-items: center;
     margin: 0 auto;
     display: flex;
-
     flex-wrap: wrap;
     margin: 10px 30px;
 }
 
-
 .jogo-container img{
     height: 200px;
     width: 200px;
-    
 }
 
 .titulos {

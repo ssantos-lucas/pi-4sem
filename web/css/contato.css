@@ -7,7 +7,6 @@ body {
     font-family: 'Roboto', sans-serif;
     font-weight: 400;
     background-color: rgb(97, 103, 123);
-    /*background-image: linear-gradient(to bottom, #303841, #6B7288);*/
 }
 
 main {
@@ -19,51 +18,42 @@ main {
     height: 85vh;
 }
 
-main .perfil {
-    width: 690px;
-    height: 395px;
+.contato {
+    width: 800px;
+    min-height: 400px;
     background-color: #3D4451;
     border-radius: 15px;
     padding: 15px 30px;
 }
 
-main .contato {
-    color: white;
-    font-size: 38px;
+.contato * {
+    color: rgba(255, 255, 255, 0.75);
+}
+
+.contato a {
+    text-decoration: underline;
+}
+
+.titulo {
+    font-size: 32px;
     font-weight: 600;
     text-align: center;
-    margin-bottom: 10px;
+    margin: 20px;
 }
 
-main .email {
+.center {
     font-size: 18px;
-    color: white;
-    font-weight: 300;
+    text-align: center;
+    font-weight: 600;
 }
 
-
-p{
-    color: white;
+.contato p {
     font-size: 18px;
-    text-align: justify;
-    margin: 10px 0;
+    margin: 20px 0;
 }
 
-.lista{
-    margin: 15px 0;
-}
-
-
-.dados {
+.contato li {
+    list-style-type: disc;
     font-size: 18px;
-    color: white;
-    font-weight: 300;
-}
-
-ul li{
-    margin: 10px 0;
-}
-
-.resposta{
-    margin-left: 112px;
+    margin: 10px 20px;
 }

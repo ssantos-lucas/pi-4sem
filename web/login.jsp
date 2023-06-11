@@ -60,10 +60,8 @@
             <section class="container dois">
                 <span class="titulo-secundario">Novo por aqui?</span>
                 <hr>
-                <!--<a href="cadastro.jsp"><input type="submit" class="btn-conta" value="Criar conta"></a>-->
                 <a href="cadastro.jsp" id="criarconta">Criar Conta</a>
             </section>
-
             <span class="contato">
                 <a href="contato.jsp" class="entrecontato">Entre em contato</a>
             </span>

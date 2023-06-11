@@ -7,46 +7,32 @@ body {
     font-family: 'Roboto', sans-serif;
     font-weight: 400;
     background-color: rgb(97, 103, 123);
-    /*background-image: linear-gradient(to bottom, #303841, #6B7288);*/
 }
 
 main {
-     display: flex;
-    justify-content: center;
-    align-items: center;
-    
-}
-
-section {
-    height: 100px;
-
     display: flex;
     justify-content: center;
     align-items: center;
+    height: 85vh;
 }
 
-section img{
-    margin-top: 30px;
+.sobre * {
+    color: rgba(255, 255, 255, 0.75);
+    padding: 15px 30px;
 }
 
-.informacoes {
-    color: black;
-    width: 500px;
-}
-
-main .titulo {
-    font-size: 30px;
-    color: white;
-    font-weight: 600;
-    margin: 25px;
-    text-align: center;
-}
-
-main .texto {
-    font-size: 15px;
-    text-align: center;
-    opacity: 80%;
+.sobre p {
+    width: 600px;
+    font-size: 18px;
     text-align: justify;
-    
 }
+
+.titulo {
+    font-size: 32px;
+    font-weight: 600;
+    text-align: center;
+    margin: 20px 20px;
+    color: rgba(255, 255, 255, 0.75);
+}
+    
 

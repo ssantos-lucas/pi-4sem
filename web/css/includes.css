@@ -1,16 +1,14 @@
-/*header styles*/
+/* HEADER STYLES */
 .img-logo {
-    max-width: 100px;
-    max-height: 100px;
+    max-width: 130px;
+    max-height: 130px;
 }
-
-
 
 .header .header-container{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 90px;
+    height: 130px;
     padding: 20px;
     background-color: black;
 }
@@ -19,12 +17,12 @@
     display: flex;
 }
 
-.header nav ul li a{
-    font-size: 1.8rem;
-    font-weight: 400;
+.header nav ul li a {
+    font-size: 2rem;
+    font-weight: 500;
     padding: 2px 30px;
     border-radius: 15px;
-    transition: 0.3s ease-in-out;
+    /*transition: 0.3s ease-in-out;*/
     margin-left: 30px;
     color: rgba(255, 255, 255, 0.75);
 }
@@ -35,9 +33,52 @@
 }
 
 
-/*footer styles*/
+/* SEARCH BAR STYLES */
+#barraDeBusca {
+  width: 200px;
+  height: 25px;
+  /*float: left;*/
+  border-radius: 15px;
+  background-color: rgba(108, 153, 165, 1);
+  padding: 3px 5px 5px 30px;
+  position: relative;
+}
+
+#barraDeBusca input {
+  color: white;
+  font-size: 15px;
+  background-color: rgba(108, 153, 165, 1);
+}
+
+.btn-barraDeBusca {
+    position: absolute;
+    left:5px;
+}
+
+.btn-barraDeBusca img {
+    width: 22px;
+    height: 20px;
+}
+
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: white;
+    opacity: 0.7;
+}
+
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+    color: white;
+    opacity: 0.7;
+}
+
+::-ms-input-placeholder { /* Microsoft Edge */
+    color: white;
+    opacity: 0.7;
+}
+
+
+/* FOOTER STYLES */
 footer {
-    height: 72px;
+    height: 100px;
     background-color: black;
     font-size: 1.2rem;
     color: rgba(255, 255, 255, 0.65);

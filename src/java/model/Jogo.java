@@ -35,7 +35,7 @@ import javax.validation.constraints.Size;
 @NamedQueries({
     @NamedQuery(name = "Jogo.findAll", query = "SELECT j FROM Jogo j"),
     @NamedQuery(name = "Jogo.findByIdJogo", query = "SELECT j FROM Jogo j WHERE j.idJogo = :idJogo"),
-    @NamedQuery(name = "Jogo.findByNomeJogo", query = "SELECT j FROM Jogo j WHERE j.nomeJogo = :nomeJogo"),
+    @NamedQuery(name = "Jogo.findByNomeJogo", query = "SELECT j FROM Jogo j WHERE j.nomeJogo LIKE :nomeJogo"),
     @NamedQuery(name = "Jogo.findByFaixaEtariaJogo", query = "SELECT j FROM Jogo j WHERE j.faixaEtariaJogo = :faixaEtariaJogo"),
     @NamedQuery(name = "Jogo.findByDataLancamento", query = "SELECT j FROM Jogo j WHERE j.dataLancamento = :dataLancamento"),
     @NamedQuery(name = "Jogo.findByImagemLogo", query = "SELECT j FROM Jogo j WHERE j.imagemLogo = :imagemLogo"),

@@ -18,10 +18,7 @@ import model.Jogo;
 import model.SiteDAO;
 import model.Usuario;
 
-/**
- *
- * @author Eddy Mauricio
- */
+
 @WebServlet(name = "Controle", urlPatterns = {"/Controle"})
 public class Controle extends HttpServlet {
     
@@ -122,22 +119,31 @@ public class Controle extends HttpServlet {
                 RequestDispatcher disp = request.getRequestDispatcher("perfil.jsp"); 
                 disp.forward(request, response);
             }     
+            
         } else if (flag.equalsIgnoreCase("consultar")) {
             int idJogo = Integer.parseInt(request.getParameter("idJogo"));
-            
             
             Jogo jog = dao.consultarJogo(idJogo);
             
             if (jog == null) {
                 mensagem = "Jogo não encontrado";
                 request.setAttribute("m", mensagem);
-                RequestDispatcher disp = request.getRequestDispatcher("Mensagens.jsp");
+                RequestDispatcher disp = request.getRequestDispatcher("mensagens.jsp");
                 disp.forward(request, response);
             } else {
                 request.setAttribute("Jogo", jog);
                 RequestDispatcher disp = request.getRequestDispatcher("telajogo.jsp");
                 disp.forward(request, response);
             }
+            
+        } else if (flag.equalsIgnoreCase("barraDeBusca")) {
+            String nomeJogo = request.getParameter("nomeJogo");
+            List<Jogo> jogos = dao.consultarJogo(nomeJogo);
+            
+            request.setAttribute("listaJogos", jogos);
+            request.setAttribute("termoDeBusca", nomeJogo);
+            RequestDispatcher disp = request.getRequestDispatcher("resultadoBusca.jsp");
+            disp.forward(request, response);
         }
         
     }
