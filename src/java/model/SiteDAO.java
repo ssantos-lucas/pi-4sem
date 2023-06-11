@@ -133,52 +133,39 @@ public class SiteDAO {
         }
     }
     
+    public int isFavorito() {
+        int resultado;
+        conectar();
+        manager.getTransaction().begin();
+        try {
+            TypedQuery isFavorito = manager.createNamedQuery();
+            if () {
+                resultado = 1; // não é favorito
+            } else {
+                resultado = 2; // é favorito
+            }
+        } catch (Exception e) {
+            resultado = 0; //erro
+        }
+        return resultado;
+    }
     
 
     public void favoritarJogo(int idJogo, int idUsuario) {
         conectar();
         manager.getTransaction().begin();
+        //
         
-        // Verifica se o jogo está favoritado pelo usuário
-        String sqlSelect = "SELECT * FROM favorito WHERE idJogo = :idJogo AND idUsuario = :idUsuario";
-        Query selectQuery = manager.createNativeQuery(sqlSelect);
-        selectQuery.setParameter("idJogo", idJogo);
-        selectQuery.setParameter("idUsuario", idUsuario);
-
-        if (selectQuery.getResultList().isEmpty()) {
-            // O jogo ainda não está favoritado, então faz a inserção na tabela favorito
-            String sqlInsert = "INSERT INTO favorito (idJogo,    idUsuario) VALUES (:idJogo, :idUsuario)";
-            Query insertQuery = manager.createNativeQuery(sqlInsert);
-            insertQuery.setParameter("idJogo", idJogo);
-            insertQuery.setParameter("idUsuario", idUsuario);
-            insertQuery.executeUpdate();
-        }
-
+        //
         manager.getTransaction().commit();
-        manager.close();
     }
 
     public void desfavoritarJogo(int idJogo, int idUsuario) {
         conectar();
         manager.getTransaction().begin();
-
-        // Verifica se o jogo está favoritado pelo usuário
-        String sqlSelect = "SELECT * FROM favorito WHERE idJogo = :idJogo AND idUsuario = :idUsuario";
-        Query selectQuery = manager.createNativeQuery(sqlSelect);
-        selectQuery.setParameter("idJogo", idJogo);
-        selectQuery.setParameter("idUsuario", idUsuario);
-
-        if (!selectQuery.getResultList().isEmpty()) {
-            // O jogo está favoritado, então faz a exclusão da tabela favorito
-            String sqlDelete = "DELETE FROM favorito WHERE idJogo = :idJogo AND idUsuario = :idUsuario";
-            Query deleteQuery = manager.createNativeQuery(sqlDelete);
-            deleteQuery.setParameter("idJogo", idJogo);
-            deleteQuery.setParameter("idUsuario", idUsuario);
-            deleteQuery.executeUpdate();
-        }
-
+        //
+        
+        //
         manager.getTransaction().commit();
-        manager.close();
     }
-
 }

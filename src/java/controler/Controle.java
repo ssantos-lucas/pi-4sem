@@ -143,6 +143,10 @@ public class Controle extends HttpServlet {
             request.setAttribute("termoDeBusca", nomeJogo);
             RequestDispatcher disp = request.getRequestDispatcher("resultadoBusca.jsp");
             disp.forward(request, response);
+        } else if (flag.equalsIgnoreCase("favoritar")) {
+            int idUsuario = Integer.parseInt(request.getParameter("idUsuario"));
+            int idJogo = Integer.parseInt(request.getParameter("idJogo"));
+            
         }
         
     }

@@ -28,17 +28,17 @@
         <main>
             <%@include file="includes/header.jsp"%>
 
-            <% Jogo jog = (Jogo) request.getAttribute("Jogo"); %>
+            <% Jogo jog = (Jogo) request.getAttribute("Jogo");%>
             <section class="hero" 
-                     style="background-image: url(&quot;./images/games/<%= jog.getImagemCorpo() %>&quot;)">
-                <img src="./images/games/<%= jog.getImagemCorpo() %>" alt=" <%= jog.getNomeJogo() %>">
+                     style="background-image: url(&quot;./images/games/<%= jog.getImagemCorpo()%>&quot;)">
+                <img src="./images/games/<%= jog.getImagemCorpo()%>" alt=" <%= jog.getNomeJogo()%>">
                 <div class="gradient"></div>
             </section>
             <div class="conteudo">
                 <section class="infos">
                     <div class="container-row">
                         <div class="container-col">
-                            
+
                             <h1 class="titulojogo">
                                 <%= jog.getNomeJogo()%>
                             </h1>
@@ -53,16 +53,16 @@
                                     for (Desenvolvedor dev : jog.getDesenvolvedorList()) {
                                         if (dev.getContatoDesenvolvedor() != null) {
                                             String link;
-                                            if(dev.getContatoDesenvolvedor().contains("@")){
+                                            if (dev.getContatoDesenvolvedor().contains("@")) {
                                                 link = "mailto:" + dev.getContatoDesenvolvedor();
                                             } else {
                                                 link = dev.getContatoDesenvolvedor();
                                             }
                                 %>
-                                <li><a href="<%= link %>" target="_blank"><%= dev.getNomeDesenvolvedor()%></a></li>
-                                <%
-                                } else {
-                                %>
+                                <li><a href="<%= link%>" target="_blank"><%= dev.getNomeDesenvolvedor()%></a></li>
+                                    <%
+                                    } else {
+                                    %>
                                 <li><%= dev.getNomeDesenvolvedor()%></li>
                                     <%
                                             }
@@ -74,7 +74,7 @@
                             <div class="buttons">
                                 <div class="container-row-favoritar">
                                     <label for="button1" id="favoritar"><span>Favoritar</span></label>
-                                    <button id="button1" class="bttn1" onclick="toggle()">
+                                    <button id="button1" class="bttn1" onclick="toggle(); favoritar(<% uLogado.getIdUsuario(); %>, <% jog.getIdJogo(); %>);">
                                         <i class="fa-solid fa-heart"></i></button>
                                 </div>
                                 <div class="playbutton">
@@ -168,20 +168,27 @@
 
                             function toggle() {
                                 if (botaoFavoritar.style.color == "red") {
-                                    botaoFavoritar.style.color = '#a8a8a8'
-                                    desfavoritar();
+                                    botaoFavoritar.style.color = '#a8a8a8';
+//                                    desfavoritar();
                                 } else {
                                     botaoFavoritar.style.color = "red";
-                                    favoritar();
+//                                    favoritar();
                                 }
                             }
 
-                            function favoritar() {   // Função para armazenar no banco de dados que o usuário favoritou o jogo.
-
-                            }
-
-                            function desfavoritar() {    // Função para remover o jogo dos favoritos do usuário.
-
+                            function favoritar(int idUsuario, int idJogo) {
+                                var xhttp = new XMLHttpRequest();
+                                xhttp.onreadystatechange = function () {
+                                    if (this.readyState == 4 && this.status == 200) {
+                                        // A resposta do arquivo .java foi recebida com sucesso
+                                        console.log(this.responseText);
+                                    }
+                                };
+                                xhttp.open("POST", "Controle.java", true);
+                                xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+                                xhttp.send("flag=" + "favoritar");
+                                xhttp.send("idUsuario=" + idUsuario);
+                                xhttp.send("idJogo=" + idJogo);
                             }
                         </script>
                     </div>
@@ -208,7 +215,5 @@
             </div>
         </main>
         <%@include file="includes/footer.jsp"%>
-
     </body>
-
 </html>
