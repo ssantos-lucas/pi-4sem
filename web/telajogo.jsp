@@ -1,3 +1,5 @@
+<%@page import="java.util.HashSet"%>
+<%@page import="java.util.Set"%>
 <%@page import="model.Categoria"%>
 <%@page import="model.Desenvolvedor"%>
 <%@page import="model.SiteDAO"%>
@@ -191,16 +193,16 @@
                 <h3 class="outros-titulo">Outros jogos</h3>
                 <div class="outros">
                     <%
+                        Set<Jogo> jogos = new HashSet<>();
                         for (Desenvolvedor dev : jog.getDesenvolvedorList()) {
-                            for (Jogo ljog : dev.getJogoList()) {
+                            jogos.addAll(dev.getJogoList());
+                        }
+                        for (Jogo ljog : jogos) {
                     %>
                     <div class="outros-img">
                         <a href="Controle?flag=consultar&idJogo=<%= ljog.getIdJogo() %>"><img src="./images/games/<%= ljog.getImagemLogo()%>" alt="<%= ljog.getNomeJogo()%>">
                     </div>
-                    <%
-                            }
-                        }
-                    %>
+                    <% } %>
                 </div>
             </div>
         </main>
