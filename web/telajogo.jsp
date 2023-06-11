@@ -30,8 +30,9 @@
 
             <% Jogo jog = (Jogo) request.getAttribute("Jogo"); %>
             <section class="hero" 
-                     style="background-image: url('./images/games/<%= jog.getImagemCorpo() %>')">
+                     style="background-image: url(&quot;./images/games/<%= jog.getImagemCorpo() %>&quot;)">
                 <img src="./images/games/<%= jog.getImagemCorpo() %>" alt=" <%= jog.getNomeJogo() %>">
+                <div class="gradient"></div>
             </section>
             <div class="conteudo">
                 <section class="infos">
