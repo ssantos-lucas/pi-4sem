@@ -9,12 +9,9 @@ header {
     align-items: center;
 }
 
-/*.img-logo {
+.img-logo {
     width: 200px;
     height: 200px;
-}*/
-
-.img-logo {
     margin-top: 100%;
 }
 
@@ -31,8 +28,8 @@ main .container {
     justify-content: center;
     align-items: center;
     background-color: white;
-    width: 270px;
-    height: 311px;
+    width: 300px;
+    height: 350px;
     border-radius: 20px;
     margin-top: 10px;
 }
@@ -43,8 +40,8 @@ main .titulo {
     padding: 10px;
 }
 
-main .digite{
-    font-size: 11px;
+main .digite {
+    font-size: 14px;
 }
 
 main .container .campo {
@@ -57,27 +54,27 @@ main .container .campo {
     font-weight: 600;
 }
 
-.botao{
+.botao {
     border-radius: 50px;
     background-image: linear-gradient(to right, #87C0CD, #226597);
     padding: 9px 60px;
     color: white;
-    font-weight: 600;
+    font-weight: 550;
+    font-size: 16px;
     margin: 10px 0 15px 0px;
     border: none;
 }
 
-main .contato a{
-    font-size: 11px;
-    font-weight: 600;
+main .contato a {
+    font-size: 16px;
+    font-weight: 550;
     color: white;
     opacity: 65%;
 }
 
-.chamar{
+.chamar {
     display: flex;
     justify-content: center;
     align-items: center;
     margin-top: 15px;
-
 }
