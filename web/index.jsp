@@ -11,7 +11,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;500;700;900&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Jost:wght@200;400;600&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="./css/reset.css">
         <link rel="stylesheet" href="./css/style.css">
         <title>Inicio</title>
@@ -19,27 +19,26 @@
 
     <body>
         <%@include file="includes/header.jsp"%>
-        
+
         <section class="hero">
             <img src="./images/1440x264.svg" alt="imagem do painel">
         </section>
 
         <main>
             <!-- genero -->
-  
+
             <div class="jogo-container">
-                <%
-                    SiteDAO dao = new SiteDAO();
+                <%                    SiteDAO dao = new SiteDAO();
                     List<Jogo> jogos = dao.listarJogos();
 
                     for (Jogo jog : jogos) {
                 %>
                 <div class="itemjogo">
-                   <a href="Controle?flag=consultar&idJogo=<%= jog.getIdJogo()%>"><img src="./images/games/<%= jog.getImagemLogo() %>" class="imgjogo" alt="Jogo <%= jog.getNomeJogo() %>">
-                     <p class="titulos"><%= jog.getNomeJogo() %></p></a>
+                    <a href="Controle?flag=consultar&idJogo=<%= jog.getIdJogo()%>"><img src="./images/games/<%= jog.getImagemLogo()%>" class="imgjogo" alt="Jogo <%= jog.getNomeJogo()%>">
+                        <p class="titulos"><%= jog.getNomeJogo()%></p></a>
                 </div>
                 <%
-                }
+                    }
                 %>
             </div>
         </main>

@@ -1,3 +1,7 @@
+body{
+    font-family: 'Jost', sans-serif;
+}
+
 .hero {
     display: flex;
     justify-content: center;
@@ -172,7 +176,6 @@ main .botao span {
 }
 
 .outros img {
-    /*margin-left: 227px;*/
     height: 160px;
     width: 160px;
     border-radius: 10px;
@@ -192,12 +195,3 @@ main .botao span {
     text-decoration: underline;
     color: #fff;
 }
-
-/* .conteiner-col2 hr {
-    border: none;
-    height: 1px;
-    background-color: #ffffff;
-    width: 40%;
-    margin: 17px 30% 20px 30%;
-} */
-

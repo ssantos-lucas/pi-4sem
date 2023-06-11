@@ -4,11 +4,12 @@ main {
     justify-items: center;
     align-items: center;
     background-image: linear-gradient(to right, #646B7F, #48505E);
+    font-family: 'Jost', sans-serif;
 }
 
 .perfil {
-    width: 1000px;
-    height: 387px;
+    width: 70%;
+    height: auto;
     background-color: #3D4451;
     border-radius: 15px;
     padding: 50px;
@@ -17,6 +18,41 @@ main {
 
 label {
     font-size: 20px;
-    font-weight: 400px;
     color: rgba(255, 255, 255, 0.75);
+}
+
+input {
+    background: none;
+    font-size: 20px;
+    color: white;
+    margin-left: 10px;
+}
+
+#email {
+    width: 40%;
+}
+
+.main p {
+    margin-bottom: 10px;
+}
+
+#saveBttn {
+    margin-left: 0px;
+    border-radius: 50px;
+    background-image: linear-gradient(to right, #87C0CD, #226597);
+    padding: 5px 30px;
+    color: white;
+    font-weight: 600;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+#perfilh2, #favoritosh2 {
+    font-size: 27px;
+    color: white;
+    letter-spacing: 2px;
+}
+
+#perfilh2 {
+    margin-top: 35px;
 }

@@ -14,8 +14,7 @@
                     <div id="barraDeBusca">
                         <label class="btn-barraDeBusca" for="inputBarraDeBusca"><img src="./images/magnifying-glass.jpeg"></label>
                         <input id="inputBarraDeBusca" type="text" name="nomeJogo" placeholder="Buscar jogos">
-                        <!--<input class="btn-barraDeBusca" type="submit" value="Buscar">--> 
-                    </div>>
+                    </div>
                 </form>
                 <li>
                     <%
