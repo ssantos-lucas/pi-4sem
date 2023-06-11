@@ -40,9 +40,7 @@ import javax.validation.constraints.Size;
     @NamedQuery(name = "Jogo.findByDataLancamento", query = "SELECT j FROM Jogo j WHERE j.dataLancamento = :dataLancamento"),
     @NamedQuery(name = "Jogo.findByImagemLogo", query = "SELECT j FROM Jogo j WHERE j.imagemLogo = :imagemLogo"),
     @NamedQuery(name = "Jogo.findByImagemCorpo", query = "SELECT j FROM Jogo j WHERE j.imagemCorpo = :imagemCorpo"),
-    @NamedQuery(name = "Jogo.findByUrlJogo", query = "SELECT j FROM Jogo j WHERE j.urlJogo = :urlJogo"),
-    @NamedQuery(name = "Favorito.findAll", query = "SELECT * FROM favorito WHERE idJogo = :idJogo AND idUsuario = :idUsuario"),
-    @NamedQuery(name = "Favorito.findByIdFavorito", query = "SELECT j FROM favorito j WHERE j.idJogo = :idJogo")})
+    @NamedQuery(name = "Jogo.findByUrlJogo", query = "SELECT j FROM Jogo j WHERE j.urlJogo = :urlJogo")})
 public class Jogo implements Serializable {
 
     private static final long serialVersionUID = 1L;

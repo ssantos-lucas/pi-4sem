@@ -38,9 +38,7 @@
                 <section class="infos">
                     <div class="container-row">
                         <div class="container-col">
-                            <%                                Jogo jog = (Jogo) request.getAttribute("Jogo");
-                                SiteDAO dao = new SiteDAO();
-                            %>
+                            
                             <h1 class="titulojogo">
                                 <%= jog.getNomeJogo()%>
                             </h1>
@@ -55,16 +53,16 @@
                                     for (Desenvolvedor dev : jog.getDesenvolvedorList()) {
                                         if (dev.getContatoDesenvolvedor() != null) {
                                             String link;
-                                            if (dev.getContatoDesenvolvedor().contains("@")) {
+                                            if(dev.getContatoDesenvolvedor().contains("@")){
                                                 link = "mailto:" + dev.getContatoDesenvolvedor();
                                             } else {
                                                 link = dev.getContatoDesenvolvedor();
                                             }
                                 %>
-                                <li><a href="<%= link%>" target="_blank"><%= dev.getNomeDesenvolvedor()%></a></li>
-                                    <%
-                                    } else {
-                                    %>
+                                <li><a href="<%= link %>" target="_blank"><%= dev.getNomeDesenvolvedor()%></a></li>
+                                <%
+                                } else {
+                                %>
                                 <li><%= dev.getNomeDesenvolvedor()%></li>
                                     <%
                                             }
@@ -88,7 +86,7 @@
                                     <%
                                     } else {
                                     %>
-                                    <text class="botao"><span>Indisponï¿½vel</span></a>
+                                    <text class="botao"><span>Indisponível</span></a>
                                     <%
                                         }
                                     %>
@@ -118,7 +116,7 @@
 
                                             <p class="genero">
                                             <h3 class="genero-dentro">
-                                                Gï¿½nero:
+                                                Gênero:
                                             </h3>
                                             <%
                                                 for (Categoria cat : jog.getCategoriaList()) {
@@ -164,10 +162,10 @@
                         </div>
                         <script>
                             var botaoFavoritar = document.getElementById('button1');
-                            // Adicionar mï¿½todo para verificar se o jogo jï¿½ ï¿½ favorito do usuï¿½rio ou nï¿½o
-                            // para pintar o botï¿½o de vermelho quando a pï¿½gina carregar diretamente caso
-                            // o jogo jï¿½ seja favorito do usuï¿½rio.
-                                                    
+                            // Adicionar método para verificar se o jogo já é favorito do usuário ou não
+                            // para pintar o botão de vermelho quando a página carregar diretamente caso
+                            // o jogo já seja favorito do usuário.
+
                             function toggle() {
                                 if (botaoFavoritar.style.color == "red") {
                                     botaoFavoritar.style.color = '#a8a8a8'
@@ -178,19 +176,11 @@
                                 }
                             }
 
-                            function favoritar() {   // Funï¿½ï¿½o para armazenar no banco de dados que o usuï¿½rio favoritou o jogo.
-
-                            <%
-                                dao.favoritarJogo(jog.getIdJogo(), uLogado.getIdUsuario());
-                            %>
+                            function favoritar() {   // Função para armazenar no banco de dados que o usuário favoritou o jogo.
 
                             }
 
-                            function desfavoritar() {    // Funï¿½ï¿½o para remover o jogo dos favoritos do usuï¿½rio.
-
-                            <%
-                                dao.desfavoritarJogo(jog.getIdJogo(), uLogado.getIdUsuario());
-                            %>
+                            function desfavoritar() {    // Função para remover o jogo dos favoritos do usuário.
 
                             }
                         </script>
@@ -209,17 +199,16 @@
                         for (Jogo ljog : jogos) {
                     %>
                     <div class="outros-img">
-                        <a href="Controle?flag=consultar&idJogo=<%= ljog.getIdJogo()%>"><img src="./images/games/<%= ljog.getImagemLogo()%>" alt="<%= ljog.getNomeJogo()%>">
-                            </div>
-                            <%
-                                    }
-                                }
-                            %>
-                            </div>
-                            </div>
-                            </main>
-                            <%@include file="includes/footer.jsp"%>
+                        <a href="Controle?flag=consultar&idJogo=<%= ljog.getIdJogo() %>" title="<%= ljog.getNomeJogo()%>">
+                            <img src="./images/games/<%= ljog.getImagemLogo()%>" alt="<%= ljog.getNomeJogo()%>">
+                        </a>
+                    </div>
+                    <% } %>
+                </div>
+            </div>
+        </main>
+        <%@include file="includes/footer.jsp"%>
 
-                            </body>
+    </body>
 
-                            </html>
+</html>
