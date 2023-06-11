@@ -30,8 +30,9 @@
 
             <% Jogo jog = (Jogo) request.getAttribute("Jogo"); %>
             <section class="hero" 
-                     style="background-image: url('./images/games/<%= jog.getImagemCorpo() %>')">
+                     style="background-image: url(&quot;./images/games/<%= jog.getImagemCorpo() %>&quot;)">
                 <img src="./images/games/<%= jog.getImagemCorpo() %>" alt=" <%= jog.getNomeJogo() %>">
+                <div class="gradient"></div>
             </section>
             <div class="conteudo">
                 <section class="infos">
@@ -198,7 +199,9 @@
                         for (Jogo ljog : jogos) {
                     %>
                     <div class="outros-img">
-                        <a href="Controle?flag=consultar&idJogo=<%= ljog.getIdJogo() %>"><img src="./images/games/<%= ljog.getImagemLogo()%>" alt="<%= ljog.getNomeJogo()%>">
+                        <a href="Controle?flag=consultar&idJogo=<%= ljog.getIdJogo() %>" title="<%= ljog.getNomeJogo()%>">
+                            <img src="./images/games/<%= ljog.getImagemLogo()%>" alt="<%= ljog.getNomeJogo()%>">
+                        </a>
                     </div>
                     <% } %>
                 </div>
