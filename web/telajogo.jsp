@@ -34,8 +34,7 @@
                 <section class="infos">
                     <div class="container-row">
                         <div class="container-col">
-                            <%                                
-                                Jogo jog = (Jogo) request.getAttribute("Jogo");
+                            <%                                Jogo jog = (Jogo) request.getAttribute("Jogo");
                                 SiteDAO dao = new SiteDAO();
                             %>
                             <h1 class="titulojogo">
@@ -52,16 +51,16 @@
                                     for (Desenvolvedor dev : jog.getDesenvolvedorList()) {
                                         if (dev.getContatoDesenvolvedor() != null) {
                                             String link;
-                                            if(dev.getContatoDesenvolvedor().contains("@")){
+                                            if (dev.getContatoDesenvolvedor().contains("@")) {
                                                 link = "mailto:" + dev.getContatoDesenvolvedor();
                                             } else {
                                                 link = dev.getContatoDesenvolvedor();
                                             }
                                 %>
-                                <li><a href="<%= link %>" target="_blank"><%= dev.getNomeDesenvolvedor()%></a></li>
-                                <%
-                                } else {
-                                %>
+                                <li><a href="<%= link%>" target="_blank"><%= dev.getNomeDesenvolvedor()%></a></li>
+                                    <%
+                                    } else {
+                                    %>
                                 <li><%= dev.getNomeDesenvolvedor()%></li>
                                     <%
                                             }
@@ -164,7 +163,9 @@
                             // Adicionar método para verificar se o jogo já é favorito do usuário ou não
                             // para pintar o botão de vermelho quando a página carregar diretamente caso
                             // o jogo já seja favorito do usuário.
-
+                                                    <%
+                                                        
+                                                        %>
                             function toggle() {
                                 if (botaoFavoritar.style.color == "red") {
                                     botaoFavoritar.style.color = '#a8a8a8'
@@ -177,9 +178,17 @@
 
                             function favoritar() {   // Função para armazenar no banco de dados que o usuário favoritou o jogo.
 
+                            <%
+                                dao.favoritarJogo(jog.getIdJogo(), uLogado.getIdUsuario());
+                            %>
+
                             }
 
                             function desfavoritar() {    // Função para remover o jogo dos favoritos do usuário.
+
+                            <%
+                                dao.desfavoritarJogo(jog.getIdJogo(), uLogado.getIdUsuario());
+                            %>
 
                             }
                         </script>
@@ -195,17 +204,17 @@
                             for (Jogo ljog : dev.getJogoList()) {
                     %>
                     <div class="outros-img">
-                        <a href="Controle?flag=consultar&idJogo=<%= ljog.getIdJogo() %>"><img src="./images/games/<%= ljog.getImagemLogo()%>" alt="<%= ljog.getNomeJogo()%>">
-                    </div>
-                    <%
-                            }
-                        }
-                    %>
-                </div>
-            </div>
-        </main>
-        <%@include file="includes/footer.jsp"%>
+                        <a href="Controle?flag=consultar&idJogo=<%= ljog.getIdJogo()%>"><img src="./images/games/<%= ljog.getImagemLogo()%>" alt="<%= ljog.getNomeJogo()%>">
+                            </div>
+                            <%
+                                    }
+                                }
+                            %>
+                            </div>
+                            </div>
+                            </main>
+                            <%@include file="includes/footer.jsp"%>
 
-    </body>
+                            </body>
 
-</html>
+                            </html>
