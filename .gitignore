@@ -6,3 +6,5 @@ nbproject/project.properties
 src/conf/persistence.xml
 nbproject/project.properties
 src/conf/persistence.xml
+
+.DS_Store
