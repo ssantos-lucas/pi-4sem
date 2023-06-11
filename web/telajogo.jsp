@@ -1,3 +1,5 @@
+<%@page import="java.util.HashSet"%>
+<%@page import="java.util.Set"%>
 <%@page import="model.Categoria"%>
 <%@page import="model.Desenvolvedor"%>
 <%@page import="model.SiteDAO"%>
@@ -26,10 +28,11 @@
         <main>
             <%@include file="includes/header.jsp"%>
 
-            <section class="hero">
-                <img src="./images/1440x264.svg" alt="imagem para o painel">
+            <% Jogo jog = (Jogo) request.getAttribute("Jogo"); %>
+            <section class="hero" 
+                     style="background-image: url('./images/games/<%= jog.getImagemCorpo() %>')">
+                <img src="./images/games/<%= jog.getImagemCorpo() %>" alt=" <%= jog.getNomeJogo() %>">
             </section>
-
             <div class="conteudo">
                 <section class="infos">
                     <div class="container-row">
@@ -84,7 +87,7 @@
                                     <%
                                     } else {
                                     %>
-                                    <text class="botao"><span>Indisponível</span></a>
+                                    <text class="botao"><span>Indisponï¿½vel</span></a>
                                     <%
                                         }
                                     %>
@@ -114,7 +117,7 @@
 
                                             <p class="genero">
                                             <h3 class="genero-dentro">
-                                                Gênero:
+                                                Gï¿½nero:
                                             </h3>
                                             <%
                                                 for (Categoria cat : jog.getCategoriaList()) {
@@ -160,12 +163,10 @@
                         </div>
                         <script>
                             var botaoFavoritar = document.getElementById('button1');
-                            // Adicionar método para verificar se o jogo já é favorito do usuário ou não
-                            // para pintar o botão de vermelho quando a página carregar diretamente caso
-                            // o jogo já seja favorito do usuário.
-                                                    <%
-                                                        
-                                                        %>
+                            // Adicionar mï¿½todo para verificar se o jogo jï¿½ ï¿½ favorito do usuï¿½rio ou nï¿½o
+                            // para pintar o botï¿½o de vermelho quando a pï¿½gina carregar diretamente caso
+                            // o jogo jï¿½ seja favorito do usuï¿½rio.
+                                                    
                             function toggle() {
                                 if (botaoFavoritar.style.color == "red") {
                                     botaoFavoritar.style.color = '#a8a8a8'
@@ -176,7 +177,7 @@
                                 }
                             }
 
-                            function favoritar() {   // Função para armazenar no banco de dados que o usuário favoritou o jogo.
+                            function favoritar() {   // Funï¿½ï¿½o para armazenar no banco de dados que o usuï¿½rio favoritou o jogo.
 
                             <%
                                 dao.favoritarJogo(jog.getIdJogo(), uLogado.getIdUsuario());
@@ -184,7 +185,7 @@
 
                             }
 
-                            function desfavoritar() {    // Função para remover o jogo dos favoritos do usuário.
+                            function desfavoritar() {    // Funï¿½ï¿½o para remover o jogo dos favoritos do usuï¿½rio.
 
                             <%
                                 dao.desfavoritarJogo(jog.getIdJogo(), uLogado.getIdUsuario());
@@ -200,8 +201,11 @@
                 <h3 class="outros-titulo">Outros jogos</h3>
                 <div class="outros">
                     <%
+                        Set<Jogo> jogos = new HashSet<>();
                         for (Desenvolvedor dev : jog.getDesenvolvedorList()) {
-                            for (Jogo ljog : dev.getJogoList()) {
+                            jogos.addAll(dev.getJogoList());
+                        }
+                        for (Jogo ljog : jogos) {
                     %>
                     <div class="outros-img">
                         <a href="Controle?flag=consultar&idJogo=<%= ljog.getIdJogo()%>"><img src="./images/games/<%= ljog.getImagemLogo()%>" alt="<%= ljog.getNomeJogo()%>">
