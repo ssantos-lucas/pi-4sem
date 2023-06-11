@@ -28,18 +28,16 @@
         <main>
             <%@include file="includes/header.jsp"%>
 
-            <section class="hero">
-                <img src="./images/1440x264.svg" alt="imagem para o painel">
+            <% Jogo jog = (Jogo) request.getAttribute("Jogo"); %>
+            <section class="hero" 
+                     style="background-image: url('./images/games/<%= jog.getImagemCorpo() %>')">
+                <img src="./images/games/<%= jog.getImagemCorpo() %>" alt=" <%= jog.getNomeJogo() %>">
             </section>
-
             <div class="conteudo">
                 <section class="infos">
                     <div class="container-row">
                         <div class="container-col">
-                            <%                                
-                                Jogo jog = (Jogo) request.getAttribute("Jogo");
-                                SiteDAO dao = new SiteDAO();
-                            %>
+                            
                             <h1 class="titulojogo">
                                 <%= jog.getNomeJogo()%>
                             </h1>

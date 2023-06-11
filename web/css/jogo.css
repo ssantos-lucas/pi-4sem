@@ -3,9 +3,16 @@ body{
 }
 
 .hero {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    height: 300px;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+/*imagem para conteudo de leitor de tela, já que o alt não funciona no background*/
+.hero img {
+    display: none;
 }
 
 main {
