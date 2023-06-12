@@ -64,8 +64,6 @@ public class Controle extends HttpServlet {
             disp.forward(request, response); 
         
         } else if(flag.equalsIgnoreCase("criarConta")) {
-            String email, senha, nome;
-            
             Usuario usuario = new Usuario();
             
             usuario.setEmailUsuario(request.getParameter("email"));
