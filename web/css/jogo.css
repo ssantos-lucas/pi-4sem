@@ -43,7 +43,6 @@ main {
 .playbutton {
     display: flex;
     justify-content: center;
-    margin-top: 10px;
 }
 
 .infos {
@@ -76,6 +75,7 @@ h3 {
 .container-row-favoritar {
     display:flex;
     justify-content: center;
+    margin-bottom: 10px;
 }
 
 .infos .container-col  {
