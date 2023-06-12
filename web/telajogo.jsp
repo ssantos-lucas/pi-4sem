@@ -75,7 +75,7 @@
                                 <% if(uLogado != null) { %>
                                 <div class="container-row-favoritar">
                                     <label for="button1" id="favoritar"><span>Favoritar</span></label>
-                                    <button id="button1" class="bttn1" onclick="toggle(); favoritar(<% uLogado.getIdUsuario(); %>, <% jog.getIdJogo(); %>);">
+                                    <button id="button1" class="bttn1" onclick="toggle(), favoritar(<% uLogado.getIdUsuario(); %>, <% jog.getIdJogo(); %>)">
                                         <i class="fa-solid fa-heart"></i></button>
                                 </div>
                                 <% } %>
