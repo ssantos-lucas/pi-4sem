@@ -133,23 +133,23 @@ public class SiteDAO {
         }
     }
     
-    public int isFavorito() {
-        int resultado;
-        conectar();
-        manager.getTransaction().begin();
-        try {
-            TypedQuery isFavorito = manager.createNamedQuery();
-            if () {
-                resultado = 1; // não é favorito
-            } else {
-                resultado = 2; // é favorito
-            }
-        } catch (Exception e) {
-            resultado = 0; //erro
-        }
-        return resultado;
-    }
-    
+//    public int isFavorito() {
+//        int resultado = ;
+//        conectar();
+//        manager.getTransaction().begin();
+////        try {
+////            TypedQuery isFavorito = manager.createNamedQuery();
+////            if () {
+////                resultado = 1; // não é favorito
+////            } else {
+////                resultado = 2; // é favorito
+////            }
+////        } catch (Exception e) {
+////            resultado = 0; //erro
+////        }
+//        return resultado;
+//    }
+//    
 
     public void favoritarJogo(int idJogo, int idUsuario) {
         conectar();
