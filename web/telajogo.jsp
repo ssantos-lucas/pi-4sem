@@ -215,8 +215,8 @@
                         }
                         for (Jogo ljog : jogos) {
                     %>
-                    <div class="outros-img">
-                        <a href="Controle?flag=consultar&idJogo=<%= ljog.getIdJogo()%>" title="<%= ljog.getNomeJogo()%>">
+                    <div>
+                        <a href="Controle?flag=consultar&idJogo=<%= ljog.getIdJogo() %>" title="<%= ljog.getNomeJogo()%>">
                             <img src="./images/games/<%= ljog.getImagemLogo()%>" alt="<%= ljog.getNomeJogo()%>">
                         </a>
                     </div>

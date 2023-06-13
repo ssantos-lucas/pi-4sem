@@ -10,26 +10,33 @@
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;500;700;900&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Jost:wght@200;400;600&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="./css/reset.css">
-        <link rel="stylesheet" href="./css/sobre.css"> <!--sim, ta chamando essa-->
+        <link rel="stylesheet" href="./css/resultadoBusca.css"> <!--sim, ta chamando essa-->
         <title>Resultado de busca</title>
     </head>
     <body>
         <%@include file="includes/header.jsp"%>
         <main>
-            <section class="sobre">
+            <section class="resultado">
                 <%
-                    String termoDeBusca = (String) request.getAttribute("termoDeBusca");
+                    String termoDeBusca = request.getParameter("nomeJogo");
                     List<Jogo> jogos = (List<Jogo>) request.getAttribute("listaJogos");
                 %>
-                <h1 class="titulo">Resultados com "<%=termoDeBusca%>"</h1>
-                <%=jogos.size()%> resultados encontrados:
-
-                <%
-                for (Jogo jogo : jogos) {
-                %>
-                    <p class="texto"><%=jogo.getNomeJogo()%>
-                <%}%>
+                <h1>Resultados com "<%=termoDeBusca%>"</h1>
+                <p><%=jogos.size()%> resultados encontrados.</p>
+                <ul> 
+                    <%
+                    for (Jogo jogo : jogos) {
+                    %>
+                    <li>
+                        <a href="Controle?flag=consultar&idJogo=<%=jogo.getIdJogo()%>" title="<%=jogo.getNomeJogo()%>">
+                            <img src="images/games/<%=jogo.getImagemLogo()%>" alt="<%=jogo.getNomeJogo()%>">
+                            <span><%=jogo.getNomeJogo()%></span>
+                        </a>
+                    </li>
+                    <%}%>
+                </ul>
             </section> 
         </main> 
         <%@include file="includes/footer.jsp"%>

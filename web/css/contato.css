@@ -15,7 +15,7 @@ main {
     justify-content: center;
     align-items: center;
     background-image: linear-gradient(to right, #646B7F, #48505E);
-    height: 85vh;
+    min-height: 85vh;
 }
 
 .contato {
