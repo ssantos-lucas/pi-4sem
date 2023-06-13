@@ -144,9 +144,7 @@ public class Controle extends HttpServlet {
         } else if (flag.equalsIgnoreCase("favoritar")) {
             int idUsuario = Integer.parseInt(request.getParameter("idUsuario"));
             int idJogo = Integer.parseInt(request.getParameter("idJogo"));
-            
         }
-        
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

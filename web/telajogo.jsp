@@ -20,6 +20,7 @@
         <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;500;700;900&display=swap" rel="stylesheet">
         <script src="https://kit.fontawesome.com/d220a535d8.js" crossorigin="anonymous"></script>
         <link href="https://fonts.googleapis.com/css2?family=Jost:wght@200;400;600&display=swap" rel="stylesheet">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
         <title>Jogo</title>
     </head>
 
@@ -72,10 +73,15 @@
                         </div>
                         <div class="container-col2">
                             <div class="buttons">
-                                <% if(uLogado != null) { %>
+                                <% if (uLogado != null) { %>
+                                <%
+                                    // Obtém os valores do ID do usuário e ID do jogo
+                                    int idUsuario = uLogado.getIdUsuario();
+                                    int idJogo = jog.getIdJogo();
+                                %>
                                 <div class="container-row-favoritar">
                                     <label for="button1" id="favoritar"><span>Favoritar</span></label>
-                                    <button id="button1" class="bttn1" onclick="toggle(), favoritar(<% uLogado.getIdUsuario(); %>, <% jog.getIdJogo(); %>)">
+                                    <button id="button1" class="bttn1" onclick="toggle(<%= idUsuario%>, <%= idJogo%>)">
                                         <i class="fa-solid fa-heart"></i></button>
                                 </div>
                                 <% } %>
@@ -163,34 +169,36 @@
                             </div>
                         </div>
                         <script>
-                            var botaoFavoritar = document.getElementById('button1');
-                            // Adicionar método para verificar se o jogo já é favorito do usuário ou não
-                            // para pintar o botão de vermelho quando a página carregar diretamente caso
-                            // o jogo já seja favorito do usuário.
-
-                            function toggle() {
+                            // Troca a cor do botão e executa o método de favoritar
+                            function toggle(idUsuario, idJogo) {
+                                var botaoFavoritar = document.getElementById('button1');
                                 if (botaoFavoritar.style.color == "red") {
                                     botaoFavoritar.style.color = '#a8a8a8';
-//                                    desfavoritar();
+                                    //desfavorita
                                 } else {
                                     botaoFavoritar.style.color = "red";
-//                                    favoritar();
+                                    //favorita
                                 }
+                                favoritar(idUsuario, idJogo);
                             }
-
-                            function favoritar(int idUsuario, int idJogo) {
-                                var xhttp = new XMLHttpRequest();
-                                xhttp.onreadystatechange = function () {
-                                    if (this.readyState == 4 && this.status == 200) {
-                                        // A resposta do arquivo .java foi recebida com sucesso
-                                        console.log(this.responseText);
+                            // Envia o ID do usuário e do jogo para a controler
+                            function favoritar(idUsuario, idJogo) {
+                                $.ajax({
+                                    url: '/GameHub/Controle',
+                                    type: 'POST',
+                                    dataType: 'text',
+                                    data: {
+                                        flag: 'favoritar',
+                                        idUsuario: idUsuario,
+                                        idJogo: idJogo
+                                    },
+                                    success: function (response) {
+                                        console.log(response);
+                                    },
+                                    error: function (xhr, status, error) {
+                                        console.log('Erro na requisição: ' + error);
                                     }
-                                };
-                                xhttp.open("POST", "Controle.java", true);
-                                xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-                                xhttp.send("flag=" + "favoritar");
-                                xhttp.send("idUsuario=" + idUsuario);
-                                xhttp.send("idJogo=" + idJogo);
+                                });
                             }
                         </script>
                     </div>
@@ -208,11 +216,11 @@
                         for (Jogo ljog : jogos) {
                     %>
                     <div class="outros-img">
-                        <a href="Controle?flag=consultar&idJogo=<%= ljog.getIdJogo() %>" title="<%= ljog.getNomeJogo()%>">
+                        <a href="Controle?flag=consultar&idJogo=<%= ljog.getIdJogo()%>" title="<%= ljog.getNomeJogo()%>">
                             <img src="./images/games/<%= ljog.getImagemLogo()%>" alt="<%= ljog.getNomeJogo()%>">
                         </a>
                     </div>
-                    <% } %>
+                    <% }%>
                 </div>
             </div>
         </main>
