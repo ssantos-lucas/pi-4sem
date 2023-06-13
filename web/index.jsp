@@ -20,8 +20,9 @@
     <body>
         <%@include file="includes/header.jsp"%>
 
-        <section class="hero">
-            <img src="./images/1440x264.svg" alt="imagem do painel">
+        <section class="hero"  style="background-image: url('./images/Banner.png')">
+            <img src="./images/Banner.png" alt="banner do site">
+            <div class="gradient"></div>
         </section>
 
         <main>
