@@ -81,8 +81,13 @@
                                 %>
                                 <div class="container-row-favoritar">
                                     <label for="button1" id="favoritar"><span>Favoritar</span></label>
-                                    <button id="button1" class="bttn1" onclick="toggle(<%= idUsuario%>, <%= idJogo%>)">
-                                        <i class="fa-solid fa-heart"></i></button>
+
+                                    <button id="button1" class="bttn1" onclick="toggle(<%= idUsuario%>, <%= idJogo%>)" 
+                                            style="color: <%  SiteDAO dao = new SiteDAO();
+                                                if (dao.possuiJogoFavorito(idUsuario, idJogo)) { %>#a8a8a8<%
+                                                } else { %>red<% } %>">
+                                        <i class="fa-solid fa-heart"></i>
+                                    </button>
                                 </div>
                                 <% } %>
                                 <div class="playbutton">
@@ -216,7 +221,7 @@
                         for (Jogo ljog : jogos) {
                     %>
                     <div>
-                        <a href="Controle?flag=consultar&idJogo=<%= ljog.getIdJogo() %>" title="<%= ljog.getNomeJogo()%>">
+                        <a href="Controle?flag=consultar&idJogo=<%= ljog.getIdJogo()%>" title="<%= ljog.getNomeJogo()%>">
                             <img src="./images/games/<%= ljog.getImagemLogo()%>" alt="<%= ljog.getNomeJogo()%>">
                         </a>
                     </div>

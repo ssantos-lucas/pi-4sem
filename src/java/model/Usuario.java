@@ -38,6 +38,8 @@ import javax.validation.constraints.Size;
     @NamedQuery(name = "Usuario.findByEmailUsuario", query = "SELECT u FROM Usuario u WHERE u.emailUsuario = :emailUsuario"),
     @NamedQuery(name = "Usuario.findBySenhaUsuario", query = "SELECT u FROM Usuario u WHERE u.senhaUsuario = :senhaUsuario"),
     @NamedQuery(name = "Usuario.findByEmailSenhaUsuario", query = "SELECT u FROM Usuario u WHERE u.emailUsuario = :emailUsuario AND u.senhaUsuario = :senhaUsuario"),
+    @NamedQuery(name = "Usuario.hasJogoFavorito", query = "SELECT COUNT(u) FROM Usuario u JOIN u.jogoList j WHERE u.idUsuario = :idUsuario AND j.idJogo = :idJogo"),
+    @NamedQuery(name = "Usuario.findJogosFavoritos", query = "SELECT u.jogoList FROM Usuario u WHERE u.idUsuario = :idUsuario"),
     @NamedQuery(name = "Usuario.findByCreatedAt", query = "SELECT u FROM Usuario u WHERE u.createdAt = :createdAt")})
 public class Usuario implements Serializable {
 
@@ -176,5 +178,5 @@ public class Usuario implements Serializable {
     public String toString() {
         return "model.Usuario[ idUsuario=" + idUsuario + " ]";
     }
-    
+
 }

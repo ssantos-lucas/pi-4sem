@@ -144,6 +144,12 @@ public class Controle extends HttpServlet {
         } else if (flag.equalsIgnoreCase("favoritar")) {
             int idUsuario = Integer.parseInt(request.getParameter("idUsuario"));
             int idJogo = Integer.parseInt(request.getParameter("idJogo"));
+            if (dao.possuiJogoFavorito(idUsuario, idJogo)) {
+                dao.removerJogoFavorito(idUsuario, idJogo);
+            }else{
+                dao.adicionarJogoFavorito(idUsuario, idJogo);
+            }
+            
         }
     }
 
