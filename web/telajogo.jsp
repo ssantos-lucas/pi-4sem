@@ -18,13 +18,14 @@
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;500;700;900&display=swap" rel="stylesheet">
+        <script type="text/javascript" src="jogo.js"></script>
         <script src="https://kit.fontawesome.com/d220a535d8.js" crossorigin="anonymous"></script>
         <link href="https://fonts.googleapis.com/css2?family=Jost:wght@200;400;600&display=swap" rel="stylesheet">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
         <title>Jogo</title>
     </head>
 
-    <body>
+    <body onload='pintarBotaoFavorito()'>
 
         <main>
             <%@include file="includes/header.jsp"%>
@@ -81,11 +82,17 @@
                                 %>
                                 <div class="container-row-favoritar">
                                     <label for="button1" id="favoritar"><span>Favoritar</span></label>
-
-                                    <button id="button1" class="bttn1" onclick="toggle(<%= idUsuario%>, <%= idJogo%>)"
-                                            style="color: <%  SiteDAO dao = new SiteDAO();
-                                                if (dao.possuiJogoFavorito(idUsuario, idJogo)) { %>#a8a8a8<%
-                                                } else { %>red<% } %>">
+                                    <% 
+                                    SiteDAO dao = new SiteDAO();
+                                    String valor;
+                                    if(dao.possuiJogoFavorito(idUsuario, idJogo)) {
+                                        valor = "favorito";
+                                    } else {
+                                        valor = "naofavorito";
+                                    }
+                                    %>
+                                    <input type="hidden" id="verificaFavorito" value="<%= valor.toString() %>"> 
+                                    <button id="button1" class="bttn1" onclick="toggle(<%= idUsuario%>, <%= idJogo%>)">
                                         <i class="fa-solid fa-heart"></i>
                                     </button>
                                 </div>
@@ -173,59 +180,6 @@
                                 </section>
                             </div>
                         </div>
-                        <script>
-                            // Troca a cor do botão e executa o método de favoritar
-                            function toggle(idUsuario, idJogo) {
-                                var botaoFavoritar = document.getElementById('button1');
-                                if (botaoFavoritar.style.color == "red") {
-                                    botaoFavoritar.style.color = '#a8a8a8';
-                                    //desfavorita
-                                    desfavoritar(idUsuario, idJogo);
-                                } else {
-                                    botaoFavoritar.style.color = "red";
-                                    //favorita
-                                    favoritar(idUsuario, idJogo);
-                                }
-                                favoritar(idUsuario, idJogo);
-                            }
-                            // Envia o ID do usuário e do jogo para a controler
-                            function favoritar(idUsuario, idJogo) {
-                                $.ajax({
-                                    url: '/GameHub/Controle',
-                                    type: 'POST',
-                                    dataType: 'text',
-                                    data: {
-                                        flag: 'favoritar',
-                                        idUsuario: idUsuario,
-                                        idJogo: idJogo
-                                    },
-                                    success: function (response) {
-                                        console.log(response);
-                                    },
-                                    error: function (xhr, status, error) {
-                                        console.log('Erro na requisição: ' + error);
-                                    }
-                                });
-                            }
-                            function desfavoritar(idUsuario, idJogo) {
-                                $.ajax({
-                                    url: '/GameHub/Controle',
-                                    type: 'POST',
-                                    dataType: 'text',
-                                    data: {
-                                        flag: 'desfavoritar',
-                                        idUsuario: idUsuario,
-                                        idJogo: idJogo
-                                    },
-                                    success: function (response) {
-                                        console.log(response);
-                                    },
-                                    error: function (xhr, status, error) {
-                                        console.log('Erro na requisição: ' + error);
-                                    }
-                                });
-                            }
-                        </script>
                     </div>
                 </section>
                 <div id="divisor">
