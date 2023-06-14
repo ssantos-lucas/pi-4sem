@@ -13,7 +13,7 @@
         <meta charset="ISO-8859-1">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="./css/reset.css">      
+        <link rel="stylesheet" href="./css/reset.css">
         <link rel="stylesheet" href="./css/jogo.css">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -30,7 +30,7 @@
             <%@include file="includes/header.jsp"%>
 
             <% Jogo jog = (Jogo) request.getAttribute("Jogo");%>
-            <section class="hero" 
+            <section class="hero"
                      style="background-image: url(&quot;./images/games/<%= jog.getImagemCorpo()%>&quot;)">
                 <img src="./images/games/<%= jog.getImagemCorpo()%>" alt=" <%= jog.getNomeJogo()%>">
                 <div class="gradient"></div>
@@ -68,7 +68,7 @@
                                     <%
                                             }
                                         }
-                                    %>    
+                                    %>
                             </ul>
                         </div>
                         <div class="container-col2">
@@ -82,7 +82,7 @@
                                 <div class="container-row-favoritar">
                                     <label for="button1" id="favoritar"><span>Favoritar</span></label>
 
-                                    <button id="button1" class="bttn1" onclick="toggle(<%= idUsuario%>, <%= idJogo%>)" 
+                                    <button id="button1" class="bttn1" onclick="toggle(<%= idUsuario%>, <%= idJogo%>)"
                                             style="color: <%  SiteDAO dao = new SiteDAO();
                                                 if (dao.possuiJogoFavorito(idUsuario, idJogo)) { %>#a8a8a8<%
                                                 } else { %>red<% } %>">
@@ -180,9 +180,11 @@
                                 if (botaoFavoritar.style.color == "red") {
                                     botaoFavoritar.style.color = '#a8a8a8';
                                     //desfavorita
+                                    desfavoritar(idUsuario, idJogo);
                                 } else {
                                     botaoFavoritar.style.color = "red";
                                     //favorita
+                                    favoritar(idUsuario, idJogo);
                                 }
                                 favoritar(idUsuario, idJogo);
                             }
@@ -194,6 +196,24 @@
                                     dataType: 'text',
                                     data: {
                                         flag: 'favoritar',
+                                        idUsuario: idUsuario,
+                                        idJogo: idJogo
+                                    },
+                                    success: function (response) {
+                                        console.log(response);
+                                    },
+                                    error: function (xhr, status, error) {
+                                        console.log('Erro na requisição: ' + error);
+                                    }
+                                });
+                            }
+                            function desfavoritar(idUsuario, idJogo) {
+                                $.ajax({
+                                    url: '/GameHub/Controle',
+                                    type: 'POST',
+                                    dataType: 'text',
+                                    data: {
+                                        flag: 'desfavoritar',
                                         idUsuario: idUsuario,
                                         idJogo: idJogo
                                     },

@@ -142,7 +142,7 @@ public class SiteDAO {
             query.setParameter("idJogo", idJogo);
 
             boolean possuiFavorito = !query.getResultList().isEmpty();
-
+            
             manager.close();
 
             return possuiFavorito;
