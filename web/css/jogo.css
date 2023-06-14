@@ -26,7 +26,7 @@ body{
 
 main {
     height: auto;
-    background-image: linear-gradient(to top, #303841, #6B7288);
+    background-color: rgb(210, 224, 232);
     color: white;
 }
 
@@ -51,6 +51,7 @@ main {
 
 .infos .titulojogo {
     font-size: 40px;
+    color: black;
 }
 
 .infos .desenvolvedores,
@@ -61,6 +62,8 @@ main {
 .infos h1,
 h3 {
     margin-top: 20px;
+    color: black;
+    font-size: 25px;
 }
 
 
@@ -70,12 +73,16 @@ h3 {
     justify-content: center;
     align-items: center;
     height: auto;
+    color: black;
+    font-size: 25px;
+    
 }
 
 .container-row-favoritar {
     display:flex;
     justify-content: center;
     margin-bottom: 10px;
+    
 }
 
 .infos .container-col  {
@@ -84,6 +91,7 @@ h3 {
     text-align: justify;
     margin-left: 203px;
     margin-bottom: 150px;
+    
 }
 
 .infos .container-col2 {
@@ -92,11 +100,13 @@ h3 {
     justify-content: center;
     margin-bottom: auto;
     margin-top: 40px;
+    
 }
 
 .titulojogo, .titulodesenvolvedores, .titulocontato {
     margin-top: 45px;
     margin-bottom: 25px;
+    
 } 
 
 #favoritar span {
@@ -123,8 +133,9 @@ main .botao {
     padding: 10px 50px 10px 50px;
     border-radius: 10px;
     color: white;
-    background-color: #87C0CD;
-    font-size: 20px;
+    background-color: #1691AD;
+    font-size: 30px;
+    font-weight: bold;
     white-space: nowrap;
 }
 
@@ -139,21 +150,23 @@ main .botao span {
 
 .container-col1 {
     text-align: left;
-    background-color: rgb(61, 68, 81);
+    border-radius: 20px;
+    background-color: #A9BCC7;
     padding: 10px 30px;
     margin-top: 20px;
-}
 
-/* id="button1" class="bttn1" */
+}
 
 .bttn1{
     background: transparent;
     border: none;
     font-size: 22.5px;
+    color: #a8a8a8;
 }
 
 .bttn1 i:hover{
     cursor:pointer;
+ 
 }
 
 .infos .desenvolvedores,
@@ -162,7 +175,7 @@ main .botao span {
     margin-left: 203px;
     margin-right: 230px;
     text-align: justify;
-    height: auto;
+    height: auto;  
 }
 
 .especificacoes {
@@ -175,27 +188,28 @@ main .botao span {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    color: black;
 }
 
 .outros {
-    justify-content: space-around;
-    align-items: center;
-    display: flex;
-    flex-wrap: wrap;
-    margin-left: 100px;
-    margin-right: 100px;
+  padding: 0 150px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
 }
+
 
 .outros-titulo {
     margin: 25px 230px 25px;
-    font-size: 20px;
+    font-size: 23px;
+    
 }
 
 .outros img {
     height: 160px;
     width: 160px;
     border-radius: 10px;
-    margin: 30px 0px 30px 40px; 
+    margin: 30px 0px 30px 70px; 
 }
 
 .classificacao {
@@ -208,5 +222,6 @@ main .botao span {
 
 .contatos-desenvolvedores a {
     text-decoration: underline;
-    color: #fff;
+    font-size: 25px;
+    color: black;
 }

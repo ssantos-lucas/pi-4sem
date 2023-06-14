@@ -6,8 +6,7 @@ body {
     font-size: 1.6rem;
     font-family: 'Jost', sans-serif;
     font-weight: 400;
-    background-color: rgb(97, 103, 123);
-    /*background-image: linear-gradient(to bottom, #303841, #6B7288);*/
+    background-color: rgb(210, 224, 232);
 }
 
 .hero {
@@ -29,7 +28,7 @@ body {
     bottom: 0;
     width: 100%;
     height: 20px;
-    background: linear-gradient(180deg, rgba(95,102,121,0) 0%, rgba(86,93,111,1) 90%);
+    background-color: rgb(210, 224, 232);
 }
 
 /* BARRA DE GÊNERO */
@@ -61,26 +60,28 @@ body {
 
 
 .jogo-container {
-    /*background-color: #f1f1f1;*/
-    justify-content: space-around;
+    justify-content: flex-start;
     align-items: center;
-    margin: 0 auto;
     display: flex;
     flex-wrap: wrap;
-    margin: 10px 30px;
+    margin: 10px;
+    padding: 20px;
+    
+
 }
 
 .jogo-container img{
     height: 200px;
     width: 200px;
+    border-radius: 20px; 
 }
 
 .titulos {
     text-align: center;
-    border: none;
-    background-image: linear-gradient(to top, #303841, #6B7288);
-    color: white;
-    font-size: 15px;
+    border-radius: 20px;
+    font-weight: bold;
+    color: black;
+    font-size: 20px;
     padding: 2px 3px;
     transition: 0.2s ease-in-out;
 }
@@ -91,12 +92,14 @@ body {
 }
 
 .itemjogo {
-    margin: 20px;
+    border: 2px solid #8FB5CB;
+    margin: 60px;
     text-align: center;
     min-height: 200px;
     min-width: 200px;
-    box-shadow: 2px 2px 15px black;
-    background-color: #6B7288;
+    border-radius: 20px;
+    box-shadow: 1px 2px 5px #A9BCC7;
+    background-color: rgb(210, 224, 232);
 }
 
 .dropbtn {
@@ -105,32 +108,32 @@ body {
     padding: 16px;
     font-size: 16px;
     border: none;
-    cursor: pointer;
+    cursor: pointer;   
 }
 
 .dropdown {
     position: relative;
-    display: inline-block;
+    display: inline-block;   
 }
 
 .dropdown-content {
     display: none;
     position: absolute;
-    background-color: #f9f9f9;
+    background-color: rgb(210, 224, 232);
     min-width: 160px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 1;
+    z-index: 1;  
 }
 
 .dropdown-content a {
     color: black;
     padding: 12px 16px;
     text-decoration: none;
-    display: block;
+    display: block; 
 }
 
 .dropdown-content a:hover {
-    background-color: #f1f1f1
+    background-color: #f1f1f1;
 }
 
 .dropdown:hover .dropdown-content {

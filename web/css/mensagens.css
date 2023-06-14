@@ -1,6 +1,6 @@
 body {
-    background-image: linear-gradient(to left, #62687C, #434B58);
     font-family: 'Jost', sans-serif;
+    background-color: rgb(210, 224, 232);
 }
 
 .msg {
@@ -10,6 +10,7 @@ body {
     color: white;
     opacity: 0.65;
     font-family: 'Inter', sans-serif; 
+    background-color: rgb(210, 224, 232);
 }
 
 .img-container {

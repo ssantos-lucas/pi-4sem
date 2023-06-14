@@ -5,7 +5,8 @@
     font-size: 300;
     box-sizing: border-box;
     border: none;
-font-family: 'Jost', sans-serif;
+    font-family: 'Jost', sans-serif;
+    background-color: rgb(25, 25, 27);
 
 }
 

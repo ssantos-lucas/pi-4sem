@@ -6,7 +6,6 @@ body {
     font-size: 1.6rem;
     font-family: 'Roboto', sans-serif;
     font-weight: 400;
-    background-color: rgb(97, 103, 123);
 }
 
 main {
@@ -14,20 +13,21 @@ main {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-image: linear-gradient(to right, #646B7F, #48505E);
     min-height: 85vh;
+    background-color: rgb(210, 224, 232);
+
 }
 
 .contato {
     width: 800px;
     min-height: 400px;
-    background-color: #3D4451;
+    background-color: #A9BCC7;
     border-radius: 15px;
     padding: 15px 30px;
 }
 
 .contato * {
-    color: rgba(255, 255, 255, 0.75);
+    color: #1A1A1C;
 }
 
 .contato a {

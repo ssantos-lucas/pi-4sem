@@ -13,7 +13,7 @@
         <meta charset="ISO-8859-1">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="./css/reset.css">
+        <link rel="stylesheet" href="./css/reset.css">      
         <link rel="stylesheet" href="./css/jogo.css">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -31,7 +31,7 @@
             <%@include file="includes/header.jsp"%>
 
             <% Jogo jog = (Jogo) request.getAttribute("Jogo");%>
-            <section class="hero"
+            <section class="hero" 
                      style="background-image: url(&quot;./images/games/<%= jog.getImagemCorpo()%>&quot;)">
                 <img src="./images/games/<%= jog.getImagemCorpo()%>" alt=" <%= jog.getNomeJogo()%>">
                 <div class="gradient"></div>
@@ -69,7 +69,7 @@
                                     <%
                                             }
                                         }
-                                    %>
+                                    %>    
                             </ul>
                         </div>
                         <div class="container-col2">

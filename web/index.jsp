@@ -33,7 +33,7 @@
                 <select id="barraGenero" name="genero" onchange="generoSubmit()">
                     <% 
                         List<Categoria> listaGeneros = dao.listarGeneros();
-                        
+
                         for (Categoria categoria : listaGeneros){
                             String selected = "";
                             if (categoria.getIdCategoria().toString().equals(request.getParameter("genero"))){

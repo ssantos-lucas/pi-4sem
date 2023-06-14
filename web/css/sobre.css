@@ -10,15 +10,23 @@ body {
 }
 
 main {
+
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 85vh;
+    background-color: rgb(210, 224, 232);
+
+}
+.sobre {
+    
+    background-color: #A9BCC7;
+    border-radius: 15px;
 }
 
 .sobre * {
-    color: rgba(255, 255, 255, 0.75);
-    padding: 15px 30px;
+    color: rgb(25, 25, 27);
+    padding: 10px 30px;
 }
 
 .sobre p {
@@ -32,7 +40,8 @@ main {
     font-weight: 600;
     text-align: center;
     margin: 20px 20px;
-    color: rgba(255, 255, 255, 0.75);
+    color: rgb(25, 25, 27);
+    
 }
     
 
