@@ -22,6 +22,8 @@ main {
     
     background-color: #A9BCC7;
     border-radius: 15px;
+
+    margin: 20px 0px;
 }
 
 .sobre * {
@@ -43,5 +45,29 @@ main {
     color: rgb(25, 25, 27);
     
 }
-    
+
+@media (max-width: 720px){
+
+    .sobre p {
+        width: 500px;
+        font-size: 15px;
+        text-align: justify;
+    }
+
+    .sobre * {
+        color: rgb(25, 25, 27);
+        padding: 10px 40px;
+    }
+
+
+}
+
+@media (max-width: 500px){
+
+    .sobre p {
+        width: 400px;
+        font-size: 13px;
+        text-align: justify;
+    }
+}
 

@@ -97,3 +97,21 @@ footer {
     justify-content: center;
     align-items: center;
 }
+
+
+@media (max-width: 720px){
+    .header nav ul li a {
+        font-size: 15px;
+        padding: 2px 20px;
+        margin: 0px 20px;
+    }
+    .img-logo {
+        max-width: 100px;
+        max-height: 100px;
+    }
+    
+    .header .header-container{
+    height: 110px;
+    padding: 3px;
+}
+}

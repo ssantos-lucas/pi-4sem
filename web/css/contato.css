@@ -57,3 +57,42 @@ main {
     font-size: 18px;
     margin: 10px 20px;
 }
+
+
+@media (max-width: 801px){
+
+    .contato {
+        width: 600px;
+        padding: 15px 30px;
+    }
+
+    .titulo{
+       font-size: 25 px;
+    }
+
+    .center, 
+    .contato,
+    .contato li{
+        font-size: 14 px;
+    }
+
+}
+
+@media (max-width: 601px){
+
+    .contato {
+        width: 420px;
+        padding: 15px 30px;
+    }
+
+    .titulo{
+       font-size: 20 px;
+    }
+
+    .center, 
+    .contato,
+    .contato li{
+        font-size: 10 px;
+    }
+
+}
