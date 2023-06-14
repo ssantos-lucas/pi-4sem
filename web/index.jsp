@@ -1,3 +1,4 @@
+<%@page import="model.Categoria"%>
 <%@page import="model.Usuario"%>
 <%@page import="model.Jogo"%>
 <%@page import="model.SiteDAO"%>
@@ -20,17 +21,36 @@
     <body>
         <%@include file="includes/header.jsp"%>
 
-        <section class="hero"  style="background-image: url('./images/Banner.png')">
+        <section class="hero" style="background-image: url('./images/Banner.png')">
             <img src="./images/Banner.png" alt="banner do site">
             <div class="gradient"></div>
         </section>
 
         <main>
-            <!-- genero -->
+            <% SiteDAO dao = new SiteDAO(); %>
+            <form method="GET" action="Controle" id="formGenero">
+                <input type="hidden" name="flag" value="filtroGenero">
+                <select id="barraGenero" name="genero" onchange="generoSubmit()">
+                    <% 
+                        List<Categoria> listaGeneros = dao.listarGeneros();
+                        
+                        for (Categoria categoria : listaGeneros){
+                            String selected = "";
+                            if (categoria.getIdCategoria().toString().equals(request.getParameter("genero"))){
+                                selected = "selected";
+                            }
+                    %>
+                    <option value="<%=categoria.getIdCategoria()%>" <%=selected%>><%=categoria.getNomeCategoria()%></option>
+                    <%
+                        }
+                    %>
+                </select>
+            </form>
 
             <div class="jogo-container">
-                <%                    SiteDAO dao = new SiteDAO();
-                    List<Jogo> jogos = dao.listarJogos();
+                <% 
+                    List<Jogo> listaFiltrada = (List<Jogo>) request.getAttribute("listaJogos");
+                    List<Jogo> jogos = listaFiltrada != null ? listaFiltrada : dao.listarJogos();
 
                     for (Jogo jog : jogos) {
                 %>
@@ -45,4 +65,9 @@
         </main>
         <%@include file="includes/footer.jsp"%>
     </body>
+    <script>
+        function generoSubmit(){
+            document.getElementById("formGenero").submit();
+        }
+    </script>
 </html>

@@ -31,6 +31,18 @@ public class SiteDAO {
             return null;
         }
     }
+    
+    public List<Categoria> listarGeneros() {
+        conectar();
+        try {
+            TypedQuery<Categoria> query = manager.createNamedQuery("Categoria.findByTipoCategoria", Categoria.class);
+            query.setParameter("tipoCategoria", 1);
+            List<Categoria> generos = query.getResultList();
+            return generos;
+        } catch (NoResultException ex) {
+            return null;
+        }
+    }
 
     public List<Desenvolvedor> listarDesenvolvedor() {
         conectar();
@@ -128,6 +140,17 @@ public class SiteDAO {
             TypedQuery queryNome = manager.createNamedQuery("Jogo.findByNomeJogo", Jogo.class);
             queryNome.setParameter("nomeJogo", "%" + nomeJogo + "%");
             return queryNome.getResultList();
+        } catch (NoResultException ex) {
+            return null;
+        }
+    }
+    
+    public List<Jogo> consultarJogosPorCategoria(int idCategoria) {
+        conectar();
+        try {
+            Query query = manager.createNativeQuery("SELECT j.* FROM Jogo j INNER JOIN jogo_categoria jc ON j.idJogo = jc.idJogo WHERE jc.idCategoria = ?", Jogo.class);
+            query.setParameter(1, idCategoria);
+            return query.getResultList();
         } catch (NoResultException ex) {
             return null;
         }

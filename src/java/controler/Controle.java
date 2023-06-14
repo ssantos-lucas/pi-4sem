@@ -144,6 +144,14 @@ public class Controle extends HttpServlet {
         } else if (flag.equalsIgnoreCase("favoritar")) {
             int idUsuario = Integer.parseInt(request.getParameter("idUsuario"));
             int idJogo = Integer.parseInt(request.getParameter("idJogo"));
+        
+        } else if (flag.equalsIgnoreCase("filtroGenero")) {
+            int idCategoria =  Integer.parseInt(request.getParameter("genero"));
+            List<Jogo> jogos = dao.consultarJogosPorCategoria(idCategoria);
+            
+            request.setAttribute("listaJogos", jogos);
+            RequestDispatcher disp = request.getRequestDispatcher("index.jsp");
+            disp.forward(request, response);
         }
     }
 

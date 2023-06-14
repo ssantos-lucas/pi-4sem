@@ -32,6 +32,34 @@ body {
     background: linear-gradient(180deg, rgba(95,102,121,0) 0%, rgba(86,93,111,1) 90%);
 }
 
+/* BARRA DE GÊNERO */
+#barraGenero {
+  width: 200px;
+  height: 25px;
+  /*float: left;*/
+  border-radius: 15px;
+  background-color: rgba(108, 153, 165, 1);
+  padding: 3px 5px 5px 30px;
+  position: relative;
+  margin-left: 20px;
+}
+
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: white;
+    opacity: 0.7;
+}
+
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+    color: white;
+    opacity: 0.7;
+}
+
+::-ms-input-placeholder { /* Microsoft Edge */
+    color: white;
+    opacity: 0.7;
+}
+
+
 .jogo-container {
     /*background-color: #f1f1f1;*/
     justify-content: space-around;
