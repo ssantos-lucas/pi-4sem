@@ -13,24 +13,25 @@
         <meta charset="ISO-8859-1">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="./css/reset.css">      
+        <link rel="stylesheet" href="./css/reset.css">
         <link rel="stylesheet" href="./css/jogo.css">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;500;700;900&display=swap" rel="stylesheet">
+        <script type="text/javascript" src="jogo.js"></script>
         <script src="https://kit.fontawesome.com/d220a535d8.js" crossorigin="anonymous"></script>
         <link href="https://fonts.googleapis.com/css2?family=Jost:wght@200;400;600&display=swap" rel="stylesheet">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
         <title>Jogo</title>
     </head>
 
-    <body>
+    <body onload='pintarBotaoFavorito()'>
 
         <main>
             <%@include file="includes/header.jsp"%>
 
             <% Jogo jog = (Jogo) request.getAttribute("Jogo");%>
-            <section class="hero" 
+            <section class="hero"
                      style="background-image: url(&quot;./images/games/<%= jog.getImagemCorpo()%>&quot;)">
                 <img src="./images/games/<%= jog.getImagemCorpo()%>" alt=" <%= jog.getNomeJogo()%>">
                 <div class="gradient"></div>
@@ -68,7 +69,7 @@
                                     <%
                                             }
                                         }
-                                    %>    
+                                    %>
                             </ul>
                         </div>
                         <div class="container-col2">
@@ -81,8 +82,19 @@
                                 %>
                                 <div class="container-row-favoritar">
                                     <label for="button1" id="favoritar"><span>Favoritar</span></label>
+                                    <% 
+                                    SiteDAO dao = new SiteDAO();
+                                    String valor;
+                                    if(dao.possuiJogoFavorito(idUsuario, idJogo)) {
+                                        valor = "favorito";
+                                    } else {
+                                        valor = "naofavorito";
+                                    }
+                                    %>
+                                    <input type="hidden" id="verificaFavorito" value="<%= valor.toString() %>"> 
                                     <button id="button1" class="bttn1" onclick="toggle(<%= idUsuario%>, <%= idJogo%>)">
-                                        <i class="fa-solid fa-heart"></i></button>
+                                        <i class="fa-solid fa-heart"></i>
+                                    </button>
                                 </div>
                                 <% } %>
                                 <div class="playbutton">
@@ -168,39 +180,6 @@
                                 </section>
                             </div>
                         </div>
-                        <script>
-                            // Troca a cor do botão e executa o método de favoritar
-                            function toggle(idUsuario, idJogo) {
-                                var botaoFavoritar = document.getElementById('button1');
-                                if (botaoFavoritar.style.color == "red") {
-                                    botaoFavoritar.style.color = '#a8a8a8';
-                                    //desfavorita
-                                } else {
-                                    botaoFavoritar.style.color = "red";
-                                    //favorita
-                                }
-                                favoritar(idUsuario, idJogo);
-                            }
-                            // Envia o ID do usuário e do jogo para a controler
-                            function favoritar(idUsuario, idJogo) {
-                                $.ajax({
-                                    url: '/GameHub/Controle',
-                                    type: 'POST',
-                                    dataType: 'text',
-                                    data: {
-                                        flag: 'favoritar',
-                                        idUsuario: idUsuario,
-                                        idJogo: idJogo
-                                    },
-                                    success: function (response) {
-                                        console.log(response);
-                                    },
-                                    error: function (xhr, status, error) {
-                                        console.log('Erro na requisição: ' + error);
-                                    }
-                                });
-                            }
-                        </script>
                     </div>
                 </section>
                 <div id="divisor">
@@ -216,7 +195,7 @@
                         for (Jogo ljog : jogos) {
                     %>
                     <div>
-                        <a href="Controle?flag=consultar&idJogo=<%= ljog.getIdJogo() %>" title="<%= ljog.getNomeJogo()%>">
+                        <a href="Controle?flag=consultar&idJogo=<%= ljog.getIdJogo()%>" title="<%= ljog.getNomeJogo()%>">
                             <img src="./images/games/<%= ljog.getImagemLogo()%>" alt="<%= ljog.getNomeJogo()%>">
                         </a>
                     </div>

@@ -1,5 +1,6 @@
 package model;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import javax.persistence.EntityExistsException;
@@ -7,9 +8,9 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.NoResultException;
 import javax.persistence.Persistence;
+import javax.persistence.Query;
 import javax.persistence.RollbackException;
 import javax.persistence.TypedQuery;
-import javax.persistence.Query;
 
 public class SiteDAO {
 
@@ -174,21 +175,77 @@ public class SiteDAO {
 //    }
 //    
 
-    public void favoritarJogo(int idJogo, int idUsuario) {
+
+    public boolean possuiJogoFavorito(int idUsuario, int idJogo) {
         conectar();
-        manager.getTransaction().begin();
-        //
-        
-        //
-        manager.getTransaction().commit();
+        try {
+            Query query = manager.createNativeQuery("SELECT * FROM Favorito WHERE idUsuario = ? AND idJogo = ?");
+            query.setParameter(1, idUsuario);
+            query.setParameter(2, idJogo);
+
+            Object result = query.getSingleResult();
+            boolean possuiFavorito = (result != null);
+            
+            manager.close();
+
+            return possuiFavorito;
+        } catch (Exception ex) {
+            return false;
+        }
     }
 
-    public void desfavoritarJogo(int idJogo, int idUsuario) {
+    public List<Jogo> listarJogosFavoritos(int idUsuario) {
         conectar();
-        manager.getTransaction().begin();
-        //
-        
-        //
-        manager.getTransaction().commit();
+        try {
+
+            Query query = manager.createQuery("SELECT j FROM Jogo j INNER JOIN j.favoritos f WHERE f.idUsuario = :idUsuario");
+            query.setParameter("idUsuario", idUsuario);
+
+            List<Jogo> jogosFavoritos = query.getResultList();
+
+            manager.close();
+
+            return jogosFavoritos;
+        } catch (Exception e) {
+            // Trate a exceção ou faça o log do erro aqui
+            e.printStackTrace();
+            return null; // Ou retorne uma lista vazia, dependendo do caso
+        }
+    }
+
+   public void adicionarJogoFavorito(int idUsuario, int idJogo) {
+        conectar();
+        try {
+            manager.getTransaction().begin();
+            Query query = manager.createNativeQuery("INSERT INTO favorito (idUsuario, idJogo) VALUES (?, ?)");
+            query.setParameter(1, idUsuario);
+            query.setParameter(2, idJogo);
+            query.executeUpdate();
+            manager.getTransaction().commit();
+        } catch (Exception e) {
+            e.printStackTrace();
+            manager.getTransaction().rollback();
+        } finally {
+            manager.close();
+            conn.close();
+        }
+    }
+
+    public void removerJogoFavorito(int idUsuario, int idJogo) {
+        conectar();
+        try {
+            manager.getTransaction().begin();
+            Query query = manager.createNativeQuery("DELETE FROM favorito WHERE idUsuario = ? AND idJogo = ?");
+            query.setParameter(1, idUsuario);
+            query.setParameter(2, idJogo);
+            query.executeUpdate();
+            manager.getTransaction().commit();
+        } catch (Exception e) {
+            e.printStackTrace();
+            manager.getTransaction().rollback();
+        } finally {
+            manager.close();
+            conn.close();
+        }
     }
 }
