@@ -1,3 +1,6 @@
+<%@page import="model.SiteDAO"%>
+<%@page import="model.Jogo"%>
+<%@page import="java.util.List"%>
 <%@page import="java.text.SimpleDateFormat"%>
 <%@page import="java.util.Date"%>
 <%@page contentType="text/html" pageEncoding="ISO-8859-1"%>
@@ -69,7 +72,25 @@
             <input id="saveBttn" type="submit" value="Salvar"> 
         </form>
         <br>
+        <% 
+        SiteDAO dao = new SiteDAO();
+        boolean hasFavorito = dao.verificarFavoritos(uLogado.getIdUsuario());
+        if (hasFavorito) {
+        %>
         <h2 id="favoritosh2">Favoritos</h2>
+        <div class="favoritos">
+            <%
+                List<Jogo> jogosFavoritos = dao.listarJogosFavoritos(uLogado.getIdUsuario());
+                for (Jogo jogoFav : jogosFavoritos) {
+            %>
+            <div>
+                <a href="Controle?flag=consultar&idJogo=<%= jogoFav.getIdJogo()%>" title="<%= jogoFav.getNomeJogo()%>">
+                    <img src="./images/games/<%= jogoFav.getImagemLogo()%>" alt="<%= jogoFav.getNomeJogo()%>">
+                </a>
+            </div>
+            <% } %>
+        </div>
+        <% } %>
         </main>
         <%@include file="includes/footer.jsp"%>
     </body>

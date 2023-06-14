@@ -22,7 +22,7 @@ function toggle(idUsuario, idJogo) {
     }
     favoritar(idUsuario, idJogo);
 }
-// Envia o ID do usuário e do jogo para a controler
+// Envia o ID do usuário e do jogo para a controler com flag de valor favoritar
 function favoritar(idUsuario, idJogo) {
     $.ajax({
         url: '/GameHub/Controle',
@@ -41,6 +41,7 @@ function favoritar(idUsuario, idJogo) {
         }
     });
 }
+// Envia o ID do usuário e do jogo para a controler com flag de valor desfavoritar
 function desfavoritar(idUsuario, idJogo) {
     $.ajax({
         url: '/GameHub/Controle',

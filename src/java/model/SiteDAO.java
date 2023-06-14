@@ -32,7 +32,7 @@ public class SiteDAO {
             return null;
         }
     }
-    
+
     public List<Categoria> listarGeneros() {
         conectar();
         try {
@@ -145,7 +145,7 @@ public class SiteDAO {
             return null;
         }
     }
-    
+
     public List<Jogo> consultarJogosPorCategoria(int idCategoria) {
         conectar();
         try {
@@ -156,25 +156,6 @@ public class SiteDAO {
             return null;
         }
     }
-    
-//    public int isFavorito() {
-//        int resultado = ;
-//        conectar();
-//        manager.getTransaction().begin();
-////        try {
-////            TypedQuery isFavorito = manager.createNamedQuery();
-////            if () {
-////                resultado = 1; // não é favorito
-////            } else {
-////                resultado = 2; // é favorito
-////            }
-////        } catch (Exception e) {
-////            resultado = 0; //erro
-////        }
-//        return resultado;
-//    }
-//    
-
 
     public boolean possuiJogoFavorito(int idUsuario, int idJogo) {
         conectar();
@@ -185,7 +166,7 @@ public class SiteDAO {
 
             Object result = query.getSingleResult();
             boolean possuiFavorito = (result != null);
-            
+
             manager.close();
 
             return possuiFavorito;
@@ -197,23 +178,22 @@ public class SiteDAO {
     public List<Jogo> listarJogosFavoritos(int idUsuario) {
         conectar();
         try {
-
-            Query query = manager.createQuery("SELECT j FROM Jogo j INNER JOIN j.favoritos f WHERE f.idUsuario = :idUsuario");
-            query.setParameter("idUsuario", idUsuario);
+            Query query = manager.createNativeQuery("SELECT * FROM jogo WHERE idJogo IN (SELECT idJogo FROM favorito WHERE idUsuario = ?)", Jogo.class);
+            query.setParameter(1, idUsuario);
 
             List<Jogo> jogosFavoritos = query.getResultList();
-
-            manager.close();
 
             return jogosFavoritos;
         } catch (Exception e) {
             // Trate a exceção ou faça o log do erro aqui
             e.printStackTrace();
             return null; // Ou retorne uma lista vazia, dependendo do caso
+        } finally {
+            manager.close();
         }
     }
 
-   public void adicionarJogoFavorito(int idUsuario, int idJogo) {
+    public void adicionarJogoFavorito(int idUsuario, int idJogo) {
         conectar();
         try {
             manager.getTransaction().begin();
@@ -246,6 +226,27 @@ public class SiteDAO {
         } finally {
             manager.close();
             conn.close();
+        }
+    }
+
+    public boolean verificarFavoritos(int idUsuario) {
+        conectar();
+        try {
+            Query query = manager.createNativeQuery("SELECT COUNT(*) FROM favorito WHERE idUsuario = ?");
+            query.setParameter(1, idUsuario);
+
+            int count = ((Number) query.getSingleResult()).intValue();
+            if (count != 0) {
+                return true;
+            } else {
+                return false;
+            }
+        } catch (Exception e) {
+            // Trate a exceção ou faça o log do erro aqui
+            e.printStackTrace();
+            return false;
+        } finally {
+            manager.close();
         }
     }
 }
