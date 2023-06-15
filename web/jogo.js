@@ -20,7 +20,6 @@ function toggle(idUsuario, idJogo) {
         //favorita
         favoritar(idUsuario, idJogo);
     }
-    favoritar(idUsuario, idJogo);
 }
 // Envia o ID do usuário e do jogo para a controler com flag de valor favoritar
 function favoritar(idUsuario, idJogo) {
