@@ -109,7 +109,7 @@ public class Controle extends HttpServlet {
                 RequestDispatcher disp = request.getRequestDispatcher("mensagens.jsp");
                 disp.forward(request, response);
             } catch (ParseException e) {
-                mensagem = "A data deve ser aaaa-mm-dd";
+                mensagem = "A data deve ser dd-mm-aaaa";
                 request.setAttribute("erroData", mensagem);
                 RequestDispatcher disp = request.getRequestDispatcher("perfil.jsp");
                 disp.forward(request, response);

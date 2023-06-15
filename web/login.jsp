@@ -6,43 +6,33 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="shortcut icon" href="./image/favicon.ico" type="image/x-icon">
         <link rel="stylesheet" href="./css/reset.css">
-        <link rel="stylesheet" href="./css/tela-login.css">
         <link rel="stylesheet" href="./css/mensagens.css">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Jost:wght@200;400;600&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="./css/login.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Jost:wght@200;400;500;600&display=swap" rel="stylesheet">
         <title>login</title>
     </head>
     <body>
         <header>
-            <a href="index.jsp"><img src="./images/CapiLogo.png" alt="logo do site" class="img-logo"></a>
+            <a href="index.jsp"><img src="./images/Capilogo.png" alt="logo do site" class="img-logo"></a>
         </header>
         <main class="main">
             <section class="container" id="section">
                 <span class="titulo" id="titulo">Iniciar Sessão</span>
+                <div class="feedback-usuario">
+                    <% if (request.getAttribute("erro") != null) {
+                    %>
+                    <p class="msg"><%=request.getAttribute("erro")%></p>
+                    <%
+                        }
+                    %>
+                </div>
 
                 <form method="POST" action="Controle"> 
                     <input type="hidden" name="flag" value="login">
                     <div class="dados">
-                        <script>
-//                            function aumentarSection() {
-//                                login = document.getElementById("section");
-//                                titulo = document.getElementById("titulo");
-//                                login.style.height = "325px";
-//                                titulo.style.paddingBottom = "0px";
-//                            }
-                        </script>
-                        <div class="feedback-usuario">
-                            <% if (request.getAttribute("erro") != null) {
-                            %>
-                            <p><%=request.getAttribute("erro")%></p>
-                            <script>
-                                aumentarSection();
-                            </script>
-                            <%
-                                }
-                            %>
-                        </div>
+                        
                         <p>
                             <label class="digite" for="E-mail">E-mail:</label><br>
                             <input class="input" type="email" id="email" name="email" required>
@@ -58,9 +48,9 @@
                 </form>
             </section>
             <section class="container dois">
-                <span class="titulo-secundario">Novo por aqui?</span>
+                <span>Novo por aqui?</span>
                 <hr>
-                <a href="cadastro.jsp" id="criarconta">Criar Conta</a>
+                <a href="cadastro.jsp" class="btn-criarconta">Criar Conta</a>
             </section>
             <span class="contato">
                 <a href="contato.jsp">Entre em contato</a>

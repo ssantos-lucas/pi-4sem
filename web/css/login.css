@@ -1,18 +1,17 @@
 body {
     font-family: 'Jost', sans-serif;
+    background-color: #19191B;
 }
 
 header {
     display: flex;
     justify-content: center;
     align-items: center;
-    /*background-color: rgb(25, 25, 27);*/
-
 }
 
 .img-logo {
-    width: 200px;
-    height: 200px;
+    width: 120px;
+    height: 120px;
     margin-top: 60%;
 }
 
@@ -21,7 +20,6 @@ main {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    /*background-color: rgb(25, 25, 27);*/
 }
 
 main .container {
@@ -30,8 +28,8 @@ main .container {
     justify-content: center;
     align-items: center;
     background-color: #A9BCC7;
-    width: 300px;
-    height: 350px;
+    width: 320px;
+    min-height: 370px;
     border-radius: 20px;
 }
 
@@ -46,7 +44,7 @@ main .titulo {
 }
 
 main .container p {
-    font-size: 11px;
+    font-size: 14px;
 }
 
 main .container .esqueceu {
@@ -58,7 +56,7 @@ main .container p .input {
     border-radius: 5px;
     background-color: #98A8B1;
     text-align: center;
-    width: 219px;
+    width: 100%;
     height: 28px;
     font-weight: 600;
 }
@@ -68,12 +66,15 @@ main .container .titulo {
 }
 
 main .container.dois {
-    width: 300px;
-    height: 62px;
+    min-height: 80px;
 }
 
 main .dados p {
     margin: 20px;
+}
+
+main .dados p.msg {
+    font-size: 12px;
 }
 
 main section .titulo-secundario{
@@ -81,36 +82,42 @@ main section .titulo-secundario{
     font-weight: 600;
 }
 
+main .contato {
+    margin-top: 10px;
+    display: flex;
+}
+
 main .contato a {
     font-size: 16px;
-    font-weight: 550;
+    font-weight: 600;
     color: white;
     opacity: 65%;
 }
 
 main .btn-entrar {
+    display: block;
     border-radius: 50px;
     background-color: #1691AD;
-    padding: 10px 69.5px;
-    color: white;
-    font-size: 16px;
+    padding: 10px 70px;
+    color: #D2E0E8;
+    font-size: 18px;
+    font-weight: bold;
+    margin: 0 auto;
+}
+
+.btn-criarconta {
+    border-radius: 30px;
+    background-color: #1691AD;
+    padding: 5px 60px;
+    color: #D2E0E8;
+    font-size: 14px;
     font-weight: bold;
 }
 
-main .container.dois span{
-    font-weight: 600;
-    font-size: 10px;
+main .container.dois span {
+    font-weight: bold;
+    font-size: 14px;
     margin: 2.5px 0 0;
-}
-
-main .btn-conta {
-    border-radius: 50px;
-    background-color: #3979A3;
-    color: white;
-    font-weight: 600;
-    width: 178.39px;
-    height: 27px;
-    margin: 5px 0;
 }
 
 hr {
@@ -118,20 +125,9 @@ hr {
 }
 
 form {
-    margin-bottom: 15px;
-    margin-left: 100px;
-    margin-right: 100px; 
+    margin: 0 20px 15px;
 }
 
-.digite{
+.digite {
     font-size: 14px;
-}
-
-.btn-entrar {
-    margin-left: 14%;
-    margin-right: 20%;
-}
-
-#criarconta {
-    color: #0500FF;
 }

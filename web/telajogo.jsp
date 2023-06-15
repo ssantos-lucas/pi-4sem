@@ -102,7 +102,7 @@
                                     <%
                                         if (jog.getUrlJogo() != null) {
                                     %>
-                                    <a href="<%= jog.getUrlJogo()%>" class="botao"><span>Jogar</span></a>
+                                    <a href="<%= jog.getUrlJogo()%>" class="botao" target="_blank"><span>Jogar</span></a>
                                     <%
                                     } else {
                                     %>

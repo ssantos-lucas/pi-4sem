@@ -1,6 +1,6 @@
 body {
     font-family: 'Jost', sans-serif;
-    background-color: rgb(210, 224, 232);
+    background-color: #19191B;
 }
 
 .msg {
@@ -9,8 +9,12 @@ body {
     font-size: 16px;
     color: white;
     opacity: 0.65;
-    font-family: 'Inter', sans-serif; 
-    background-color: rgb(210, 224, 232);
+}
+
+.resposta {
+    min-height: 85vh;
+    display: block;
+    margin-top: 250px;
 }
 
 .img-container {
@@ -24,7 +28,7 @@ body {
 }
 
 .feedback-usuario>p{
-    color: red;
+    color: #D20807;
     /*font-size: 16px;*/
 }
 

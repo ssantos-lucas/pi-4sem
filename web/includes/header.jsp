@@ -4,7 +4,7 @@
 <link rel="stylesheet" href="./css/includes.css">
 <header class="header">
     <div class="header-container">
-        <a href="index.jsp"><img class="img-logo" src="./images/CapiLogo.png" alt="Logo do site"></a>
+        <a href="index.jsp"><img class="img-logo" src="./images/Capilogo.png" alt="Logo do site"></a>
         <nav class="itens">
             <ul>
                 <li><a href="sobre.jsp">Sobre</a></li>

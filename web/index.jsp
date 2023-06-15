@@ -15,7 +15,7 @@
         <link href="https://fonts.googleapis.com/css2?family=Jost:wght@200;400;600&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="./css/reset.css">
         <link rel="stylesheet" href="./css/style.css">
-        <title>Inicio</title>
+        <title>Início</title>
     </head>
 
     <body>

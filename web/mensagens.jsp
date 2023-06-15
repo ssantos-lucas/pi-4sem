@@ -12,9 +12,11 @@
         <title>feedback</title>
     </head>
     <body>
-        <a class="img-container" href="index.jsp">
-            <img class="img-logo" src="./images/CapiLogo.png" alt="Logo do site">
-        </a>
+        <div class="resposta">
+            <a class="img-container" href="index.jsp">
+            <img class="img-logo" src="./images/Capilogo.png" alt="Logo do site">
+            </a>
         <p class="msg">${m}</p>
+        </div>
     </body>
 </html>
